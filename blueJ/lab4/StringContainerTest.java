@@ -41,86 +41,86 @@ public class StringContainerTest
     }
     
     @Test
-    public void insertionTest() {
+    public void insertionTest() { //tests insertion sort
         String expected = "[1002, 1033, 4500, 5023, 9802]";
         expected = expected.toString();
         StringContainer container = new StringContainer();
-        container.addToList(1033);
-        container.addToList(5023);
-        container.addToList(1002);
-        container.addToList(4500);
-        container.addToList(9802);
+        container.addToList("1033");
+        container.addToList("5023");
+        container.addToList("1002");
+        container.addToList("4500");
+        container.addToList("9802");
 
         String result = container.insertion();
         assertEquals(expected, result);
     }
     
     @Test
-    public void selectionTest() {
+    public void selectionTest() { //tests selection sort
         String expected = "[1002, 1033, 4500, 5023, 9802]";
         expected = expected.toString();
         StringContainer container = new StringContainer();
-        container.addToList(1033);
-        container.addToList(5023);
-        container.addToList(1002);
-        container.addToList(4500);
-        container.addToList(9802);
+        container.addToList("1033");
+        container.addToList("5023");
+        container.addToList("1002");
+        container.addToList("4500");
+        container.addToList("9802");
 
         String result = container.selection();
         assertEquals(expected, result);
     }
     
     @Test
-    public void linearTest() {
-        int expected = 2; //index expected
-        StringContainer container = new StringContainer();
-        container.addToList(1002);
-        container.addToList(1033);
-        container.addToList(4500);
-        container.addToList(5023);
-        container.addToList(9802);
-
-        int result = container.linear(4500);
-        assertEquals(expected, result);
-    }
-    
-    @Test
-    public void linearTestNotFound() {
-        int expected = -1; //index expected
-        StringContainer container = new StringContainer();
-        container.addToList(1002);
-        container.addToList(1033);
-        container.addToList(4500);
-        container.addToList(5023);
-        container.addToList(9802);
-
-        int result = container.linear(3030);
-        assertEquals(expected, result);
-    }
-    
-    @Test
-    public void binaryTest() {
+    public void linearTest() { //tests linear search
         int expected = 3; //index expected
         StringContainer container = new StringContainer();
-        container.addToList(1002);
-        container.addToList(1033);
-        container.addToList(4500);
-        container.addToList(5023);
-        container.addToList(9802);
-        int result = container.binary(5023);
+        container.addToList("1033");
+        container.addToList("5023");
+        container.addToList("1002");
+        container.addToList("4500");
+        container.addToList("9802");
+
+        int result = container.linear("4500");
         assertEquals(expected, result);
     }
     
     @Test
-    public void binaryTestNotFound() {
+    public void linearTestNotFound() { //tests linear search (not found)
         int expected = -1; //index expected
         StringContainer container = new StringContainer();
-        container.addToList(1002);
-        container.addToList(1033);
-        container.addToList(4500);
-        container.addToList(5023);
-        container.addToList(9802);
-        int result = container.binary(4023);
+        container.addToList("1033");
+        container.addToList("5023");
+        container.addToList("1002");
+        container.addToList("4500");
+        container.addToList("9802");
+
+        int result = container.linear("3030");
+        assertEquals(expected, result);
+    }
+    
+    @Test
+    public void binaryTest() { //tests binary search
+        int expected = 3; //index expected
+        StringContainer container = new StringContainer();
+        container.addToList("1002");
+        container.addToList("1554");
+        container.addToList("4020");
+        container.addToList("5023");
+        container.addToList("9802");
+        int result = container.binary("5023");
+        assertEquals(expected, result);
+    }
+    
+    @Test
+    public void binaryTestNotFound() { //tests binary search (not found)
+        int expected = -1; //index expected
+        StringContainer container = new StringContainer();
+        container.addToList("1002");
+        container.addToList("1554");
+        container.addToList("4020");
+        container.addToList("5023");
+        container.addToList("9802");
+        int result = container.binary("4023");
         assertEquals(expected, result);
     }
 }

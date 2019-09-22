@@ -7,6 +7,8 @@ import java.util.Random;
 public class RandomStringGenerator {
     private int seed;
     private int length;
+    private int high;
+    private int low;
 
     /**
      * takes in seed and length to make string
@@ -17,20 +19,19 @@ public class RandomStringGenerator {
     public RandomStringGenerator(int seed, int length) {
         this.length = length;
         this.seed = seed;
+        this.high = (int) (Math.pow(10, length) - Math.pow(10, length - 1) - 1);
+        this.low = (int) Math.pow(10, length - 1);
     }
 
 
     /**
-     * creates random string given info and returns it
+     * creates random string of an integer given info and returns it
      * @return
      */
 
     public String nextString() {
-        String string = "";
         Random random = new Random(this.seed);
-        for (int i = 0; i < this.length; i++) {
-            string += Integer.toString(random.nextInt(8999) + 1000) + " "; //adds random element to string
-        }
+        String string = Integer.toString(random.nextInt(this.high) + this.low); 
         return string;
     }
 }

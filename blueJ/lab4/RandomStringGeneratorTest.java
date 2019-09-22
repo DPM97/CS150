@@ -42,10 +42,10 @@ public class RandomStringGeneratorTest
     
     @Test
     public void testCreateString() {
-        String expected = "5409 7286 8685 2408 9532 5224 6460 2616 9223 7262 ";
+        String expected = "5409";
         int seed = 102304;
-        int numberOfItems = 10;
-        RandomStringGenerator generator = new RandomStringGenerator(seed, numberOfItems);
+        int length = 4;
+        RandomStringGenerator generator = new RandomStringGenerator(seed, length);
         String result = generator.nextString();
         assertEquals(expected, result);
     }

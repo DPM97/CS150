@@ -19,8 +19,7 @@ public class StringContainer {
      * @param integer
      */
 
-    public void addToList(int integer) {
-        String string = Integer.toString(integer);
+    public void addToList(String string) {
         this.list.add(string);
     }
 
@@ -69,9 +68,9 @@ public class StringContainer {
      * @param integer
      */
 
-    public int linear(int integer) {
+    public int linear(String integer) {
         for (int i = 0; i < this.list.size() - 1; i++) {
-            if (Integer.parseInt(this.list.get(i).toString()) == integer) {
+            if (this.list.get(i).toString() == integer) {
                 //if it finds item then return index
                 return i;
             }
@@ -85,24 +84,24 @@ public class StringContainer {
      * @param integer
      */
 
-    public int binary(int integer) {
-        int high = this.list.size();
+    public int binary(String integer) {
+        int high = this.list.size() - 1;
         int low = 0;
         int middle = -1;
-        while (low < high) {
-            middle = (low + high) / 2;
-            if (Integer.parseInt(this.list.get(middle).toString()) == integer) {
+        while (low <= high) {
+            middle = (low + high) / 2; //get new middle
+            if (this.list.get(middle).toString() == integer) {
                 //System.out.println("found" + integer + "at" + middle);
                 return middle;
-            } else if (integer < Integer.parseInt(this.list.get(middle).toString())) {
+            } else if (integer.compareToIgnoreCase(this.list.get(middle).toString()) < 0) {
                 //first half
-                high = middle - 1;
+                high = middle - 1; //high is middle (-1) not including old middle bc we know it cannot be the value
             } else {
                 //second half
-                low = middle + 1;
+                low = middle + 1; //low is middle (+1) not including the old middle bc we know it cannot be the value
             }
         }
-        if (Integer.parseInt(this.list.get(middle).toString()) == integer) {
+        if (this.list.get(middle).toString() == integer) {
             //System.out.println("found" + integer + "at" + middle);
             return middle;
         } else {

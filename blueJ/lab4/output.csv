@@ -1,9 +1,9 @@
-Method,Items: 500,Items: 5000
-timeToSelectionSortUnsorted,16ms,214ms
-timeToSelectionSortsorted,5ms,110ms
-timeToInsertionSortsorted,5ms,202ms
-timeToInsertionSortUnsorted,9ms,193ms
-timeToSearchLinearFound,0ms,1ms
-timeToSearchLinearNotFound,0ms,0ms
-timeToSearchBinaryFound,0ms,0ms
-timeToSearchBinaryNotFound,0ms,0ms
+Method,Items: 500,Items: 5000,Items: 15000,Items: 30000
+timeToSelectionSortUnsorted,5ms,69ms,669ms,3298ms
+timeToSelectionSortsorted,1ms,84ms,730ms,2898ms
+timeToInsertionSortsorted,2ms,94ms,1296ms,4134ms
+timeToInsertionSortUnsorted,3ms,102ms,1129ms,3831ms
+timeToSearchLinearFound,7ms,36ms,175ms,402ms
+timeToSearchLinearNotFound,2ms,27ms,132ms,211ms
+timeToSearchBinaryFound,1ms,1ms,1ms,1ms
+timeToSearchBinaryNotFound,3ms,1ms,1ms,1ms
