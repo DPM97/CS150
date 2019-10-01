@@ -1,0 +1,16 @@
+HOAGIE Simulation Output:
+
+::::::SIMULATION SETTINGS::::::
+Store Type: hoagie
+Busyness: 95
+Shifts per day: 3
+Time in between shifts: 5
+Number of Cooks: 4
+Number of Cashiers: 4
+
+::::::SIMULATION OUTPUT DATA::::::
+Orders Filled: 204 orders
+Avg. Percent Satisfaction: 97.77174%
+Avg. Wait in Line: 1.114132 minutes
+Avg. Wait for Food: 5.1141324 minutes
+Amount of Food Sold: $1428
