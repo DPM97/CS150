@@ -9,8 +9,8 @@ Number of Cooks: 6
 Number of Cashiers: 2
 
 ::::::SIMULATION OUTPUT DATA::::::
-Orders Filled: 411 orders
-Avg. Percent Satisfaction: 81.54786%
-Avg. Wait in Line: 9.226048 minutes
-Avg. Wait for Food: 13.226053 minutes
-Amount of Food Sold: $2933
+Orders Filled: 0 orders
+Avg. Percent Satisfaction: 100.0%
+Avg. Wait in Line: 0.0 minutes
+Avg. Wait from entering to receiving order: 0.0 minutes
+Amount of Food Sold: $4067

@@ -1,7 +1,21 @@
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * main class
+ * creates and runs
+ * tests
+ */
+
 public class Main {
+
+    /**
+     * main function
+     * creates the test directories
+     * calls test methods given params
+     * @param args
+     * @throws IOException
+     */
 
     public static void main(String[] args) throws IOException {
         int tests = 3;
@@ -13,10 +27,24 @@ public class Main {
         }
 
 
+        //      test (testNumber (1 or 2 or 3 all the way to int tests), busyness, numOfShifts (in 1 day),
+        //      breakLen (amount of time between shifts with no employees, numberOfCooks, numberOfCashiers);
         test(1, 99, 5, 5, 6, 2);
-        test(2, 95, 3, 5, 4, 4);
-        test(3, 85, 3, 10, 2, 2);
+        test(2, 99, 5, 5, 6, 2);
+        test(3, 99, 5, 5, 6, 2);
     }
+
+    /**
+     * creates a restaurant simulation for
+     * each type of restaurant given params
+     * @param testNum
+     * @param busyness
+     * @param numOfShifts
+     * @param breakLen
+     * @param cooks
+     * @param cashiers
+     * @throws IOException
+     */
 
     public static void test(int testNum, int busyness, int numOfShifts, int breakLen, int cooks, int cashiers) throws IOException {
         new Restaurant("./tests/test" + testNum + "/","bagel", busyness, numOfShifts, breakLen, cooks, cashiers).start();

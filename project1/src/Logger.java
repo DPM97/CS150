@@ -1,9 +1,12 @@
 import java.io.FileWriter;
 import java.io.IOException;
 
-/*
-controls logging to the console / passing data to csv.java
+/**
+ * logger class
+ * controls logging to CSV file and
+ * CSV file creation
  */
+
 public class Logger {
 
     private final String type;
@@ -28,6 +31,15 @@ public class Logger {
     //public String type;
 
 
+    /**
+     * creates CSV file given dir and type
+     * adds all of the simulation input data
+     * to the CSV file
+     * @return
+     * @throws IOException
+     */
+
+
     public FileWriter createCSV() throws IOException {
         FileWriter file = new FileWriter(this.dir + this.type + ".csv");
         file.append(this.type.toUpperCase() + " Simulation Output:");
@@ -49,6 +61,18 @@ public class Logger {
         return file;
     }
 
+    /**
+     * adds the simulation output
+     * data correct to the CSV file
+     * @param file
+     * @param ordersFilled
+     * @param satisfaction
+     * @param waitTime
+     * @param waitTimeWithCook
+     * @param price
+     * @throws IOException
+     */
+
     public void logData(FileWriter file, int ordersFilled, float satisfaction, float waitTime, float waitTimeWithCook, int price) throws IOException {
         file.append("\n");
         file.append('\n');
@@ -60,7 +84,7 @@ public class Logger {
         file.append('\n');
         file.append("Avg. Wait in Line: " + waitTime + " minutes");
         file.append('\n');
-        file.append("Avg. Wait for Food: " + waitTimeWithCook + " minutes");
+        file.append("Avg. Wait from entering to receiving order: " + waitTimeWithCook + " minutes");
         file.append('\n');
         file.append("Amount of Food Sold: $" + price);
         file.close();

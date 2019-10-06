@@ -70,6 +70,7 @@ public class Main {
         /**
          * Accept a string and create a palindrome, where the letters are mirrored.
          */
+        
         public static String palindrome (String str) {
         if (str.isEmpty()) {
             return str;
