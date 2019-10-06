@@ -20,8 +20,7 @@ public class Hoagie {
     }
 
     /**
-     * return hoagie wait time
-     * @return
+     * @return hoagie wait time
      */
 
     public int getWait() {

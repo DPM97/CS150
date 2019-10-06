@@ -29,20 +29,20 @@ public class Main {
 
         //      test (testNumber (1 or 2 or 3 all the way to int tests), busyness, numOfShifts (in 1 day),
         //      breakLen (amount of time between shifts with no employees, numberOfCooks, numberOfCashiers);
-        test(1, 99, 5, 0, 10, 2);
-        test(2, 95, 3, 0, 10, 4);
-        test(3, 85, 3, 0, 10, 2);
+        test(1, 99, 5, 5, 10, 2);
+        test(2, 95, 3, 5, 10, 4);
+        test(3, 85, 3, 5, 1, 4);
     }
 
     /**
      * creates a restaurant simulation for
      * each type of restaurant given params
-     * @param testNum
-     * @param busyness
-     * @param numOfShifts
-     * @param breakLen
-     * @param cooks
-     * @param cashiers
+     * @param testNum test number
+     * @param busyness busyness variable (1-99)
+     * @param numOfShifts number of shifts per day
+     * @param breakLen amount of ticks in between shifts
+     * @param cooks amount of cooks
+     * @param cashiers amount of cashiers
      * @throws IOException
      */
 

@@ -22,8 +22,7 @@ public class Pizza {
     }
 
     /**
-     * return pizza wait time
-     * @return
+     * @return pizza wait time
      */
 
     public int getWait() {

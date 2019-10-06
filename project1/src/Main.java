@@ -29,9 +29,9 @@ public class Main {
 
         //      test (testNumber (1 or 2 or 3 all the way to int tests), busyness, numOfShifts (in 1 day),
         //      breakLen (amount of time between shifts with no employees, numberOfCooks, numberOfCashiers);
-        test(1, 99, 5, 5, 6, 2);
-        test(2, 99, 5, 5, 6, 2);
-        test(3, 99, 5, 5, 6, 2);
+        test(1, 99, 5, 5, 6, 3);
+        test(2, 95, 5, 5, 3, 3);
+        test(3, 90, 5, 5, 1, 3);
     }
 
     /**

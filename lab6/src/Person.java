@@ -9,16 +9,21 @@ public abstract class Person {
 
     }
 
-    public abstract String getFirstName();
+    public String getFirstName() {
+        return createName();
+    };
 
     ;
 
-    public abstract String getLastName();
+    public String getLastName() {
+        return createName();
+    };
 
     ;
 
     public String createName() {
         String string = "";
+        string += (char) (this.random.nextInt(26) + 'A');
         for (int i = 0; i < this.random.nextInt(6) + 3; i++) {
             string += (char) (this.random.nextInt(26) + 'a');
         }

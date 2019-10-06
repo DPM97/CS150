@@ -20,8 +20,7 @@ public class Bagel {
     }
 
     /**
-     * return bagel wait time
-     * @return
+     * @return bagel wait time
      */
 
     public int getWait() {

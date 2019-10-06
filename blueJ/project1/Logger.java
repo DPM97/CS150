@@ -35,7 +35,7 @@ public class Logger {
      * creates CSV file given dir and type
      * adds all of the simulation input data
      * to the CSV file
-     * @return
+     * @return fileWriter object
      * @throws IOException
      */
 
@@ -64,12 +64,12 @@ public class Logger {
     /**
      * adds the simulation output
      * data correct to the CSV file
-     * @param file
-     * @param ordersFilled
-     * @param satisfaction
-     * @param waitTime
-     * @param waitTimeWithCook
-     * @param price
+     * @param file fileWriter object from earlier
+     * @param ordersFilled amount of orders filled
+     * @param satisfaction avg. satisfaction %
+     * @param waitTime avg. waitTime in line
+     * @param waitTimeWithCook avg. waitTime with cookTime
+     * @param price total $ in food sold
      * @throws IOException
      */
 

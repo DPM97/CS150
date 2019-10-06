@@ -86,14 +86,10 @@ public class Restaurant {
      */
 
     private void simNextTick() {
-        System.out.println("line " + this.customerQueue);
-        System.out.println("cook " + this.cookQueue);
-        //accountForLeavingCustomers();
         checkCooks();
+        accountForLeavingCustomers();
         accountForIncomingCustomers(fetchIncomingCustomers());
         checkShiftChange();
-        //checkEmployees();
-        //System.out.println(this.customerQueue.toString());
     }
 
     /**
@@ -105,7 +101,6 @@ public class Restaurant {
     private void checkShiftChange() {
         for (int i = 1; i < this.shifts; i++) {
             if (this.tick == (720 / this.shifts) * i) {
-                //System.out.println("Old shift leaving");
                 this.cooks.clear();
                 this.cashiers.clear();
                 for (int j = 0; j < this.breakTime; j++) {
@@ -132,7 +127,7 @@ public class Restaurant {
         if (this.type == "bagel") {
             //wait = bagel().wait;
 
-            if (getWait() + fetchCookTime(bagel().wait) < 25) {
+            if (getWait() + fetchCookTimeNoProgress(this.foodWait) + this.foodWait < 15) {
                 for (int i = 0; i < 4; i++) {
                     if (this.random.nextInt(4 * this.business) == i) {
                         return i;
@@ -143,7 +138,7 @@ public class Restaurant {
         } else if (this.type == "hoagie") {
             //wait = hoagie().wait;
 
-            if (getWait() + fetchCookTime(hoagie().wait) < 25) {
+            if (getWait() + fetchCookTimeNoProgress(this.foodWait) + this.foodWait < 15) {
                 for (int i = 0; i < 4; i++) {
                     if (this.random.nextInt(4 * this.business) == i) {
                         return i;
@@ -152,7 +147,7 @@ public class Restaurant {
             }
         } else {
 
-            if (getWait() + fetchCookTime(pizza().wait)< 25) {
+            if (getWait() + fetchCookTimeNoProgress(this.foodWait) + this.foodWait < 15) {
                 for (int i = 0; i < 4; i++) {
                     if (this.random.nextInt(4 * this.business) == i) {
                         return i;
@@ -172,10 +167,9 @@ public class Restaurant {
     private void accountForLeavingCustomers() {
         //System.out.println(this.cookQueue);
         //System.out.println(this.customerQueue);
-        while(this.cookQueue.peek() != null && this.cookQueue.peek().cookTime == 0) { //remove customers that are supposed to leave at this tick
+        while(this.cookQueue.peek() != null && this.cookQueue.peek().orderFilled <= this.tick) { //remove customers that are supposed to leave at this tick
             this.satisfaction = (float) (((this.satisfaction * this.ordersFilled) + (1 - ((this.tick - this.cookQueue.peek().enterTime) * .01))) / (this.ordersFilled + 1));
             this.waitTimeWithCookTime = (((this.waitTimeWithCookTime * this.ordersFilled) + (this.tick - this.cookQueue.peek().enterTime)) / (this.ordersFilled + 1));
-            System.out.println(this.tick - this.cookQueue.peek().enterTime);
             this.ordersFilled++;
             this.cookQueue.remove();
         }
@@ -210,12 +204,43 @@ public class Restaurant {
         }
     }
 
+    /**
+     * get the expected cook time
+     * which is also the time the customer
+     * receives their food
+     * @param foodWait
+     * @return
+     */
+
     private int fetchCookTime(int foodWait) {
+        accountForLeavingCustomers();
         int total = 0;
         int i = 0;
         for(Customer customer : this.cookQueue) {
             if (i < this.cooks.size()) {
                 customer.cookTime--;
+                total += customer.cookTime;
+            } else {
+                total += foodWait;
+            }
+            i++;
+        }
+        return (total / this.cooks.size()) + foodWait;
+    }
+
+    /**
+     * fetch the cook time without changing any intervals
+     * good for when a method needs the time, but doesn't
+     * want to add a "tick" in terms of the food cooking
+     * @param foodWait
+     * @return
+     */
+
+    private int fetchCookTimeNoProgress(int foodWait) {
+        int total = 0;
+        int i = 0;
+        for(Customer customer : this.cookQueue) {
+            if (i < this.cooks.size()) {
                 total += customer.cookTime;
             } else {
                 total += foodWait;
@@ -288,21 +313,21 @@ public class Restaurant {
 
     private void newCustomer() {
         if (this.type == "bagel") {
-            int totalWait = getWait() + fetchCookTime(bagel().wait) + bagel().wait;
+            int totalWait = getWait() + fetchCookTimeNoProgress(bagel().wait);
             if (this.tick + totalWait < 720) {
                 this.foodWait = bagel().wait;
                 this.price += bagel().price;
                 this.customerQueue.add(new Customer <Bagel>(this.tick, bagel(), getWait()));
             }
         } else if (this.type == "hoagie") {
-            int totalWait = getWait() + fetchCookTime(hoagie().wait) + hoagie().wait;
+            int totalWait = getWait() + fetchCookTimeNoProgress(hoagie().wait);
             if (this.tick + totalWait < 720) {
                 this.foodWait = hoagie().wait;
                 this.price += hoagie().price;
                 this.customerQueue.add(new Customer <Hoagie>(this.tick, hoagie(), getWait()));
             }
         } else {
-            int totalWait = getWait() + fetchCookTime(pizza().wait) + pizza().wait;
+            int totalWait = getWait() + fetchCookTimeNoProgress(pizza().wait);
             if (this.tick + totalWait < 720) {
                 this.foodWait = pizza().wait;
                 this.price += pizza().price;
@@ -314,7 +339,7 @@ public class Restaurant {
     /**
      * algorithm to
      * fetch expected wait time
-     * for customer given waitTime of food object
+     * for the restaurants queue
      * @return
      */
 
@@ -328,7 +353,7 @@ public class Restaurant {
             lineWait += (customer.orderFilled - this.tick);
         }
         lineWait = lineWait / this.cashiers.size();
-        this.waitTime = ((this.waitTime * this.ordersFilled) + lineWait) / (this.ordersFilled + 1);
+        this.waitTime = ((this.waitTime * this.ordersFilled) + (lineWait + 1)) / (this.ordersFilled + 1);
         return lineWait + 1;
     }
 

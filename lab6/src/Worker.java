@@ -4,25 +4,23 @@ public class Worker extends Person implements Comparable<Worker> {
     long id;
     Random random;
 
-    public Worker(long id) {
+    public Worker() {
         this.random =  new Random();
-        this.id = id;
-        this.firstName = createName();
-        this.lastName = createName();
-    }
-
-    @Override
-    public String getFirstName() {
-        return this.firstName;
-    }
-
-    @Override
-    public String getLastName() {
-        return this.lastName;
+        this.id = genID();
+        this.firstName = "dfljslj";
+        this.lastName = "fkjdksfj";
     }
 
     @Override
     public int compareTo(Worker o) {
         return Long.compare(this.id, o.id);
+    }
+
+    public long genID() {
+        String id = "";
+        for (int i = 0; i < 8; i++) {
+            id += this.random.nextInt(9);
+        }
+        return Long.parseLong(id);
     }
 }

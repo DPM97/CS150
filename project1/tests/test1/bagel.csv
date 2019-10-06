@@ -6,11 +6,11 @@ Busyness: 99
 Shifts per day: 5
 Time in between shifts: 5
 Number of Cooks: 6
-Number of Cashiers: 2
+Number of Cashiers: 3
 
 ::::::SIMULATION OUTPUT DATA::::::
-Orders Filled: 1 orders
-Avg. Percent Satisfaction: 98.0%
-Avg. Wait in Line: 0.37573242 minutes
-Avg. Wait from entering to receiving order: 2.0 minutes
-Amount of Food Sold: $1743
+Orders Filled: 578 orders
+Avg. Percent Satisfaction: 96.92389%
+Avg. Wait in Line: 1.0036579 minutes
+Avg. Wait from entering to receiving order: 3.0761256 minutes
+Amount of Food Sold: $1734

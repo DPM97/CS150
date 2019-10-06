@@ -8,43 +8,16 @@ public class ExperimentController {
 
     public static void main(String[] args) {
         ExperimentController controller = new ExperimentController();
-        System.out.println(controller.generateId());
-        System.out.println(controller.generateNumber());
-        System.out.println(controller.generateEmail());
 
+        WorkerList list = new WorkerList();
+        list.addElement(new Worker());
+        list.addElement(new Worker());
+        list.addElement(new Worker());
+        list.addElement(new Worker());
+        list.addElement(new Worker());
+        list.quickSort(0, list.list.size() - 1);
+        list.printData();
     }
 
 
-    public long generateId() {
-        String id = "";
-        for (int i = 0; i < 8; i++) {
-            id +=  this.random.nextInt(9);
-        }
-        return Long.parseLong(id);
-    }
-
-    public String generateNumber() {
-        String num = "(";
-        for (int i = 0; i < 3; i++) {
-            num +=  this.random.nextInt(9);
-        }
-        num += ")";
-        for (int i = 0; i < 3; i++) {
-            num +=  this.random.nextInt(9);
-        }
-        num += "-";
-        for (int i = 0; i < 4; i++) {
-            num +=  this.random.nextInt(9);
-        }
-        return num;
-    }
-
-    public String generateEmail() {
-        String email = "";
-        for (int i = 0; i < this.random.nextInt(9) + 3; i++) {
-            email += (char) (this.random.nextInt(26) + 'a');
-        }
-        email += "@gmail.com";
-        return email;
-    }
 }
