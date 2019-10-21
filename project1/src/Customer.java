@@ -8,7 +8,7 @@ controls all customer vars
 /**
  * generic customer class
  * given order object / tick / waitTime
- * @param <E>
+ * @param <E> food object (bagel, pizza, or hoagie)
  */
 
 public class Customer <E> {
@@ -18,11 +18,13 @@ public class Customer <E> {
     public int satisfaction;
     public int orderFilled;
     public int cookTime;
+    public int endLine;
     public Customer(int time, E order, int waitTime) {
         this.enterTime = time;
         this.satisfaction = 0;
         this.order = order;
         this.orderFilled = time + waitTime;
+        this.endLine = 0;
         this.cookTime = 0;
     }
 }

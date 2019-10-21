@@ -16,12 +16,11 @@ public class Bagel {
     int employees; //number of employees
     public Bagel() {
         this.price = 3;
-        this.wait = 2;
+        this.wait = 3;
     }
 
     /**
-     * return bagel wait time
-     * @return
+     * @return bagel wait time
      */
 
     public int getWait() {

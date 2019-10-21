@@ -4,12 +4,14 @@ public class Worker extends Person implements Comparable<Worker> {
     long id;
     Random random;
 
-    public Worker() {
-        this.random =  new Random();
+    public Worker(Random random) {
+        super();
+        this.random = random;
         this.id = genID();
-        this.firstName = "dfljslj";
-        this.lastName = "fkjdksfj";
+        this.firstName = createName(this.random);
+        this.lastName = createName(this.random);
     }
+
 
     @Override
     public int compareTo(Worker o) {
@@ -19,7 +21,7 @@ public class Worker extends Person implements Comparable<Worker> {
     public long genID() {
         String id = "";
         for (int i = 0; i < 8; i++) {
-            id += this.random.nextInt(9);
+            id += this.random.nextInt(8) + 1;
         }
         return Long.parseLong(id);
     }

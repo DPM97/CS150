@@ -2,15 +2,16 @@ PIZZA Simulation Output:
 
 ::::::SIMULATION SETTINGS::::::
 Store Type: pizza
-Busyness: 85
-Shifts per day: 3
+Busyness: 90
+Shifts per day: 5
 Time in between shifts: 5
-Number of Cooks: 1
-Number of Cashiers: 4
+Number of Cooks: 4
+Number of Cashiers: 2
 
 ::::::SIMULATION OUTPUT DATA::::::
-Orders Filled: 38 orders
-Avg. Percent Satisfaction: 89.97368%
-Avg. Wait in Line: 1.0 minutes
-Avg. Wait for Food: 10.026318 minutes
-Amount of Food Sold: $494
+Orders Filled: 80 orders
+Avg. Percent Satisfaction: 91.99999%
+Avg. Wait in Line: 1.1500001 minutes
+Avg. Wait for Food: 8.000001 minutes
+Amount of Food Sold: $1053
+Amount of profit: $101

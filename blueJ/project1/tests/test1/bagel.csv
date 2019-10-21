@@ -5,12 +5,13 @@ Store Type: bagel
 Busyness: 99
 Shifts per day: 5
 Time in between shifts: 5
-Number of Cooks: 10
+Number of Cooks: 4
 Number of Cashiers: 2
 
 ::::::SIMULATION OUTPUT DATA::::::
-Orders Filled: 577 orders
-Avg. Percent Satisfaction: 96.637856%
-Avg. Wait in Line: 1.1845521 minutes
-Avg. Wait for Food: 3.3622174 minutes
-Amount of Food Sold: $1731
+Orders Filled: 446 orders
+Avg. Percent Satisfaction: 94.33628%
+Avg. Wait in Line: 2.535875 minutes
+Avg. Wait for Food: 5.663678 minutes
+Amount of Food Sold: $1338
+Amount of profit: $100

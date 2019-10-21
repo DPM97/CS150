@@ -8,7 +8,7 @@ import java.io.IOException;
  */
 
 public class Logger {
-
+    private FileWriter logger;
     private final String type;
     private final int business;
     private final int shifts;
@@ -18,7 +18,7 @@ public class Logger {
     private final String dir;
     //private final int test;
 
-    Logger(String dir, String type, int business, int shifts, int breakTime, int cooks, int cashiers) {
+    Logger(String dir, String type, int business, int shifts, int breakTime, int cooks, int cashiers) throws IOException {
         this.dir = dir;
         this.type = type;
         this.business = business;
@@ -26,16 +26,15 @@ public class Logger {
         this.breakTime = breakTime;
         this.cooks = cooks;
         this.cashiers = cashiers;
+        this.logger = createLogger();
     }
-
-    //public String type;
 
 
     /**
      * creates CSV file given dir and type
      * adds all of the simulation input data
      * to the CSV file
-     * @return
+     * @return fileWriter object
      * @throws IOException
      */
 
@@ -60,16 +59,38 @@ public class Logger {
         file.append("Number of Cashiers: " + this.cashiers);
         return file;
     }
+    
+    public FileWriter createLogger() throws IOException {
+        return new FileWriter(this.dir + this.type + "logs.txt");
+    }
+    
+    /**
+     * adds text to log file
+     */
+    
+    public void log(int tick, String message) throws IOException {
+        this.logger.append("Tick: " + tick + "      Action: " + message);
+        this.logger.append('\n');
+    }
+    
+    /**
+     * 
+     * cleans up after log file / closes it
+     */
+  
+    public void closeLog() throws IOException {
+        this.logger.close();
+    }
 
     /**
      * adds the simulation output
      * data correct to the CSV file
-     * @param file
-     * @param ordersFilled
-     * @param satisfaction
-     * @param waitTime
-     * @param waitTimeWithCook
-     * @param price
+     * @param file fileWriter object from earlier
+     * @param ordersFilled amount of orders filled
+     * @param satisfaction avg. satisfaction %
+     * @param waitTime avg. waitTime in line
+     * @param waitTimeWithCook avg. waitTime with cookTime
+     * @param price total $ in food sold
      * @throws IOException
      */
 
@@ -84,7 +105,7 @@ public class Logger {
         file.append('\n');
         file.append("Avg. Wait in Line: " + waitTime + " minutes");
         file.append('\n');
-        file.append("Avg. Wait from entering to receiving order: " + waitTimeWithCook + " minutes");
+        file.append("Avg. Wait for Food: " + waitTimeWithCook + " minutes");
         file.append('\n');
         file.append("Amount of Food Sold: $" + price);
         file.close();

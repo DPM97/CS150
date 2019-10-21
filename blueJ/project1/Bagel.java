@@ -1,26 +1,32 @@
-/*
-will contain all bagel shop data
-    - prices
-    - wait times
-    - calories (maybe)
- */
-
 /**
  * bagel class
  */
 
 public class Bagel {
+    
+    /*** price to order */
     int price;
+    /*** cook time */
     int wait;
-    int customers; //customers per minute
-    int employees; //number of employees
+    /*** cost to make */
+    int cost;
+    
+    /**
+     * constructor
+     * @param price cost for customer
+     * @param wait how long it takes to cook
+     * @param cost cost to make
+     */
+    
     public Bagel() {
         this.price = 3;
-        this.wait = 2;
+        this.wait = 3;
+        this.cost = 1;
     }
 
     /**
-     * @return bagel wait time
+     * return wait
+     * @return bagel cook time
      */
 
     public int getWait() {

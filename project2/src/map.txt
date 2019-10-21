@@ -1,0 +1,11 @@
+0,D,D,D,D,D,G,D,D,P,D
+D,G,L,R1,R2,R3,D,D,L,P,D
+G,P,D,D,D,D,L,D,P,D,L
+L3,L2,L1,D,D,G,G,D,P,D,D
+D,P,D,P,D,D,L,D,P,G,D
+0,D,D,D,D,D,G,D,D,P,D
+D,G,L,R1,R2,R3,D,D,L,P,D
+D,G,L,R1,R2,R3,D,D,L,P,D
+G,P,D,D,D,D,L,D,P,D,G
+L3,L2,L1,D,D,G,G,D,P,D,D
+0,D,D,D,D,D,G,D,D,P,D

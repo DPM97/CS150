@@ -5,12 +5,13 @@ Store Type: hoagie
 Busyness: 99
 Shifts per day: 5
 Time in between shifts: 5
-Number of Cooks: 10
+Number of Cooks: 4
 Number of Cashiers: 2
 
 ::::::SIMULATION OUTPUT DATA::::::
-Orders Filled: 572 orders
-Avg. Percent Satisfaction: 94.59105%
-Avg. Wait in Line: 1.1644231 minutes
-Avg. Wait for Food: 5.4090924 minutes
-Amount of Food Sold: $4004
+Orders Filled: 406 orders
+Avg. Percent Satisfaction: 91.83007%
+Avg. Wait in Line: 1.2586201 minutes
+Avg. Wait for Food: 8.169956 minutes
+Amount of Food Sold: $2842
+Amount of profit: $2050

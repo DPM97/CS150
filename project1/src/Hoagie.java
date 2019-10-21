@@ -16,12 +16,11 @@ public class Hoagie {
     int employees; //number of employees
     public Hoagie() {
         this.price = 7;
-        this.wait = 4;
+        this.wait = 5;
     }
 
     /**
-     * return hoagie wait time
-     * @return
+     * @return hoagie wait time
      */
 
     public int getWait() {

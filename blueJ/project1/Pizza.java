@@ -1,28 +1,32 @@
-/*
-will contain all pizza shop data
-    - prices
-    - wait times
-    - calories (maybe)
- */
-
 /**
  * pizza class
  * contains pizza vars
  */
 
 public class Pizza {
+    /*** price to order */
     int price;
+    /*** cook time */
     int wait;
-    int customers; //customers per minute
-    int employees; //number of employees
+    /*** cost to make */
+    int cost;
+    
+    /**
+     * constructor
+     * @param price cost for customer
+     * @param wait how long it takes to cook
+     * @param cost cost to make
+     */
 
     public Pizza() {
         this.price = 13;
         this.wait = 6;
+        this.cost = 2;
     }
 
     /**
-     * @return pizza wait time
+     * return wait
+     * @return pizza cook time
      */
 
     public int getWait() {

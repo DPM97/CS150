@@ -2,15 +2,16 @@ BAGEL Simulation Output:
 
 ::::::SIMULATION SETTINGS::::::
 Store Type: bagel
-Busyness: 85
-Shifts per day: 3
+Busyness: 90
+Shifts per day: 5
 Time in between shifts: 5
-Number of Cooks: 1
-Number of Cashiers: 4
+Number of Cooks: 4
+Number of Cashiers: 2
 
 ::::::SIMULATION OUTPUT DATA::::::
-Orders Filled: 61 orders
-Avg. Percent Satisfaction: 96.032776%
-Avg. Wait in Line: 1.0 minutes
-Avg. Wait for Food: 3.9672132 minutes
-Amount of Food Sold: $183
+Orders Filled: 105 orders
+Avg. Percent Satisfaction: 95.63807%
+Avg. Wait in Line: 1.3619047 minutes
+Avg. Wait for Food: 4.361904 minutes
+Amount of Food Sold: $315
+Amount of profit: $-582

@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 /**
  * main class
@@ -18,31 +20,42 @@ public class Main {
      */
 
     public static void main(String[] args) throws IOException {
-        int tests = 3;
-        //Logger log = new Logger();
-        //Controller controller = new Controller();
+        
+        //get num of tests
+        int tests = 0;
+        BufferedReader reader1 = new BufferedReader(new FileReader("input.txt"));
+        while(reader1.readLine() != null) {
+            tests++;
+        }
+        
+        
+        //create test directories
         new File("tests").mkdir();
         for (int i = 1; i <= tests; i++) {
             new File("tests/test" + Integer.toString(i)).mkdir();
         }
-
-
-        //      test (testNumber (1 or 2 or 3 all the way to int tests), busyness, numOfShifts (in 1 day),
-        //      breakLen (amount of time between shifts with no employees, numberOfCooks, numberOfCashiers);
-        test(1, 99, 5, 5, 6, 3);
-        test(2, 95, 5, 5, 3, 3);
-        test(3, 90, 5, 5, 1, 3);
+        
+        
+        //get test data from file && call test methods
+        BufferedReader reader = new BufferedReader(new FileReader("input.txt"));
+        String line = reader.readLine();
+        while (line != null) {
+            String[] str = line.split(",");
+            System.out.println(str[1]);
+            test(Integer.parseInt(str[0]), Integer.parseInt(str[1]), Integer.parseInt(str[2]), Integer.parseInt(str[3]), Integer.parseInt(str[4]), Integer.parseInt(str[5]));
+            line = reader.readLine();
+        }
     }
 
     /**
      * creates a restaurant simulation for
      * each type of restaurant given params
-     * @param testNum
-     * @param busyness
-     * @param numOfShifts
-     * @param breakLen
-     * @param cooks
-     * @param cashiers
+     * @param testNum test number
+     * @param busyness busyness variable (1-99)
+     * @param numOfShifts number of shifts per day
+     * @param breakLen amount of ticks in between shifts
+     * @param cooks amount of cooks
+     * @param cashiers amount of cashiers
      * @throws IOException
      */
 

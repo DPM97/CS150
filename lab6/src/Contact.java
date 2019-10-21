@@ -5,12 +5,15 @@ public class Contact extends Person implements Comparable<Contact> {
     String email;
     Random random;
 
-    public Contact() {
+    public Contact(Random random) {
+        super();
+        this.random = random;
         this.number = generateNumber();
         this.email = "dummy@domain.net";
-        this.firstName = createName();
-        this.lastName = createName();
+        this.firstName = createName(this.random);
+        this.lastName = createName(this.random);
     }
+
 
     @Override
     public int compareTo(Contact o) {

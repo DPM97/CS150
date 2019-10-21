@@ -1,0 +1,5 @@
+digger: 300
+harvester: 500
+builder: 750
+
+balance: 3500

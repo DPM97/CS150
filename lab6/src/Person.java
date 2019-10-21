@@ -1,32 +1,32 @@
 import java.util.Random;
 
-public abstract class Person {
+public abstract class Person <E> {
     String firstName;
     String lastName;
-    private Random random;
+    Long id;
 
     public Person() {
-
     }
 
     public String getFirstName() {
-        return createName();
+        return firstName;
     };
 
     ;
 
     public String getLastName() {
-        return createName();
+        return lastName;
     };
 
     ;
 
-    public String createName() {
+    public String createName(Random random) {
         String string = "";
-        string += (char) (this.random.nextInt(26) + 'A');
-        for (int i = 0; i < this.random.nextInt(6) + 3; i++) {
-            string += (char) (this.random.nextInt(26) + 'a');
+        string += (char) (random.nextInt(26) + 'A');
+        for (int i = 0; i < random.nextInt(6) + 3; i++) {
+            string += (char) (random.nextInt(26) + 'a');
         }
         return string;
     }
+
 }

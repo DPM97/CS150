@@ -21,8 +21,8 @@ public class Employee {
 
     /**
      * return cook object
-     * @param tick
-     * @return
+     * @param tick current time
+     * @return cook object
      */
 
     public Cook newCook(int tick) {
@@ -31,8 +31,8 @@ public class Employee {
 
     /**
      * return cashier object
-     * @param tick
-     * @return
+     * @param tick current time
+     * @return cashier object
      */
 
     public Cashier newCashier(int tick) {

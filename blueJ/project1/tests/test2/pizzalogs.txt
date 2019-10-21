@@ -1,0 +1,508 @@
+Tick: 0      Action: Cashier checking in
+Tick: 0      Action: Cashier checking in
+Tick: 0      Action: Cook checking in
+Tick: 0      Action: Cook checking in
+Tick: 0      Action: Cook checking in
+Tick: 0      Action: Cook checking in
+Tick: 8      Action: New Customer Customer@67273f2e
+Tick: 8      Action: New Customer Customer@3936b92b
+Tick: 8      Action: New Customer Customer@6354a105
+Tick: 9      Action: Customer Customer@67273f2e order taken
+Tick: 9      Action: Customer Customer@67273f2e waiting for food
+Tick: 9      Action: Customer Customer@3936b92b order taken
+Tick: 9      Action: Customer Customer@3936b92b waiting for food
+Tick: 10      Action: Customer Customer@6354a105 order taken
+Tick: 10      Action: Customer Customer@6354a105 waiting for food
+Tick: 15      Action: Customer Customer@67273f2e order filled
+Tick: 16      Action: Customer Customer@3936b92b order filled
+Tick: 18      Action: Customer Customer@6354a105 order filled
+Tick: 25      Action: New Customer Customer@4b84abeb
+Tick: 26      Action: Customer Customer@4b84abeb order taken
+Tick: 26      Action: Customer Customer@4b84abeb waiting for food
+Tick: 31      Action: New Customer Customer@150423fa
+Tick: 31      Action: New Customer Customer@19f72f90
+Tick: 31      Action: New Customer Customer@5fede922
+Tick: 32      Action: Customer Customer@4b84abeb order filled
+Tick: 32      Action: Customer Customer@150423fa order taken
+Tick: 32      Action: Customer Customer@150423fa waiting for food
+Tick: 32      Action: Customer Customer@19f72f90 order taken
+Tick: 32      Action: Customer Customer@19f72f90 waiting for food
+Tick: 33      Action: Customer Customer@5fede922 order taken
+Tick: 33      Action: Customer Customer@5fede922 waiting for food
+Tick: 38      Action: Customer Customer@150423fa order filled
+Tick: 39      Action: Customer Customer@19f72f90 order filled
+Tick: 41      Action: Customer Customer@5fede922 order filled
+Tick: 50      Action: New Customer Customer@31d8dac7
+Tick: 51      Action: Customer Customer@31d8dac7 order taken
+Tick: 51      Action: Customer Customer@31d8dac7 waiting for food
+Tick: 57      Action: Customer Customer@31d8dac7 order filled
+Tick: 67      Action: New Customer Customer@57734f5
+Tick: 67      Action: New Customer Customer@25dc0064
+Tick: 68      Action: Customer Customer@57734f5 order taken
+Tick: 68      Action: Customer Customer@57734f5 waiting for food
+Tick: 68      Action: Customer Customer@25dc0064 order taken
+Tick: 68      Action: Customer Customer@25dc0064 waiting for food
+Tick: 74      Action: Customer Customer@57734f5 order filled
+Tick: 75      Action: Customer Customer@25dc0064 order filled
+Tick: 75      Action: New Customer Customer@15c84904
+Tick: 75      Action: New Customer Customer@6231a798
+Tick: 75      Action: New Customer Customer@5eddf7b7
+Tick: 76      Action: Customer Customer@15c84904 order taken
+Tick: 76      Action: Customer Customer@15c84904 waiting for food
+Tick: 76      Action: Customer Customer@6231a798 order taken
+Tick: 76      Action: Customer Customer@6231a798 waiting for food
+Tick: 77      Action: Customer Customer@5eddf7b7 order taken
+Tick: 77      Action: Customer Customer@5eddf7b7 waiting for food
+Tick: 82      Action: Customer Customer@15c84904 order filled
+Tick: 83      Action: Customer Customer@6231a798 order filled
+Tick: 85      Action: Customer Customer@5eddf7b7 order filled
+Tick: 99      Action: New Customer Customer@1b471328
+Tick: 99      Action: New Customer Customer@4c90e92d
+Tick: 100      Action: Customer Customer@1b471328 order taken
+Tick: 100      Action: Customer Customer@1b471328 waiting for food
+Tick: 100      Action: Customer Customer@4c90e92d order taken
+Tick: 100      Action: Customer Customer@4c90e92d waiting for food
+Tick: 106      Action: Customer Customer@1b471328 order filled
+Tick: 107      Action: Customer Customer@4c90e92d order filled
+Tick: 110      Action: New Customer Customer@23f29a40
+Tick: 110      Action: New Customer Customer@12a3a1c6
+Tick: 111      Action: Customer Customer@23f29a40 order taken
+Tick: 111      Action: Customer Customer@23f29a40 waiting for food
+Tick: 111      Action: Customer Customer@12a3a1c6 order taken
+Tick: 111      Action: Customer Customer@12a3a1c6 waiting for food
+Tick: 117      Action: Customer Customer@23f29a40 order filled
+Tick: 118      Action: Customer Customer@12a3a1c6 order filled
+Tick: 125      Action: Cashier checking in
+Tick: 125      Action: Cashier checking in
+Tick: 125      Action: Cook checking in
+Tick: 125      Action: Cook checking in
+Tick: 125      Action: Cook checking in
+Tick: 125      Action: Cook checking in
+Tick: 125      Action: New Customer Customer@31de3ee9
+Tick: 126      Action: Customer Customer@31de3ee9 order taken
+Tick: 126      Action: Customer Customer@31de3ee9 waiting for food
+Tick: 128      Action: New Customer Customer@7a4c607e
+Tick: 128      Action: New Customer Customer@4d5bd5ed
+Tick: 129      Action: Customer Customer@7a4c607e order taken
+Tick: 129      Action: Customer Customer@7a4c607e waiting for food
+Tick: 129      Action: Customer Customer@4d5bd5ed order taken
+Tick: 129      Action: Customer Customer@4d5bd5ed waiting for food
+Tick: 132      Action: Customer Customer@31de3ee9 order filled
+Tick: 136      Action: Customer Customer@7a4c607e order filled
+Tick: 137      Action: Customer Customer@4d5bd5ed order filled
+Tick: 145      Action: New Customer Customer@4279e011
+Tick: 145      Action: New Customer Customer@290a7c1
+Tick: 145      Action: New Customer Customer@1bc6787d
+Tick: 146      Action: Customer Customer@4279e011 order taken
+Tick: 146      Action: Customer Customer@4279e011 waiting for food
+Tick: 146      Action: Customer Customer@290a7c1 order taken
+Tick: 146      Action: Customer Customer@290a7c1 waiting for food
+Tick: 147      Action: Customer Customer@1bc6787d order taken
+Tick: 147      Action: Customer Customer@1bc6787d waiting for food
+Tick: 152      Action: Customer Customer@4279e011 order filled
+Tick: 153      Action: Customer Customer@290a7c1 order filled
+Tick: 153      Action: New Customer Customer@8a13255
+Tick: 154      Action: Customer Customer@8a13255 order taken
+Tick: 154      Action: Customer Customer@8a13255 waiting for food
+Tick: 155      Action: Customer Customer@1bc6787d order filled
+Tick: 161      Action: Customer Customer@8a13255 order filled
+Tick: 184      Action: New Customer Customer@5d53238
+Tick: 184      Action: New Customer Customer@2fc23ec
+Tick: 184      Action: New Customer Customer@2ad1b65e
+Tick: 185      Action: Customer Customer@5d53238 order taken
+Tick: 185      Action: Customer Customer@5d53238 waiting for food
+Tick: 185      Action: Customer Customer@2fc23ec order taken
+Tick: 185      Action: Customer Customer@2fc23ec waiting for food
+Tick: 186      Action: Customer Customer@2ad1b65e order taken
+Tick: 186      Action: Customer Customer@2ad1b65e waiting for food
+Tick: 191      Action: Customer Customer@5d53238 order filled
+Tick: 192      Action: Customer Customer@2fc23ec order filled
+Tick: 194      Action: Customer Customer@2ad1b65e order filled
+Tick: 206      Action: New Customer Customer@2b631acb
+Tick: 206      Action: New Customer Customer@70bb96d
+Tick: 206      Action: New Customer Customer@640b0923
+Tick: 207      Action: Customer Customer@2b631acb order taken
+Tick: 207      Action: Customer Customer@2b631acb waiting for food
+Tick: 207      Action: Customer Customer@70bb96d order taken
+Tick: 207      Action: Customer Customer@70bb96d waiting for food
+Tick: 208      Action: Customer Customer@640b0923 order taken
+Tick: 208      Action: Customer Customer@640b0923 waiting for food
+Tick: 213      Action: Customer Customer@2b631acb order filled
+Tick: 214      Action: Customer Customer@70bb96d order filled
+Tick: 216      Action: Customer Customer@640b0923 order filled
+Tick: 219      Action: New Customer Customer@43cf20ba
+Tick: 219      Action: New Customer Customer@70c9cf4a
+Tick: 220      Action: Customer Customer@43cf20ba order taken
+Tick: 220      Action: Customer Customer@43cf20ba waiting for food
+Tick: 220      Action: Customer Customer@70c9cf4a order taken
+Tick: 220      Action: Customer Customer@70c9cf4a waiting for food
+Tick: 226      Action: Customer Customer@43cf20ba order filled
+Tick: 227      Action: Customer Customer@70c9cf4a order filled
+Tick: 245      Action: Cashier checking in
+Tick: 245      Action: Cashier checking in
+Tick: 245      Action: Cook checking in
+Tick: 245      Action: Cook checking in
+Tick: 245      Action: Cook checking in
+Tick: 245      Action: Cook checking in
+Tick: 249      Action: New Customer Customer@2ad3d0ef
+Tick: 249      Action: New Customer Customer@16ad9687
+Tick: 250      Action: Customer Customer@2ad3d0ef order taken
+Tick: 250      Action: Customer Customer@2ad3d0ef waiting for food
+Tick: 250      Action: Customer Customer@16ad9687 order taken
+Tick: 250      Action: Customer Customer@16ad9687 waiting for food
+Tick: 256      Action: Customer Customer@2ad3d0ef order filled
+Tick: 257      Action: Customer Customer@16ad9687 order filled
+Tick: 265      Action: New Customer Customer@2cddbe18
+Tick: 265      Action: New Customer Customer@12509756
+Tick: 265      Action: New Customer Customer@2630695b
+Tick: 266      Action: Customer Customer@2cddbe18 order taken
+Tick: 266      Action: Customer Customer@2cddbe18 waiting for food
+Tick: 266      Action: Customer Customer@12509756 order taken
+Tick: 266      Action: Customer Customer@12509756 waiting for food
+Tick: 267      Action: Customer Customer@2630695b order taken
+Tick: 267      Action: Customer Customer@2630695b waiting for food
+Tick: 272      Action: Customer Customer@2cddbe18 order filled
+Tick: 273      Action: Customer Customer@12509756 order filled
+Tick: 275      Action: Customer Customer@2630695b order filled
+Tick: 279      Action: New Customer Customer@5cd3dab4
+Tick: 279      Action: New Customer Customer@1d3f9248
+Tick: 279      Action: New Customer Customer@b435c9e
+Tick: 280      Action: Customer Customer@5cd3dab4 order taken
+Tick: 280      Action: Customer Customer@5cd3dab4 waiting for food
+Tick: 280      Action: Customer Customer@1d3f9248 order taken
+Tick: 280      Action: Customer Customer@1d3f9248 waiting for food
+Tick: 281      Action: Customer Customer@b435c9e order taken
+Tick: 281      Action: Customer Customer@b435c9e waiting for food
+Tick: 286      Action: Customer Customer@5cd3dab4 order filled
+Tick: 287      Action: Customer Customer@1d3f9248 order filled
+Tick: 289      Action: Customer Customer@b435c9e order filled
+Tick: 290      Action: New Customer Customer@2e9c861c
+Tick: 290      Action: New Customer Customer@6cd8ff01
+Tick: 290      Action: New Customer Customer@d948d00
+Tick: 291      Action: Customer Customer@2e9c861c order taken
+Tick: 291      Action: Customer Customer@2e9c861c waiting for food
+Tick: 291      Action: Customer Customer@6cd8ff01 order taken
+Tick: 291      Action: Customer Customer@6cd8ff01 waiting for food
+Tick: 292      Action: Customer Customer@d948d00 order taken
+Tick: 292      Action: Customer Customer@d948d00 waiting for food
+Tick: 297      Action: Customer Customer@2e9c861c order filled
+Tick: 298      Action: Customer Customer@6cd8ff01 order filled
+Tick: 300      Action: Customer Customer@d948d00 order filled
+Tick: 300      Action: New Customer Customer@1ca29780
+Tick: 300      Action: New Customer Customer@56c45e6e
+Tick: 301      Action: Customer Customer@1ca29780 order taken
+Tick: 301      Action: Customer Customer@1ca29780 waiting for food
+Tick: 301      Action: Customer Customer@56c45e6e order taken
+Tick: 301      Action: Customer Customer@56c45e6e waiting for food
+Tick: 307      Action: Customer Customer@1ca29780 order filled
+Tick: 308      Action: Customer Customer@56c45e6e order filled
+Tick: 311      Action: New Customer Customer@7d4f9340
+Tick: 311      Action: New Customer Customer@549aed64
+Tick: 311      Action: New Customer Customer@5c8c6ee0
+Tick: 312      Action: Customer Customer@7d4f9340 order taken
+Tick: 312      Action: Customer Customer@7d4f9340 waiting for food
+Tick: 312      Action: Customer Customer@549aed64 order taken
+Tick: 312      Action: Customer Customer@549aed64 waiting for food
+Tick: 313      Action: Customer Customer@5c8c6ee0 order taken
+Tick: 313      Action: Customer Customer@5c8c6ee0 waiting for food
+Tick: 318      Action: Customer Customer@7d4f9340 order filled
+Tick: 319      Action: Customer Customer@549aed64 order filled
+Tick: 320      Action: New Customer Customer@284f7c31
+Tick: 321      Action: Customer Customer@5c8c6ee0 order filled
+Tick: 321      Action: Customer Customer@284f7c31 order taken
+Tick: 321      Action: Customer Customer@284f7c31 waiting for food
+Tick: 327      Action: Customer Customer@284f7c31 order filled
+Tick: 328      Action: New Customer Customer@299b2feb
+Tick: 328      Action: New Customer Customer@2ae90671
+Tick: 328      Action: New Customer Customer@152d96a2
+Tick: 329      Action: New Customer Customer@4650cec2
+Tick: 329      Action: New Customer Customer@36c44594
+Tick: 329      Action: Customer Customer@299b2feb order taken
+Tick: 329      Action: Customer Customer@299b2feb waiting for food
+Tick: 329      Action: Customer Customer@2ae90671 order taken
+Tick: 329      Action: Customer Customer@2ae90671 waiting for food
+Tick: 330      Action: Customer Customer@152d96a2 order taken
+Tick: 330      Action: Customer Customer@152d96a2 waiting for food
+Tick: 330      Action: Customer Customer@4650cec2 order taken
+Tick: 330      Action: Customer Customer@4650cec2 waiting for food
+Tick: 331      Action: Customer Customer@36c44594 order taken
+Tick: 331      Action: Customer Customer@36c44594 waiting for food
+Tick: 335      Action: Customer Customer@299b2feb order filled
+Tick: 336      Action: Customer Customer@2ae90671 order filled
+Tick: 338      Action: Customer Customer@152d96a2 order filled
+Tick: 339      Action: Customer Customer@4650cec2 order filled
+Tick: 340      Action: Customer Customer@36c44594 order filled
+Tick: 342      Action: New Customer Customer@547c07b3
+Tick: 343      Action: Customer Customer@547c07b3 order taken
+Tick: 343      Action: Customer Customer@547c07b3 waiting for food
+Tick: 349      Action: Customer Customer@547c07b3 order filled
+Tick: 350      Action: New Customer Customer@2d9d0318
+Tick: 350      Action: New Customer Customer@6dfbeeb7
+Tick: 351      Action: Customer Customer@2d9d0318 order taken
+Tick: 351      Action: Customer Customer@2d9d0318 waiting for food
+Tick: 351      Action: Customer Customer@6dfbeeb7 order taken
+Tick: 351      Action: Customer Customer@6dfbeeb7 waiting for food
+Tick: 357      Action: Customer Customer@2d9d0318 order filled
+Tick: 358      Action: Customer Customer@6dfbeeb7 order filled
+Tick: 365      Action: Cashier checking in
+Tick: 365      Action: Cashier checking in
+Tick: 365      Action: Cook checking in
+Tick: 365      Action: Cook checking in
+Tick: 365      Action: Cook checking in
+Tick: 365      Action: Cook checking in
+Tick: 369      Action: New Customer Customer@7987fe79
+Tick: 369      Action: New Customer Customer@4df22f65
+Tick: 369      Action: New Customer Customer@8326000
+Tick: 370      Action: Customer Customer@7987fe79 order taken
+Tick: 370      Action: Customer Customer@7987fe79 waiting for food
+Tick: 370      Action: Customer Customer@4df22f65 order taken
+Tick: 370      Action: Customer Customer@4df22f65 waiting for food
+Tick: 371      Action: Customer Customer@8326000 order taken
+Tick: 371      Action: Customer Customer@8326000 waiting for food
+Tick: 376      Action: Customer Customer@7987fe79 order filled
+Tick: 377      Action: Customer Customer@4df22f65 order filled
+Tick: 379      Action: Customer Customer@8326000 order filled
+Tick: 382      Action: New Customer Customer@3a8eb9e7
+Tick: 382      Action: New Customer Customer@7cbcfcf9
+Tick: 383      Action: Customer Customer@3a8eb9e7 order taken
+Tick: 383      Action: Customer Customer@3a8eb9e7 waiting for food
+Tick: 383      Action: Customer Customer@7cbcfcf9 order taken
+Tick: 383      Action: Customer Customer@7cbcfcf9 waiting for food
+Tick: 389      Action: Customer Customer@3a8eb9e7 order filled
+Tick: 390      Action: Customer Customer@7cbcfcf9 order filled
+Tick: 396      Action: New Customer Customer@20e97d0c
+Tick: 397      Action: New Customer Customer@3b403b71
+Tick: 397      Action: New Customer Customer@744efc7f
+Tick: 397      Action: Customer Customer@20e97d0c order taken
+Tick: 397      Action: Customer Customer@20e97d0c waiting for food
+Tick: 398      Action: Customer Customer@3b403b71 order taken
+Tick: 398      Action: Customer Customer@3b403b71 waiting for food
+Tick: 398      Action: Customer Customer@744efc7f order taken
+Tick: 398      Action: Customer Customer@744efc7f waiting for food
+Tick: 403      Action: Customer Customer@20e97d0c order filled
+Tick: 405      Action: Customer Customer@3b403b71 order filled
+Tick: 406      Action: Customer Customer@744efc7f order filled
+Tick: 418      Action: New Customer Customer@6f8e9d3b
+Tick: 419      Action: Customer Customer@6f8e9d3b order taken
+Tick: 419      Action: Customer Customer@6f8e9d3b waiting for food
+Tick: 420      Action: New Customer Customer@4649cdb
+Tick: 420      Action: New Customer Customer@3ec5b495
+Tick: 420      Action: New Customer Customer@3d6b1a36
+Tick: 421      Action: Customer Customer@4649cdb order taken
+Tick: 421      Action: Customer Customer@4649cdb waiting for food
+Tick: 421      Action: Customer Customer@3ec5b495 order taken
+Tick: 421      Action: Customer Customer@3ec5b495 waiting for food
+Tick: 422      Action: Customer Customer@3d6b1a36 order taken
+Tick: 422      Action: Customer Customer@3d6b1a36 waiting for food
+Tick: 425      Action: Customer Customer@6f8e9d3b order filled
+Tick: 428      Action: Customer Customer@4649cdb order filled
+Tick: 429      Action: Customer Customer@3ec5b495 order filled
+Tick: 431      Action: Customer Customer@3d6b1a36 order filled
+Tick: 434      Action: New Customer Customer@26973fe5
+Tick: 434      Action: New Customer Customer@635eda8
+Tick: 435      Action: Customer Customer@26973fe5 order taken
+Tick: 435      Action: Customer Customer@26973fe5 waiting for food
+Tick: 435      Action: Customer Customer@635eda8 order taken
+Tick: 435      Action: Customer Customer@635eda8 waiting for food
+Tick: 441      Action: Customer Customer@26973fe5 order filled
+Tick: 442      Action: Customer Customer@635eda8 order filled
+Tick: 452      Action: New Customer Customer@154780e7
+Tick: 453      Action: New Customer Customer@709882d3
+Tick: 453      Action: New Customer Customer@6fefe332
+Tick: 453      Action: Customer Customer@154780e7 order taken
+Tick: 453      Action: Customer Customer@154780e7 waiting for food
+Tick: 454      Action: Customer Customer@709882d3 order taken
+Tick: 454      Action: Customer Customer@709882d3 waiting for food
+Tick: 454      Action: Customer Customer@6fefe332 order taken
+Tick: 454      Action: Customer Customer@6fefe332 waiting for food
+Tick: 459      Action: Customer Customer@154780e7 order filled
+Tick: 461      Action: Customer Customer@709882d3 order filled
+Tick: 462      Action: Customer Customer@6fefe332 order filled
+Tick: 477      Action: New Customer Customer@469e0bca
+Tick: 478      Action: New Customer Customer@6f77eb46
+Tick: 478      Action: New Customer Customer@5bcd7261
+Tick: 478      Action: Customer Customer@469e0bca order taken
+Tick: 478      Action: Customer Customer@469e0bca waiting for food
+Tick: 479      Action: Customer Customer@6f77eb46 order taken
+Tick: 479      Action: Customer Customer@6f77eb46 waiting for food
+Tick: 479      Action: Customer Customer@5bcd7261 order taken
+Tick: 479      Action: Customer Customer@5bcd7261 waiting for food
+Tick: 485      Action: Cashier checking in
+Tick: 485      Action: Cashier checking in
+Tick: 485      Action: Cook checking in
+Tick: 485      Action: Cook checking in
+Tick: 485      Action: Cook checking in
+Tick: 485      Action: Cook checking in
+Tick: 486      Action: Customer Customer@469e0bca order filled
+Tick: 486      Action: Customer Customer@6f77eb46 order filled
+Tick: 486      Action: New Customer Customer@4babfc59
+Tick: 487      Action: Customer Customer@5bcd7261 order filled
+Tick: 487      Action: Customer Customer@4babfc59 order taken
+Tick: 487      Action: Customer Customer@4babfc59 waiting for food
+Tick: 488      Action: New Customer Customer@7d5d7ebd
+Tick: 488      Action: New Customer Customer@2da0978b
+Tick: 488      Action: New Customer Customer@1dceb624
+Tick: 489      Action: New Customer Customer@913c8f0
+Tick: 489      Action: New Customer Customer@1fade7f9
+Tick: 489      Action: New Customer Customer@36982748
+Tick: 489      Action: Customer Customer@7d5d7ebd order taken
+Tick: 489      Action: Customer Customer@7d5d7ebd waiting for food
+Tick: 489      Action: Customer Customer@2da0978b order taken
+Tick: 489      Action: Customer Customer@2da0978b waiting for food
+Tick: 490      Action: Customer Customer@1dceb624 order taken
+Tick: 490      Action: Customer Customer@1dceb624 waiting for food
+Tick: 490      Action: Customer Customer@913c8f0 order taken
+Tick: 490      Action: Customer Customer@913c8f0 waiting for food
+Tick: 491      Action: Customer Customer@1fade7f9 order taken
+Tick: 491      Action: Customer Customer@1fade7f9 waiting for food
+Tick: 492      Action: Customer Customer@36982748 order taken
+Tick: 492      Action: Customer Customer@36982748 waiting for food
+Tick: 493      Action: Customer Customer@4babfc59 order filled
+Tick: 496      Action: Customer Customer@7d5d7ebd order filled
+Tick: 497      Action: Customer Customer@2da0978b order filled
+Tick: 499      Action: Customer Customer@1dceb624 order filled
+Tick: 499      Action: Customer Customer@913c8f0 order filled
+Tick: 501      Action: Customer Customer@1fade7f9 order filled
+Tick: 501      Action: New Customer Customer@5e8fd829
+Tick: 502      Action: Customer Customer@36982748 order filled
+Tick: 502      Action: Customer Customer@5e8fd829 order taken
+Tick: 502      Action: Customer Customer@5e8fd829 waiting for food
+Tick: 504      Action: New Customer Customer@49ccdf40
+Tick: 505      Action: Customer Customer@49ccdf40 order taken
+Tick: 505      Action: Customer Customer@49ccdf40 waiting for food
+Tick: 508      Action: Customer Customer@5e8fd829 order filled
+Tick: 511      Action: New Customer Customer@39ae7baf
+Tick: 512      Action: Customer Customer@49ccdf40 order filled
+Tick: 512      Action: Customer Customer@39ae7baf order taken
+Tick: 512      Action: Customer Customer@39ae7baf waiting for food
+Tick: 513      Action: New Customer Customer@4e7bb9b5
+Tick: 513      Action: New Customer Customer@6e956ec3
+Tick: 513      Action: New Customer Customer@410c9a8e
+Tick: 514      Action: Customer Customer@4e7bb9b5 order taken
+Tick: 514      Action: Customer Customer@4e7bb9b5 waiting for food
+Tick: 514      Action: Customer Customer@6e956ec3 order taken
+Tick: 514      Action: Customer Customer@6e956ec3 waiting for food
+Tick: 515      Action: Customer Customer@410c9a8e order taken
+Tick: 515      Action: Customer Customer@410c9a8e waiting for food
+Tick: 518      Action: Customer Customer@39ae7baf order filled
+Tick: 521      Action: Customer Customer@4e7bb9b5 order filled
+Tick: 522      Action: Customer Customer@6e956ec3 order filled
+Tick: 524      Action: Customer Customer@410c9a8e order filled
+Tick: 524      Action: New Customer Customer@b35e203
+Tick: 525      Action: New Customer Customer@181044c1
+Tick: 525      Action: New Customer Customer@5db6c276
+Tick: 525      Action: Customer Customer@b35e203 order taken
+Tick: 525      Action: Customer Customer@b35e203 waiting for food
+Tick: 526      Action: New Customer Customer@784beba4
+Tick: 526      Action: New Customer Customer@5cca2b54
+Tick: 526      Action: New Customer Customer@46e65a40
+Tick: 526      Action: Customer Customer@181044c1 order taken
+Tick: 526      Action: Customer Customer@181044c1 waiting for food
+Tick: 526      Action: Customer Customer@5db6c276 order taken
+Tick: 526      Action: Customer Customer@5db6c276 waiting for food
+Tick: 527      Action: Customer Customer@784beba4 order taken
+Tick: 527      Action: Customer Customer@784beba4 waiting for food
+Tick: 527      Action: Customer Customer@5cca2b54 order taken
+Tick: 527      Action: Customer Customer@5cca2b54 waiting for food
+Tick: 528      Action: Customer Customer@46e65a40 order taken
+Tick: 528      Action: Customer Customer@46e65a40 waiting for food
+Tick: 531      Action: Customer Customer@b35e203 order filled
+Tick: 533      Action: Customer Customer@181044c1 order filled
+Tick: 534      Action: Customer Customer@5db6c276 order filled
+Tick: 536      Action: Customer Customer@784beba4 order filled
+Tick: 536      Action: Customer Customer@5cca2b54 order filled
+Tick: 538      Action: Customer Customer@46e65a40 order filled
+Tick: 546      Action: New Customer Customer@2d288598
+Tick: 547      Action: Customer Customer@2d288598 order taken
+Tick: 547      Action: Customer Customer@2d288598 waiting for food
+Tick: 553      Action: Customer Customer@2d288598 order filled
+Tick: 555      Action: New Customer Customer@a995d52
+Tick: 555      Action: New Customer Customer@70457de
+Tick: 555      Action: New Customer Customer@73442924
+Tick: 556      Action: Customer Customer@a995d52 order taken
+Tick: 556      Action: Customer Customer@a995d52 waiting for food
+Tick: 556      Action: Customer Customer@70457de order taken
+Tick: 556      Action: Customer Customer@70457de waiting for food
+Tick: 557      Action: Customer Customer@73442924 order taken
+Tick: 557      Action: Customer Customer@73442924 waiting for food
+Tick: 562      Action: Customer Customer@a995d52 order filled
+Tick: 563      Action: Customer Customer@70457de order filled
+Tick: 565      Action: Customer Customer@73442924 order filled
+Tick: 583      Action: New Customer Customer@1a297691
+Tick: 583      Action: New Customer Customer@5a1adb4b
+Tick: 584      Action: Customer Customer@1a297691 order taken
+Tick: 584      Action: Customer Customer@1a297691 waiting for food
+Tick: 584      Action: Customer Customer@5a1adb4b order taken
+Tick: 584      Action: Customer Customer@5a1adb4b waiting for food
+Tick: 590      Action: Customer Customer@1a297691 order filled
+Tick: 591      Action: Customer Customer@5a1adb4b order filled
+Tick: 605      Action: Cashier checking in
+Tick: 605      Action: Cashier checking in
+Tick: 605      Action: Cook checking in
+Tick: 605      Action: Cook checking in
+Tick: 605      Action: Cook checking in
+Tick: 605      Action: Cook checking in
+Tick: 605      Action: New Customer Customer@7f05dd71
+Tick: 606      Action: Customer Customer@7f05dd71 order taken
+Tick: 606      Action: Customer Customer@7f05dd71 waiting for food
+Tick: 612      Action: Customer Customer@7f05dd71 order filled
+Tick: 640      Action: New Customer Customer@2ddad6bc
+Tick: 640      Action: New Customer Customer@7c96a068
+Tick: 640      Action: New Customer Customer@705aec32
+Tick: 641      Action: Customer Customer@2ddad6bc order taken
+Tick: 641      Action: Customer Customer@2ddad6bc waiting for food
+Tick: 641      Action: Customer Customer@7c96a068 order taken
+Tick: 641      Action: Customer Customer@7c96a068 waiting for food
+Tick: 642      Action: Customer Customer@705aec32 order taken
+Tick: 642      Action: Customer Customer@705aec32 waiting for food
+Tick: 647      Action: Customer Customer@2ddad6bc order filled
+Tick: 648      Action: Customer Customer@7c96a068 order filled
+Tick: 650      Action: Customer Customer@705aec32 order filled
+Tick: 658      Action: New Customer Customer@21e5591d
+Tick: 658      Action: New Customer Customer@5af104ab
+Tick: 659      Action: New Customer Customer@13ad7a7d
+Tick: 659      Action: Customer Customer@21e5591d order taken
+Tick: 659      Action: Customer Customer@21e5591d waiting for food
+Tick: 659      Action: Customer Customer@5af104ab order taken
+Tick: 659      Action: Customer Customer@5af104ab waiting for food
+Tick: 660      Action: Customer Customer@13ad7a7d order taken
+Tick: 660      Action: Customer Customer@13ad7a7d waiting for food
+Tick: 665      Action: Customer Customer@21e5591d order filled
+Tick: 666      Action: Customer Customer@5af104ab order filled
+Tick: 668      Action: Customer Customer@13ad7a7d order filled
+Tick: 681      Action: New Customer Customer@34312f46
+Tick: 681      Action: New Customer Customer@3f17b56c
+Tick: 681      Action: New Customer Customer@6d113a79
+Tick: 682      Action: New Customer Customer@1597cb34
+Tick: 682      Action: Customer Customer@34312f46 order taken
+Tick: 682      Action: Customer Customer@34312f46 waiting for food
+Tick: 682      Action: Customer Customer@3f17b56c order taken
+Tick: 682      Action: Customer Customer@3f17b56c waiting for food
+Tick: 683      Action: Customer Customer@6d113a79 order taken
+Tick: 683      Action: Customer Customer@6d113a79 waiting for food
+Tick: 683      Action: Customer Customer@1597cb34 order taken
+Tick: 683      Action: Customer Customer@1597cb34 waiting for food
+Tick: 688      Action: Customer Customer@34312f46 order filled
+Tick: 689      Action: Customer Customer@3f17b56c order filled
+Tick: 691      Action: Customer Customer@6d113a79 order filled
+Tick: 692      Action: Customer Customer@1597cb34 order filled
+Tick: 707      Action: New Customer Customer@28619ddf
+Tick: 707      Action: New Customer Customer@2a5fe16a
+Tick: 707      Action: New Customer Customer@4ef9d4aa
+Tick: 708      Action: New Customer Customer@659c782a
+Tick: 708      Action: New Customer Customer@41b78e23
+Tick: 708      Action: Customer Customer@28619ddf order taken
+Tick: 708      Action: Customer Customer@28619ddf waiting for food
+Tick: 708      Action: Customer Customer@2a5fe16a order taken
+Tick: 708      Action: Customer Customer@2a5fe16a waiting for food
+Tick: 709      Action: Customer Customer@4ef9d4aa order taken
+Tick: 709      Action: Customer Customer@4ef9d4aa waiting for food
+Tick: 709      Action: Customer Customer@659c782a order taken
+Tick: 709      Action: Customer Customer@659c782a waiting for food
+Tick: 710      Action: Customer Customer@41b78e23 order taken
+Tick: 710      Action: Customer Customer@41b78e23 waiting for food
+Tick: 714      Action: Customer Customer@28619ddf order filled
+Tick: 715      Action: Customer Customer@2a5fe16a order filled
+Tick: 717      Action: Customer Customer@4ef9d4aa order filled
+Tick: 718      Action: Customer Customer@659c782a order filled
+Tick: 719      Action: Customer Customer@41b78e23 order filled
