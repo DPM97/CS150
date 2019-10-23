@@ -1,6 +1,8 @@
 public class Digger extends Dwarf {
-    public Digger(Map map) {
+    Game game;
+    public Digger(Map map, Game game) {
         super(map);
+        this.game = game;
     }
 
     @Override
@@ -14,6 +16,7 @@ public class Digger extends Dwarf {
                 System.out.println("Encountered lava");
             } else if (this.map.map.get(index).equals("P")) {
                 System.out.println("Encountered pit");
+                this.game.pitsDiscovered.push(reverse(this.memory)); //push memory so that builder knows how to get to pit
             } else if (this.map.map.get(index).contains("L") || this.map.map.get(index).contains("R")) {
                 System.out.println("Encountered river");
             } else if (this.map.map.get(index).equals("G")) {

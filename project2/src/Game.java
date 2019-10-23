@@ -9,8 +9,8 @@ public class Game {
     int bank;
     Map map;
     PriorityQueue<Dwarf> dwarfs;
-    Stack<Integer> goldDiscovered;
-    Stack<Integer> pitsDiscovered;
+    Stack<Stack<Integer>> goldDiscovered;
+    Stack<Stack<Integer>> pitsDiscovered;
     int collected;
     int tries;
 
@@ -20,6 +20,9 @@ public class Game {
         this.map = map;
         this.dwarfs = new PriorityQueue<Dwarf>();
         this.tries = 0;
+        this.pitsDiscovered = new Stack<Stack<Integer>>();
+        this.goldDiscovered = new Stack<Stack<Integer>>();
+
     }
 
     public void start() throws IOException {
@@ -39,28 +42,39 @@ public class Game {
             } else {
                 System.out.println("invalid dwarf type");
             }
+            line = reader.readLine();
         }
 
+        System.out.println(this.dwarfs);
+
         while (this.collected < gold) {
-            PriorityQueue<Dwarf> copy = this.dwarfs;
+            PriorityQueue<Dwarf> copy = new PriorityQueue<Dwarf>(this.dwarfs);
             while(!copy.isEmpty()){
                 Dwarf curDwarf = copy.poll();
                 if (curDwarf.getClass().getName() == "Digger") {
                     curDwarf.right();
                 } else if (curDwarf.getClass().getName() == "Harvester") {
-                    if (this.goldDiscovered.size() != 0) {
+                    curDwarf.right();
+                    //if (this.goldDiscovered.size() > 0) {
                         //go to the gold
-                    }
+                    //}
                 } else if (curDwarf.getClass().getName() == "Builder") {
-                    if (this.pitsDiscovered.size() != 0) {
-                        //go to the pit
+                    System.out.println("builder ----++++");
+                    if (this.pitsDiscovered.empty() == false) { //
+                        curDwarf.memory = this.pitsDiscovered.peek();
+                        this.pitsDiscovered.pop();
+                        System.out.println(curDwarf.memory.pop());
+                        curDwarf.location = curDwarf.memory.pop();
+                    } else if (curDwarf.memory.size() != 0) { //builder is on its way to the pit
+                        curDwarf.location = curDwarf.memory.pop();
+                    } else {
+
                     }
                 } else {
                     System.out.println("Invalid dwarf type");
                 }
 
 
-                System.out.println(curDwarf.location);
             }
             this.tries++;
             //System.out.println("Tries: " + this.tries);
@@ -82,11 +96,11 @@ public class Game {
     }
 
     public void createHarvester() {
-        this.dwarfs.add(new Harvester(this.map));
+        this.dwarfs.add(new Harvester(this.map, this));
     }
 
     public void createDigger() {
-        this.dwarfs.add(new Digger(this.map));
+        this.dwarfs.add(new Digger(this.map, this));
     }
 
     public void kill(Dwarf dwarf) {

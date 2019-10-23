@@ -1,7 +1,8 @@
 public class Harvester extends Dwarf {
-
-    public Harvester(Map map) {
+    Game game;
+    public Harvester(Map map, Game game) {
         super(map);
+        this.game = game;
     }
 
     @Override

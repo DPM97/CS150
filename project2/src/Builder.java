@@ -22,6 +22,7 @@ public class Builder extends Dwarf {
     public void right() {
         int index = this.map.getRight(this.location);
         if (index != -1) {
+            System.out.println(this.map.map.get(index));
             if (this.map.map.get(index).equals("P")) {
                 this.map.map.set(index, "D"); //fill with dirt
             }

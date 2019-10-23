@@ -62,6 +62,13 @@ public abstract class Dwarf implements Comparable<Dwarf> {
     abstract void down();
     abstract void up();
 
+    public Stack<Integer> reverse(Stack<Integer> stack) { //reverse memory so that builders/harvesters can get to location
+        Stack<Integer> output = new Stack<Integer>();
+        for (Integer item : stack) {
+            System.out.println(item);
+        }
+        return output;
+    }
 
     @Override
     public int compareTo(Dwarf o) {
