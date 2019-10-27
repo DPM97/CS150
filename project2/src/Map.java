@@ -3,17 +3,43 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * map class
+ */
+
 public class Map {
-    ArrayList<String> map;
+    /**
+     * mmap (arraylist of tiles)
+     */
+    ArrayList<Tile> map;
+    /**
+     * map height
+     */
     int height;
+    /**
+     * map length
+     */
     int length;
+    /**
+     * total # of elements in map
+     */
     int totalElements;
+
+    /**
+     * constructor
+     */
+
     public Map() {
-        this.map = new ArrayList<>();
+        this.map = new ArrayList<Tile>();
         this.height = 0;
         this.totalElements = 0;
         this.length = 0;
     }
+
+    /**
+     * import map from file
+     * @throws IOException
+     */
 
     public void importMap() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("./src/map.txt"));
@@ -21,7 +47,7 @@ public class Map {
         while(line != null) {
             String[] curLine = line.split(",");
             for (int i = 0; i < curLine.length; i++) {
-                this.map.add(curLine[i]);
+                this.map.add(new Tile(curLine[i]));
                 this.totalElements++;
             }
             this.height++;
@@ -30,21 +56,39 @@ public class Map {
         this.length = this.totalElements / this.height;
     }
 
+    /**
+     * get index of element below
+     * @param index location
+     * @return index below input
+     */
+
     public int getBelow(int index) {
-        if (Math.floor(index / this.length) != Math.floor((index + this.length)/ this.length) && Math.floor((index + this.length)/ this.length) < this.height) {
+        if ((index + this.length) <= this.totalElements) {
             return index + this.length;
         } else { //off the map
             return -1;
         }
     }
 
+    /**
+     * get index of element above
+     * @param index location
+     * @return index above input
+     */
+
     public int getAbove(int index) {
-        if (Math.floor(index / this.length) != Math.floor((index + this.length)/ this.length) && Math.floor((index + this.length)/ this.length) > 0) {
+        if ((index - this.length) > 0) {
             return index - this.length;
         } else { //off the map
             return -1;
         }
     }
+
+    /**
+     * get index of element left
+     * @param index location
+     * @return index left input
+     */
 
     public int getLeft(int index) {
         if (Math.floor(index / this.length) == Math.floor((index - 1)/ this.length)) {
@@ -54,6 +98,12 @@ public class Map {
         }
     }
 
+    /**
+     * get index of element right
+     * @param index location
+     * @return index right input
+     */
+
     public int getRight(int index) {
         if (Math.floor(index / this.length) == Math.floor((index + 1)/ this.length)) {
             return index + 1;
@@ -61,40 +111,4 @@ public class Map {
             return -1;
         }
     }
-
-    /*
-
-
-    public boolean dig(int index) {
-        if (index != -1 && this.map.get(index) == "D") {
-            this.map.set(index, "0");
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean harvest(int index) {
-        if (index != -1 && this.map.get(index) == "G") {
-            this.map.set(index, "0");
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean build(int index) {
-        if (index != -1 && this.map.get(index) == "P") {
-            this.map.set(index, "D"); //fill pit with dirt
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-
-
-     */
-
-
 }

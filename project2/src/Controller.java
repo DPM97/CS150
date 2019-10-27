@@ -6,7 +6,7 @@ public class Controller {
 
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         Map map = new Map();
         map.importMap();
         new Game(map).start();

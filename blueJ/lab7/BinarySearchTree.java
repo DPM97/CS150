@@ -46,6 +46,13 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
             return true;
     }
 
+    /**
+     * check if the in order array
+     * of elements from tree contains element
+     * @param e element
+     * @return boolean
+     */
+
     @Override
     public boolean contains(E e) {
         ArrayList<E> arr = new ArrayList<E>();
@@ -58,28 +65,42 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
         return false;
     }
 
+    /**
+     * fetch nuber of elements at i depth
+     * @param i given depth
+     * @return number of elements
+     */
+
     @Override
     public int numOfElementsDepth(int i) {
         return getAtDepth(this.root, i, 0);
     }
 
+    /**
+     * find biggest element in tree
+     * @return biggest element
+     */
+
     @Override
     public E findMax() {
-        String str = this.inOrderString();
-        String[] arr = str.split(" ");
-        if (arr.length > 0) {
-            return (E) arr[arr.length - 1];
+        ArrayList arr = inOrderTraversal(this.root, new ArrayList<E>());
+        if (arr.size() > 0) {
+            return (E) arr.get(arr.size() - 1);
         } else {
             return null;
         }
     }
 
+    /**
+     * find smallest element in tree
+     * @return smallest element
+     */
+
     @Override
     public E findMin() {
-        String str = this.inOrderString();
-        String[] arr = str.split(" ");
-        if (arr.length > 0) {
-            return (E) arr[0];
+        ArrayList arr = inOrderTraversal(this.root, new ArrayList<E>());
+        if (arr.size() > 0) {
+            return (E) arr.get(0);
         } else {
             return null;
         }

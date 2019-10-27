@@ -1,18 +1,49 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Stack;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * main game class
+ */
 
 public class Game {
+    /**
+     * player bank
+     */
     int bank;
+    /**
+     * map obj
+     */
     Map map;
+    /**
+     * queue of dwarfs in game
+     */
     PriorityQueue<Dwarf> dwarfs;
+    /**
+     * gold that has been discovered but not harvested
+     */
     Stack<Stack<Integer>> goldDiscovered;
+    /**
+     * pits that have been discovered but not filled
+     */
     Stack<Stack<Integer>> pitsDiscovered;
+    /**
+     * amount of gol collected
+     */
     int collected;
+    /**
+     * amount of moves made / scoring interval
+     */
     int tries;
+
+    /**
+     * constructor
+     * @param map map obj
+     */
 
     public Game(Map map) {
         this.bank = 3000;
@@ -22,10 +53,15 @@ public class Game {
         this.tries = 0;
         this.pitsDiscovered = new Stack<Stack<Integer>>();
         this.goldDiscovered = new Stack<Stack<Integer>>();
-
     }
 
-    public void start() throws IOException {
+    /**
+     * start game - import dwarfs - run program until all gold is discovered
+     * @throws IOException
+     * @throws InterruptedException
+     */
+
+    public void start() throws IOException, InterruptedException {
         int gold = fetchTotalGold();
         BufferedReader reader = new BufferedReader(new FileReader("./src/dwarfs.txt"));
         String line = reader.readLine();
@@ -45,31 +81,71 @@ public class Game {
             line = reader.readLine();
         }
 
-        System.out.println(this.dwarfs);
-
         while (this.collected < gold) {
             PriorityQueue<Dwarf> copy = new PriorityQueue<Dwarf>(this.dwarfs);
             while(!copy.isEmpty()){
                 Dwarf curDwarf = copy.poll();
                 if (curDwarf.getClass().getName() == "Digger") {
-                    curDwarf.right();
-                } else if (curDwarf.getClass().getName() == "Harvester") {
-                    curDwarf.right();
-                    //if (this.goldDiscovered.size() > 0) {
-                        //go to the gold
-                    //}
-                } else if (curDwarf.getClass().getName() == "Builder") {
-                    System.out.println("builder ----++++");
-                    if (this.pitsDiscovered.empty() == false) { //
-                        curDwarf.memory = this.pitsDiscovered.peek();
-                        this.pitsDiscovered.pop();
-                        System.out.println(curDwarf.memory.pop());
-                        curDwarf.location = curDwarf.memory.pop();
-                    } else if (curDwarf.memory.size() != 0) { //builder is on its way to the pit
-                        curDwarf.location = curDwarf.memory.pop();
-                    } else {
+                    curDwarf.move();
 
+
+                } else if (curDwarf.getClass().getName() == "Harvester") {
+                    System.out.println(curDwarf.memory.isEmpty());
+                    if (this.goldDiscovered.size() != 0 && curDwarf.memory.isEmpty()) { //
+                        curDwarf.goldLoc = this.goldDiscovered.peek();
+                        this.goldDiscovered.pop();
+                    } else if (curDwarf.goldLoc != null) { //on its way to the gold
+                        if (curDwarf.goldLoc.size() == 1) {
+                            System.out.println("GOLD LOCATION" + curDwarf.goldLoc.peek());
+                            curDwarf.dig(curDwarf.goldLoc.peek());
+                            curDwarf.goldLoc = null;
+                        } else {
+                            System.out.println("HARVESTER GOING TO GOLD" + curDwarf.location);
+                            curDwarf.memory.push(curDwarf.location);
+                            curDwarf.location = curDwarf.goldLoc.pop();
+                            System.out.println(Arrays.toString(curDwarf.goldLoc.toArray()));
+                        }
+                    } else if (curDwarf.location != 0) {
+                        curDwarf.goBack();
+                        System.out.println("GOING BACK");
+                        System.out.println(curDwarf.location);
+                        if (curDwarf.location == 0) {
+                            curDwarf.memory = new Stack<Integer>();
+                            System.out.println(curDwarf.memory.isEmpty());
+                        }
+                    } else {
+                        System.out.println("HARVESTER IS IDLE");
                     }
+
+
+
+
+                } else if (curDwarf.getClass().getName() == "Builder") {
+                    if (this.pitsDiscovered.size() != 0 && curDwarf.memory.isEmpty()) { //
+                        curDwarf.pitLoc = this.pitsDiscovered.peek();
+                        System.out.println(Arrays.toString(this.pitsDiscovered.peek().toArray()));
+                        this.pitsDiscovered.pop();
+                    } else if (curDwarf.pitLoc != null) { //on its way to the gold
+                        if (curDwarf.pitLoc.size() == 1) {
+                            curDwarf.fill(curDwarf.pitLoc.peek());
+                            curDwarf.pitLoc = null;
+                        } else {
+                            curDwarf.memory.push(curDwarf.location);
+                            curDwarf.location = curDwarf.pitLoc.pop();
+                            System.out.println(Arrays.toString(curDwarf.pitLoc.toArray()));
+                        }
+                    } else if (curDwarf.location != 0) {
+                        curDwarf.goBack();
+                        if (curDwarf.location == 0) {
+                            curDwarf.memory = new Stack<Integer>();
+                            System.out.println(curDwarf.memory.isEmpty());
+                        }
+                    } else {
+                        System.out.println("BUILDER IS IDLE");
+                    }
+
+
+
                 } else {
                     System.out.println("Invalid dwarf type");
                 }
@@ -77,31 +153,57 @@ public class Game {
 
             }
             this.tries++;
+            TimeUnit.SECONDS.sleep(1);
             //System.out.println("Tries: " + this.tries);
         }
     }
 
+    /**
+     * fetch all gold on map
+     * @return number of gold tiles
+     */
+
     public int fetchTotalGold() {
         int g = 0;
         for(int i = 0; i < this.map.totalElements; i++) {
-            if (this.map.map.get(i).equals("G")) {
+            if (this.map.map.get(i).type.equals("G")) {
                 g++;
             }
         }
         return g;
     }
 
+    /**
+     * create builder obj
+     * and add to queue
+     */
+
     public void createBuilder() {
         this.dwarfs.add(new Builder(this.map));
     }
+
+    /**
+     * create harvester obj
+     * and add to queue
+     */
 
     public void createHarvester() {
         this.dwarfs.add(new Harvester(this.map, this));
     }
 
+    /**
+     * create digger obj
+     * and add to queue
+     */
+
     public void createDigger() {
         this.dwarfs.add(new Digger(this.map, this));
     }
+
+    /**
+     * kill dwarf (might not be useful if I decide to just avoid all traps)
+     * @param dwarf dwarf that will be killed
+     */
 
     public void kill(Dwarf dwarf) {
         this.dwarfs.remove(dwarf);

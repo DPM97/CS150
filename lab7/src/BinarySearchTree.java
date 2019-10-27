@@ -46,6 +46,13 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
             return true;
     }
 
+    /**
+     * check if the in order array
+     * of elements from tree contains element
+     * @param e element
+     * @return boolean
+     */
+
     @Override
     public boolean contains(E e) {
         ArrayList<E> arr = new ArrayList<E>();
@@ -58,10 +65,21 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
         return false;
     }
 
+    /**
+     * fetch nuber of elements at i depth
+     * @param i given depth
+     * @return number of elements
+     */
+
     @Override
     public int numOfElementsDepth(int i) {
         return getAtDepth(this.root, i, 0);
     }
+
+    /**
+     * find biggest element in tree
+     * @return biggest element
+     */
 
     @Override
     public E findMax() {
@@ -73,6 +91,11 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
             return null;
         }
     }
+
+    /**
+     * find smallest element in tree
+     * @return smallest element
+     */
 
     @Override
     public E findMin() {

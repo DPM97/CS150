@@ -1,8 +1,19 @@
+/**
+ * builder class
+ */
 public class Builder extends Dwarf {
+    /**
+     * constructor
+     * @param map map object
+     */
     public Builder(Map map) {
         super(map);
+        this.pitLoc = null;
     }
 
+    /**
+     * go left
+     */
 
     @Override
     public void left() {
@@ -11,30 +22,85 @@ public class Builder extends Dwarf {
         } else {
             int index = this.map.getLeft(this.location);
             if (index != -1) {
-                if (this.map.map.get(index).equals("P")) {
-                    this.map.map.set(index, "D"); //fill with dirt
+                if (this.map.map.get(index).type.equals("PD")) {
+                    System.out.println("BUILT OVER PTT");
+                    this.map.map.get(index).type = "0";
                 }
             }
         }
     }
 
+    /**
+     * go right
+     */
+
     @Override
     public void right() {
         int index = this.map.getRight(this.location);
         if (index != -1) {
-            System.out.println(this.map.map.get(index));
-            if (this.map.map.get(index).equals("P")) {
-                this.map.map.set(index, "D"); //fill with dirt
+            if (this.map.map.get(index).type.equals("PD")) {
+                System.out.println("BUILT OVER PTT");
+                this.map.map.get(index).type = "0";
             }
         }
     }
 
+    /**
+     * fill pit with dirt (try left and right)
+     * @param index current location
+     */
+
+    @Override
+    void fill(int index) {
+        this.location = index;
+        left();
+        right();
+        up();
+        down();
+    }
+
+    /**
+     * not needed
+     */
+
     @Override
     public void down() {
-
+        int index = this.map.getBelow(this.location);
+        if (index != -1) {
+            if (this.map.map.get(index).type.equals("PD")) {
+                System.out.println("BUILT OVER PTT");
+                this.map.map.get(index).type = "0";
+            }
+        }
     }
+
+    /**
+     * not needed
+     */
 
     @Override public void up() {
-
+        int index = this.map.getAbove(this.location);
+        if (index != -1) {
+            if (this.map.map.get(index).type.equals("PD")) {
+                System.out.println("BUILT OVER PTT");
+                this.map.map.get(index).type = "0";
+            }
+        }
     }
+
+    /**
+     * not needed
+     * @param index index
+     */
+
+    @Override
+    void dig(int index) { }
+
+    /**
+     * not needed
+     */
+
+    @Override
+    void move() { }
+
 }
