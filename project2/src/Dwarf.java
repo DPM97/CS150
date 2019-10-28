@@ -50,8 +50,10 @@ public abstract class Dwarf implements Comparable<Dwarf> {
      */
 
     public void goBack() {
-        this.memory.pop();
-        this.location = this.memory.peek();
+        if (this.memory.size() > 1) {
+            this.memory.pop();
+            this.location = this.memory.peek();
+        }
     }
 
     /**

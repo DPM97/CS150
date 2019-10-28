@@ -13,7 +13,8 @@ public class Digger extends Dwarf {
 
     /**
      * consttructor
-     * @param map game map object
+     *
+     * @param map  game map object
      * @param game game object
      */
 
@@ -28,6 +29,7 @@ public class Digger extends Dwarf {
 
     @Override
     void move() {
+        //checkForGold();
         System.out.println("Gnome location: " + this.location);
         int nearestLeft = this.location;
         System.out.println(this.map.getLeft(this.location));
@@ -293,6 +295,7 @@ public class Digger extends Dwarf {
 
     /**
      * not needed
+     *
      * @param index index
      */
 
@@ -302,10 +305,40 @@ public class Digger extends Dwarf {
 
     /**
      * not needed
+     *
      * @param index index
      */
 
     @Override
     void fill(int index) {
+    }
+
+    void checkForGold() {
+        int index = this.map.getLeft(this.location);
+        if (index != -1 && this.map.map.get(index).type.equals("G")) {
+            this.map.map.get(index).type = "GD";
+            this.game.goldDiscovered.push(reverse());
+        }
+
+        index = this.map.getRight(this.location);
+
+        if (index != -1 && this.map.map.get(index).type.equals("G")) {
+            this.map.map.get(index).type = "GD";
+            this.game.goldDiscovered.push(reverse());
+        }
+
+        index = this.map.getAbove(this.location);
+
+        if (index != -1 && this.map.map.get(index).type.equals("G")) {
+            this.map.map.get(index).type = "GD";
+            this.game.goldDiscovered.push(reverse());
+        }
+
+        index = this.map.getBelow(this.location);
+
+        if (index != -1 && this.map.map.get(index).type.equals("G")) {
+            this.map.map.get(index).type = "GD";
+            this.game.goldDiscovered.push(reverse());
+        }
     }
 }

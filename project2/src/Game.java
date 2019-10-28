@@ -87,6 +87,7 @@ public class Game {
                 Dwarf curDwarf = copy.poll();
                 if (curDwarf.getClass().getName() == "Digger") {
                     curDwarf.move();
+                    //checkEmpty(curDwarf);
 
 
                 } else if (curDwarf.getClass().getName() == "Harvester") {
@@ -153,6 +154,7 @@ public class Game {
 
             }
             this.tries++;
+            map.print();
             TimeUnit.SECONDS.sleep(1);
             //System.out.println("Tries: " + this.tries);
         }
@@ -208,6 +210,36 @@ public class Game {
     public void kill(Dwarf dwarf) {
         this.dwarfs.remove(dwarf);
         this.bank -= 100; //pay family
+    }
+
+    public void checkEmpty(Dwarf curDwarf) {
+        int dirt = 0;
+        for (int i = 0; i < this.map.map.size(); i++) {
+            if (this.map.map.get(i).type == "D") {
+                dirt++;
+            }
+        }
+        if (dirt > 0) {
+            return;
+        } else {
+            for (int i = 0; i < this.map.map.size(); i++) {
+                if (this.map.map.get(i).type == "G") {
+                    this.map.map.get(i).type = "GD";
+                    int down = i / this.map.height;
+                    int accross = i - (down * this.map.length);
+                    Stack<Integer> stack = new Stack<Integer>();
+                    stack.push(0);
+                    for (int j = 1; j < accross; j++) {
+                        stack.push(map.getRight(stack.peek()));
+                    }
+                    for (int j = 1; j < down; j++) {
+                        stack.push(map.getBelow(stack.peek()));
+                    }
+                    curDwarf.memory = stack;
+                    this.goldDiscovered.push(curDwarf.reverse());
+                }
+            }
+        }
     }
 
 }

@@ -1,3 +1,7 @@
 0,D,G,D,P,D
-P,D,D,G,D,D
-D,D,D,D,D,G
+D,D,D,G,D,D
+P,D,D,D,D,G
+D,P,D,G,D,D
+D,D,D,G,D,D
+P,D,D,D,D,G
+

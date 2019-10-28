@@ -63,10 +63,11 @@ public class Harvester extends Dwarf {
     @Override
     void dig(int index) {
         this.location = index;
+        System.out.println("HARVESTING AROUND " + index);
+        down();
         left();
         right();
         up();
-        down();
     }
 
     /**
@@ -113,4 +114,5 @@ public class Harvester extends Dwarf {
 
     @Override
     void move() { }
+
 }

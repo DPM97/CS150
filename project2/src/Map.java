@@ -63,7 +63,7 @@ public class Map {
      */
 
     public int getBelow(int index) {
-        if ((index + this.length) <= this.totalElements) {
+        if ((index + this.length) < this.totalElements && index + this.length < this.map.size()) {
             return index + this.length;
         } else { //off the map
             return -1;
@@ -105,10 +105,21 @@ public class Map {
      */
 
     public int getRight(int index) {
-        if (Math.floor(index / this.length) == Math.floor((index + 1)/ this.length)) {
+        if (Math.floor(index / this.length) == Math.floor((index + 1)/ this.length) && index + 1 < this.map.size()) {
             return index + 1;
         } else { //off the map
             return -1;
         }
+    }
+
+    public void print() {
+        String string = "";
+        for (int i = 0; i < map.size(); i++) {
+            string += (this.map.get(i).type + " ");
+            if (i % this.length == 0 && i != 0) {
+                string += ("\n");
+            }
+        }
+        System.out.println(string);
     }
 }
