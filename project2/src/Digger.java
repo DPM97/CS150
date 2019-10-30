@@ -161,9 +161,12 @@ public class Digger extends Dwarf {
             } else if (this.map.map.get(index).type.contains("L") || this.map.map.get(index).type.contains("R")) {
                 System.out.println("Encountered river");
             } else if (this.map.map.get(index).type.equals("G")) {
-                System.out.println("Encountered gold");
-                this.map.map.get(index).type = "GD";
-                this.game.goldDiscovered.push(reverse());
+                checkForGold();
+                /**
+                 System.out.println("Encountered gold");
+                 this.map.map.get(index).type = "GD";
+                 this.game.goldDiscovered.push(reverse());
+                 */
             } else if (this.map.map.get(index).type.equals("GD")) {
                 System.out.println("Waiting for harvester to harvest gold");
             } else if (this.map.map.get(index).type.equals("PD")) {
@@ -200,9 +203,12 @@ public class Digger extends Dwarf {
             } else if (this.map.map.get(index).type.contains("L") || this.map.map.get(index).type.contains("R")) {
                 System.out.println("Encountered river");
             } else if (this.map.map.get(index).type.equals("G")) {
-                System.out.println("Encountered gold");
-                this.map.map.get(index).type = "GD";
-                this.game.goldDiscovered.push(reverse());
+                checkForGold();
+                /**
+                 System.out.println("Encountered gold");
+                 this.map.map.get(index).type = "GD";
+                 this.game.goldDiscovered.push(reverse());
+                 */
             } else if (this.map.map.get(index).type.equals("GD")) {
                 System.out.println("Waiting for harvester to harvest gold");
             } else if (this.map.map.get(index).type.equals("PD")) {
@@ -238,9 +244,12 @@ public class Digger extends Dwarf {
             } else if (this.map.map.get(index).type.contains("L") || this.map.map.get(index).type.contains("R")) {
                 System.out.println("Encountered river");
             } else if (this.map.map.get(index).type.equals("G")) {
-                System.out.println("Encountered gold");
-                this.map.map.get(index).type = "GD";
-                this.game.goldDiscovered.push(reverse());
+                checkForGold();
+                /**
+                 System.out.println("Encountered gold");
+                 this.map.map.get(index).type = "GD";
+                 this.game.goldDiscovered.push(reverse());
+                 */
             } else if (this.map.map.get(index).type.equals("GD")) {
                 System.out.println("Waiting for harvester to harvest gold");
             } else if (this.map.map.get(index).type.equals("PD")) {
@@ -276,9 +285,12 @@ public class Digger extends Dwarf {
             } else if (this.map.map.get(index).type.contains("L") || this.map.map.get(index).type.contains("R")) {
                 System.out.println("Encountered river");
             } else if (this.map.map.get(index).type.equals("G")) {
+                checkForGold();
+                /**
                 System.out.println("Encountered gold");
                 this.map.map.get(index).type = "GD";
                 this.game.goldDiscovered.push(reverse());
+                 */
             } else if (this.map.map.get(index).type.equals("GD")) {
                 System.out.println("Waiting for harvester to harvest gold");
             } else if (this.map.map.get(index).type.equals("PD")) {

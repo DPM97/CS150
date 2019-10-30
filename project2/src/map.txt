@@ -1,4 +1,4 @@
-0,D,G,D,P,D
+0,D,D,D,P,D
 D,D,D,G,D,D
 P,D,D,D,D,G
 D,P,D,G,D,D
