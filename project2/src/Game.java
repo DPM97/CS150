@@ -26,11 +26,11 @@ public class Game {
     /**
      * gold that has been discovered but not harvested
      */
-    Stack<Stack<Integer>> goldDiscovered;
+    Stack<Dwarf> goldDiscovered;
     /**
      * pits that have been discovered but not filled
      */
-    Stack<Stack<Integer>> pitsDiscovered;
+    Stack<Dwarf> pitsDiscovered;
     /**
      * amount of gol collected
      */
@@ -46,13 +46,13 @@ public class Game {
      */
 
     public Game(Map map) {
-        this.bank = 3000;
+        this.bank = 300000;
         this.collected = 0;
         this.map = map;
         this.dwarfs = new PriorityQueue<Dwarf>();
         this.tries = 0;
-        this.pitsDiscovered = new Stack<Stack<Integer>>();
-        this.goldDiscovered = new Stack<Stack<Integer>>();
+        this.pitsDiscovered = new Stack<Dwarf>();
+        this.goldDiscovered = new Stack<Dwarf>();
     }
 
     /**
@@ -86,77 +86,63 @@ public class Game {
             while(!copy.isEmpty()){
                 Dwarf curDwarf = copy.poll();
                 if (curDwarf.getClass().getName() == "Digger") {
-                    curDwarf.move();
-                    //checkEmpty(curDwarf);
-
-
+                    if (!this.map.checkDirt()) {
+                        curDwarf.move();
+                    }
                 } else if (curDwarf.getClass().getName() == "Harvester") {
-                    System.out.println(curDwarf.memory.isEmpty());
-                    if (this.goldDiscovered.size() != 0 && curDwarf.memory.isEmpty()) { //
-                        curDwarf.goldLoc = this.goldDiscovered.peek();
+                    if (curDwarf.dwarf != null && curDwarf.status == "CHOOSING") {
+                        System.out.println("HARVESTER GOING TO GOLD");
+                        curDwarf.dig(curDwarf.dwarf);
+                        curDwarf.status = "MOVING";
+                    } else if (curDwarf.dwarf == null && curDwarf.status == "IDLE" && !this.goldDiscovered.isEmpty()) { //idle
+                        System.out.println("HARVESTER GOT INSTRUCTIONS");
+                        curDwarf.dwarf = this.goldDiscovered.peek();
                         this.goldDiscovered.pop();
-                    } else if (curDwarf.goldLoc != null) { //on its way to the gold
-                        if (curDwarf.goldLoc.size() == 1) {
-                            System.out.println("GOLD LOCATION" + curDwarf.goldLoc.peek());
-                            curDwarf.dig(curDwarf.goldLoc.peek());
-                            curDwarf.goldLoc = null;
-                        } else {
-                            System.out.println("HARVESTER GOING TO GOLD" + curDwarf.location);
-                            curDwarf.memory.push(curDwarf.location);
-                            curDwarf.location = curDwarf.goldLoc.pop();
-                            System.out.println(Arrays.toString(curDwarf.goldLoc.toArray()));
+                        curDwarf.goldLoc = curDwarf.dwarf.location;
+                        curDwarf.status = "CHOOSING";
+                    } else if (curDwarf.status == "MOVING" && curDwarf.dwarf != null) {
+                        curDwarf.move();
+                        if (curDwarf.location == curDwarf.goldLoc) { //has been built over gold
+                            curDwarf.status = "IDLE";
+                            curDwarf.dwarf = null;
                         }
-                    } else if (curDwarf.location != 0) {
+                    } else if (curDwarf.dwarf == null && curDwarf.location != 0) {
                         curDwarf.goBack();
-                        System.out.println("GOING BACK");
-                        System.out.println(curDwarf.location);
-                        if (curDwarf.location == 0) {
-                            curDwarf.memory = new Stack<Integer>();
-                            System.out.println(curDwarf.memory.isEmpty());
-                        }
                     } else {
                         System.out.println("HARVESTER IS IDLE");
+                        curDwarf.status = "IDLE";
                     }
-
-
-
 
                 } else if (curDwarf.getClass().getName() == "Builder") {
-                    if (this.pitsDiscovered.size() != 0 && curDwarf.memory.isEmpty()) { //
-                        curDwarf.pitLoc = this.pitsDiscovered.peek();
-                        System.out.println(Arrays.toString(this.pitsDiscovered.peek().toArray()));
+                    if (curDwarf.dwarf != null && curDwarf.status == "CHOOSING") {
+                        System.out.println("BUILDER GOING TO PIT");
+                        curDwarf.fill(curDwarf.dwarf);
+                        curDwarf.status = "MOVING";
+                    } else if (curDwarf.dwarf == null && curDwarf.status == "IDLE" && !this.pitsDiscovered.isEmpty()) { //idle
+                        System.out.println("BUILDER GOT INSTRUCTIONS");
+                        curDwarf.dwarf = this.pitsDiscovered.peek();
                         this.pitsDiscovered.pop();
-                    } else if (curDwarf.pitLoc != null) { //on its way to the gold
-                        if (curDwarf.pitLoc.size() == 1) {
-                            curDwarf.fill(curDwarf.pitLoc.peek());
-                            curDwarf.pitLoc = null;
-                        } else {
-                            curDwarf.memory.push(curDwarf.location);
-                            curDwarf.location = curDwarf.pitLoc.pop();
-                            System.out.println(Arrays.toString(curDwarf.pitLoc.toArray()));
+                        curDwarf.pitLoc = curDwarf.dwarf.location;
+                        curDwarf.status = "CHOOSING";
+                    } else if (curDwarf.status == "MOVING" && curDwarf.dwarf != null) {
+                        curDwarf.move();
+                        if (curDwarf.location == curDwarf.pitLoc) { //has been built over pit
+                            curDwarf.status = "IDLE";
+                            curDwarf.dwarf = null;
                         }
-                    } else if (curDwarf.location != 0) {
+                    } else if (curDwarf.dwarf == null && curDwarf.location != 0) {
                         curDwarf.goBack();
-                        if (curDwarf.location == 0) {
-                            curDwarf.memory = new Stack<Integer>();
-                            System.out.println(curDwarf.memory.isEmpty());
-                        }
                     } else {
                         System.out.println("BUILDER IS IDLE");
+                        curDwarf.status = "IDLE";
                     }
-
-
-
                 } else {
                     System.out.println("Invalid dwarf type");
                 }
-
-
             }
             this.tries++;
             map.print();
-            TimeUnit.SECONDS.sleep(1);
-            //System.out.println("Tries: " + this.tries);
+            TimeUnit.SECONDS.sleep(1/100);
         }
     }
 
@@ -181,7 +167,7 @@ public class Game {
      */
 
     public void createBuilder() {
-        this.dwarfs.add(new Builder(this.map));
+        this.dwarfs.add(new Builder(this.map, this));
     }
 
     /**
@@ -202,44 +188,6 @@ public class Game {
         this.dwarfs.add(new Digger(this.map, this));
     }
 
-    /**
-     * kill dwarf (might not be useful if I decide to just avoid all traps)
-     * @param dwarf dwarf that will be killed
-     */
 
-    public void kill(Dwarf dwarf) {
-        this.dwarfs.remove(dwarf);
-        this.bank -= 100; //pay family
-    }
-
-    public void checkEmpty(Dwarf curDwarf) {
-        int dirt = 0;
-        for (int i = 0; i < this.map.map.size(); i++) {
-            if (this.map.map.get(i).type == "D") {
-                dirt++;
-            }
-        }
-        if (dirt > 0) {
-            return;
-        } else {
-            for (int i = 0; i < this.map.map.size(); i++) {
-                if (this.map.map.get(i).type == "G") {
-                    this.map.map.get(i).type = "GD";
-                    int down = i / this.map.height;
-                    int accross = i - (down * this.map.length);
-                    Stack<Integer> stack = new Stack<Integer>();
-                    stack.push(0);
-                    for (int j = 1; j < accross; j++) {
-                        stack.push(map.getRight(stack.peek()));
-                    }
-                    for (int j = 1; j < down; j++) {
-                        stack.push(map.getBelow(stack.peek()));
-                    }
-                    curDwarf.memory = stack;
-                    this.goldDiscovered.push(curDwarf.reverse());
-                }
-            }
-        }
-    }
 
 }

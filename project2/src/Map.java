@@ -116,10 +116,26 @@ public class Map {
         String string = "";
         for (int i = 0; i < map.size(); i++) {
             string += (this.map.get(i).type + " ");
-            if (i % this.length == 0 && i != 0) {
-                string += ("\n");
+            if (i % (this.length + 1) == 0 || i == this.length + 1) {
+                if (i != 0) {
+                    string += ("\n");
+                }
             }
         }
         System.out.println(string);
+    }
+
+    public boolean checkDirt() {
+        int total = 0;
+        for (int i = 0; i < this.totalElements; i++) {
+            if (this.map.get(i).type.equals("D")) {
+                total++;
+            }
+        }
+        if (total > 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

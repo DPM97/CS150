@@ -21,28 +21,32 @@ public abstract class Dwarf implements Comparable<Dwarf> {
     /**
      * stack to gold loc
      */
-    public Stack<Integer> goldLoc;
+    public int goldLoc;
     /**
      * stack to pit loc
      */
-    public Stack<Integer> pitLoc;
+    public int pitLoc;
 
     /**
      * idle boolean
      */
 
     public boolean idle;
+    public Dwarf dwarf;
+    public String status;
+    public Game game;
 
     /**
      * constructor
      * @param map map obj
      */
 
-    public Dwarf(Map map) {
+    public Dwarf(Map map, Game game) {
         this.map = map;
         this.location = 0;
         this.memory = new Stack<Integer>();
         this.idle = true;
+        this.game = game;
     }
 
     /**
@@ -75,6 +79,7 @@ public abstract class Dwarf implements Comparable<Dwarf> {
         if (left != -1) {
             this.location = left;
             this.memory.push(this.location);
+            this.map.map.get(this.location).dwarfs.put(this, this.game.tries);
         }
     }
 
@@ -87,6 +92,7 @@ public abstract class Dwarf implements Comparable<Dwarf> {
         if (right != -1) {
             this.location = right;
             this.memory.push(this.location);
+            this.map.map.get(this.location).dwarfs.put(this, this.game.tries);
         }
     }
 
@@ -99,6 +105,7 @@ public abstract class Dwarf implements Comparable<Dwarf> {
         if (under != -1){
             this.location = under;
             this.memory.push(this.location);
+            this.map.map.get(this.location).dwarfs.put(this, this.game.tries);
         }
     }
 
@@ -111,6 +118,7 @@ public abstract class Dwarf implements Comparable<Dwarf> {
         if (above != -1) {
             this.location = above;
             this.memory.push(this.location);
+            this.map.map.get(this.location).dwarfs.put(this, this.game.tries);
         }
     }
 
@@ -118,8 +126,8 @@ public abstract class Dwarf implements Comparable<Dwarf> {
     abstract void right();
     abstract void down();
     abstract void up();
-    abstract void dig(int index);
-    abstract void fill(int index);
+    abstract void dig(Dwarf dwarf);
+    abstract void fill(Dwarf dwarf);
     abstract void move();
 
     /**

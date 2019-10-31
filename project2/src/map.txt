@@ -1,7 +1,9 @@
-0,D,D,D,P,D
-D,D,D,G,D,D
-P,D,D,D,D,G
-D,P,D,G,D,D
-D,D,D,G,D,D
-P,D,D,D,D,G
-
+0,D,D,D,P,D,D,D,P,D,G,D
+D,D,D,P,D,G,D,D,P,G,D,D
+P,D,D,D,D,G,D,D,D,D,P,D
+D,P,G,D,G,D,D,P,D,G,D,D
+D,P,G,D,G,D,D,P,D,G,D,D
+D,D,D,P,D,G,D,D,P,G,D,D
+D,D,D,P,D,G,D,D,P,G,D,D
+D,D,D,P,D,G,D,D,P,G,D,D
+D,P,G,D,G,D,D,P,D,G,D,D

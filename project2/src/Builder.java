@@ -1,3 +1,7 @@
+import java.sql.SQLOutput;
+import java.util.Arrays;
+import java.util.Stack;
+
 /**
  * builder class
  */
@@ -6,9 +10,28 @@ public class Builder extends Dwarf {
      * constructor
      * @param map map object
      */
-    public Builder(Map map) {
-        super(map);
-        this.pitLoc = null;
+    /**
+     * dwarf we are going to
+     */
+    Dwarf dwarf;
+
+    /**
+     * status of object
+     */
+    String status;
+
+    /**
+     * stack to pit that is generated
+     */
+
+    Stack<Integer> stack;
+
+    public Builder(Map map, Game game) {
+        super(map, game);
+        this.memory = new Stack<Integer>();
+        this.pitLoc = 0;
+        this.status = "IDLE";
+        this.stack = new Stack<Integer>();
     }
 
     /**
@@ -17,17 +40,6 @@ public class Builder extends Dwarf {
 
     @Override
     public void left() {
-        if(this.location == 0) {
-            return;
-        } else {
-            int index = this.map.getLeft(this.location);
-            if (index != -1) {
-                if (this.map.map.get(index).type.equals("PD")) {
-                    System.out.println("BUILT OVER PTT");
-                    this.map.map.get(index).type = "0";
-                }
-            }
-        }
     }
 
     /**
@@ -36,27 +48,72 @@ public class Builder extends Dwarf {
 
     @Override
     public void right() {
-        int index = this.map.getRight(this.location);
-        if (index != -1) {
-            if (this.map.map.get(index).type.equals("PD")) {
-                System.out.println("BUILT OVER PTT");
-                this.map.map.get(index).type = "0";
-            }
-        }
     }
 
     /**
      * fill pit with dirt (try left and right)
-     * @param index current location
+     *
+     * @param dwarf dwarf
      */
 
     @Override
-    void fill(int index) {
-        this.location = index;
-        left();
-        right();
-        up();
-        down();
+    public void fill(Dwarf dwarf) {
+        this.dwarf = dwarf;
+        Stack stack = new Stack();
+        stack.push(0);
+        int index = 0;
+        System.out.println("LOCATION: " + this.location);
+        while (index != this.pitLoc && this.stack.empty()) {
+            int temp = this.map.getLeft(index);
+            if (temp != -1) {
+                if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
+                    index = temp;
+                    stack.push(index);
+                    continue;
+                }
+            }
+
+            temp = this.map.getRight(index);
+            if (temp != -1) {
+                System.out.println("TEMP" + temp);
+                if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
+                    index = temp;
+                    stack.push(index);
+                    continue;
+                }
+            }
+
+            temp = this.map.getBelow(index);
+            if (temp != -1) {
+                if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
+                    index = temp;
+                    stack.push(index);
+                    continue;
+                }
+            }
+
+            temp = this.map.getAbove(index);
+            if (temp != -1) {
+                if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
+                    index = temp;
+                    stack.push(index);
+                    continue;
+                }
+            }
+            System.out.println("NOTHING HITTING");
+            //either dead end or gold
+        }
+        System.out.println(Arrays.toString(stack.toArray()));
+        if (this.stack.empty()) {
+            if (check(index)) {
+                System.out.println("PIT IS HERE");
+                this.memory = stack;
+                this.stack = stack;
+                this.stack = reverse(); //reverse stack
+            } else {
+                System.out.println("PIT IS NOT HERE");
+            }
+        }
     }
 
     /**
@@ -65,42 +122,111 @@ public class Builder extends Dwarf {
 
     @Override
     public void down() {
-        int index = this.map.getBelow(this.location);
-        if (index != -1) {
-            if (this.map.map.get(index).type.equals("PD")) {
-                System.out.println("BUILT OVER PTT");
-                this.map.map.get(index).type = "0";
-            }
-        }
     }
 
     /**
      * not needed
      */
 
-    @Override public void up() {
-        int index = this.map.getAbove(this.location);
+    @Override
+    public void up() {
+    }
+
+
+    public boolean check(int indexx) {
+        int index = this.map.getLeft(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.equals("PD")) {
-                System.out.println("BUILT OVER PTT");
-                this.map.map.get(index).type = "0";
+            if (this.map.map.get(index).type.contains("P")) {
+                return true;
             }
         }
+        index = this.map.getRight(indexx);
+        if (index != -1) {
+            if (this.map.map.get(index).type.contains("P")) {
+                return true;
+            }
+        }
+        index = this.map.getBelow(indexx);
+        if (index != -1) {
+            System.out.println("TYPE" + this.map.map.get(index).type);
+            if (this.map.map.get(index).type.contains("P")) {
+                return true;
+            }
+        }
+        index = this.map.getAbove(indexx);
+        if (index != -1) {
+            if (this.map.map.get(index).type.contains("P")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean harvest(int indexx) {
+        int index = this.map.getLeft(indexx);
+        if (index != -1) {
+            if (this.map.map.get(index).type.contains("P")) {
+                this.map.map.get(index).type = "0";
+                System.out.println("BUILT OVER PIT");
+                return true;
+            }
+        }
+        index = this.map.getRight(indexx);
+        if (index != -1) {
+            if (this.map.map.get(index).type.contains("P")) {
+                this.map.map.get(index).type = "0";
+                System.out.println("BUILT OVER PIT");
+                return true;
+            }
+        }
+        index = this.map.getBelow(indexx);
+        if (index != -1) {
+            if (this.map.map.get(index).type.contains("P")) {
+                this.map.map.get(index).type = "0";
+                System.out.println("BUILT OVER PIT");
+                return true;
+            }
+        }
+        index = this.map.getAbove(indexx);
+        if (index != -1) {
+            if (this.map.map.get(index).type.contains("P")) {
+                this.map.map.get(index).type = "0";
+                System.out.println("BUILT OVER PIT");
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
      * not needed
-     * @param index index
+     *
+     * @param dwarf dwarf
      */
 
     @Override
-    void dig(int index) { }
+    void dig(Dwarf dwarf) {
+    }
 
     /**
      * not needed
      */
 
     @Override
-    void move() { }
+    void move() {
+        if (!this.stack.isEmpty()) {
+            int element = this.stack.pop();
+            System.out.println("ELEMENT" + element);
+            if (element != this.pitLoc) {
+                this.location = element;
+            } else {
+                this.location = element;
+                harvest(this.location);
+                this.status = "IDLE";
+                this.stack = new Stack<>();
+                this.dwarf = null;
+            }
+        }
+    }
 
 }

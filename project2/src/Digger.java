@@ -15,11 +15,10 @@ public class Digger extends Dwarf {
      * consttructor
      *
      * @param map  game map object
-     * @param game game object
      */
 
     public Digger(Map map, Game game) {
-        super(map);
+        super(map, game);
         this.game = game;
     }
 
@@ -107,6 +106,7 @@ public class Digger extends Dwarf {
         }
 
         int[] distances = new int[]{distanceRight, distanceBottom, distanceLeft, distanceTop};
+        /*
         System.out.println("Nearest dirt node above = " + nearestTop);
         System.out.println("Nearest dirt node below = " + nearestBottom);
         System.out.println("Nearest dirt node left = " + nearestLeft);
@@ -114,7 +114,8 @@ public class Digger extends Dwarf {
         System.out.println("Distance to nearest left dirt node = " + distanceLeft);
         System.out.println("Distance to nearest right dirt node = " + distanceRight);
         System.out.println("Distance to nearest bottom dirt node = " + distanceBottom);
-        System.out.println("Distance to nearest top dirt node = " + distanceTop);
+        System.out.println("Distance to nearest top dirt node = " + distanceTop);\
+        */
 
         int smallest = 100;
         int index = 0;
@@ -128,17 +129,21 @@ public class Digger extends Dwarf {
         if (index == 0) {
             System.out.println("Moving right");
             right();
+            checkForGold();
         } else if (index == 1) {
             System.out.println("Moving down");
             down();
+            checkForGold();
         } else if (index == 2) {
             System.out.println("Moving left");
             left();
+            checkForGold();
         } else if (index == 3) {
             System.out.println("Moving up");
             up();
+            checkForGold();
         }
-        System.out.println(this.location);
+        //System.out.println(this.location);
     }
 
     /**
@@ -151,29 +156,23 @@ public class Digger extends Dwarf {
         if (index != -1) {
             if (this.map.map.get(index).type.equals("D")) {
                 this.map.map.get(index).type = "0";
-                this.map.map.get(this.location).dwarfs.put(this, this.game.tries);
                 goDown();
             } else if (this.map.map.get(index).type.equals("L")) {
                 System.out.println("Encountered lava");
             } else if (this.map.map.get(index).type.equals("P")) {
                 System.out.println("Encountered pit");
-                this.game.pitsDiscovered.push(reverse()); //push memory so that builder knows how to get to pit
+                this.game.pitsDiscovered.push(this);
+                //this.game.pitsDiscovered.push(reverse()); //push memory so that builder knows how to get to pit
             } else if (this.map.map.get(index).type.contains("L") || this.map.map.get(index).type.contains("R")) {
                 System.out.println("Encountered river");
             } else if (this.map.map.get(index).type.equals("G")) {
                 checkForGold();
-                /**
-                 System.out.println("Encountered gold");
-                 this.map.map.get(index).type = "GD";
-                 this.game.goldDiscovered.push(reverse());
-                 */
             } else if (this.map.map.get(index).type.equals("GD")) {
                 System.out.println("Waiting for harvester to harvest gold");
             } else if (this.map.map.get(index).type.equals("PD")) {
                 System.out.println("Waiting for builder to fill pit");
             } else {
                 System.out.println("Already Dug" + index);
-                this.map.map.get(this.location).dwarfs.put(this, this.game.tries);
                 System.out.println(this.map.map.get(this.location).type);
                 goDown();
             }
@@ -192,35 +191,40 @@ public class Digger extends Dwarf {
         if (index != -1) {
             if (this.map.map.get(index).type.equals("D")) {
                 this.map.map.get(index).type = "0";
-                this.map.map.get(this.location).dwarfs.put(this, this.game.tries);
                 goUp();
             } else if (this.map.map.get(index).type.equals("L")) {
                 System.out.println("Encountered lava");
             } else if (this.map.map.get(index).type.equals("P")) {
                 System.out.println("Encountered pit");
                 this.map.map.get(index).type = "PD";
-                this.game.pitsDiscovered.push(reverse());
+                this.game.pitsDiscovered.push(this);
+                //this.game.pitsDiscovered.push(reverse());
             } else if (this.map.map.get(index).type.contains("L") || this.map.map.get(index).type.contains("R")) {
                 System.out.println("Encountered river");
             } else if (this.map.map.get(index).type.equals("G")) {
                 checkForGold();
-                /**
-                 System.out.println("Encountered gold");
-                 this.map.map.get(index).type = "GD";
-                 this.game.goldDiscovered.push(reverse());
-                 */
             } else if (this.map.map.get(index).type.equals("GD")) {
                 System.out.println("Waiting for harvester to harvest gold");
             } else if (this.map.map.get(index).type.equals("PD")) {
                 System.out.println("Waiting for builder to fill pit");
             } else {
                 System.out.println("Already Dug" + index);
-                this.map.map.get(this.location).dwarfs.put(this, this.game.tries);
+
                 goUp();
             }
         } else {
             right();
         }
+    }
+
+    /**
+     * dig
+     * @param dwarf current dwarf
+     */
+
+    @Override
+    void dig(Dwarf dwarf) {
+
     }
 
     /**
@@ -233,30 +237,24 @@ public class Digger extends Dwarf {
         if (index != -1) {
             if (this.map.map.get(index).type.equals("D")) {
                 this.map.map.get(index).type = "0";
-                this.map.map.get(this.location).dwarfs.put(this, this.game.tries);
                 goLeft();
             } else if (this.map.map.get(index).type.equals("L")) {
                 System.out.println("Encountered lava");
             } else if (this.map.map.get(index).type.equals("P")) {
                 System.out.println("Encountered pit");
                 this.map.map.get(index).type = "PD";
-                this.game.pitsDiscovered.push(reverse());
+                this.game.pitsDiscovered.push(this);
+                //this.game.pitsDiscovered.push(reverse());
             } else if (this.map.map.get(index).type.contains("L") || this.map.map.get(index).type.contains("R")) {
                 System.out.println("Encountered river");
             } else if (this.map.map.get(index).type.equals("G")) {
                 checkForGold();
-                /**
-                 System.out.println("Encountered gold");
-                 this.map.map.get(index).type = "GD";
-                 this.game.goldDiscovered.push(reverse());
-                 */
             } else if (this.map.map.get(index).type.equals("GD")) {
                 System.out.println("Waiting for harvester to harvest gold");
             } else if (this.map.map.get(index).type.equals("PD")) {
                 System.out.println("Waiting for builder to fill pit");
             } else {
                 System.out.println("Already Dug" + index);
-                this.map.map.get(this.location).dwarfs.put(this, this.game.tries);
                 goLeft();
             }
         } else {
@@ -273,7 +271,6 @@ public class Digger extends Dwarf {
         int index = this.map.getRight(this.location);
         if (index != -1) {
             if (this.map.map.get(index).type.equals("D")) {
-                this.map.map.get(this.location).dwarfs.put(this, this.game.tries);
                 this.map.map.get(index).type = "0";
                 goRight();
             } else if (this.map.map.get(index).type.equals("L")) {
@@ -281,16 +278,12 @@ public class Digger extends Dwarf {
             } else if (this.map.map.get(index).type.equals("P")) {
                 System.out.println("Encountered pit");
                 this.map.map.get(index).type = "PD";
-                this.game.pitsDiscovered.push(reverse());
+                this.game.pitsDiscovered.push(this);
+                //this.game.pitsDiscovered.push(reverse());
             } else if (this.map.map.get(index).type.contains("L") || this.map.map.get(index).type.contains("R")) {
                 System.out.println("Encountered river");
             } else if (this.map.map.get(index).type.equals("G")) {
                 checkForGold();
-                /**
-                System.out.println("Encountered gold");
-                this.map.map.get(index).type = "GD";
-                this.game.goldDiscovered.push(reverse());
-                 */
             } else if (this.map.map.get(index).type.equals("GD")) {
                 System.out.println("Waiting for harvester to harvest gold");
             } else if (this.map.map.get(index).type.equals("PD")) {
@@ -308,49 +301,41 @@ public class Digger extends Dwarf {
     /**
      * not needed
      *
-     * @param index index
+     * @param dwarf dwarf
      */
 
     @Override
-    void dig(int index) {
+    void fill(Dwarf dwarf) {
     }
 
-    /**
-     * not needed
-     *
-     * @param index index
-     */
 
-    @Override
-    void fill(int index) {
-    }
 
     void checkForGold() {
         int index = this.map.getLeft(this.location);
         if (index != -1 && this.map.map.get(index).type.equals("G")) {
             this.map.map.get(index).type = "GD";
-            this.game.goldDiscovered.push(reverse());
+            this.game.goldDiscovered.push(this);
         }
 
         index = this.map.getRight(this.location);
 
         if (index != -1 && this.map.map.get(index).type.equals("G")) {
             this.map.map.get(index).type = "GD";
-            this.game.goldDiscovered.push(reverse());
+            this.game.goldDiscovered.push(this);
         }
 
         index = this.map.getAbove(this.location);
 
         if (index != -1 && this.map.map.get(index).type.equals("G")) {
             this.map.map.get(index).type = "GD";
-            this.game.goldDiscovered.push(reverse());
+            this.game.goldDiscovered.push(this);
         }
 
         index = this.map.getBelow(this.location);
 
         if (index != -1 && this.map.map.get(index).type.equals("G")) {
             this.map.map.get(index).type = "GD";
-            this.game.goldDiscovered.push(reverse());
+            this.game.goldDiscovered.push(this);
         }
     }
 }
