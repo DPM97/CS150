@@ -18,7 +18,8 @@ public class Harvester extends Dwarf {
 
     /**
      * constructor
-     * @param map map obj
+     *
+     * @param map  map obj
      * @param game game obj
      */
     public Harvester(Map map, Game game) {
@@ -48,35 +49,31 @@ public class Harvester extends Dwarf {
 
     /**
      * dig around location
+     *
      * @param dwarf dwarf at gold
      */
 
     @Override
-    void dig(Dwarf dwarf) {
+    boolean dig(Dwarf dwarf) {
         this.dwarf = dwarf;
         Stack stack = new Stack();
         stack.push(0);
         int index = 0;
-        System.out.println("LOCATION: " + this.location);
-        this.goldLoc = this.dwarf.location;
-        while (index != this.goldLoc && this.stack.empty()) {
+        while (!check(index) && this.stack.empty()) {
             int temp = this.map.getLeft(index);
             if (temp != -1) {
                 if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
                     index = temp;
                     stack.push(index);
-                    System.out.println("INDEX: " + index);
                     continue;
                 }
             }
 
             temp = this.map.getRight(index);
             if (temp != -1) {
-                System.out.println("TEMP" + temp);
                 if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
                     index = temp;
                     stack.push(index);
-                    System.out.println("INDEX: " + index);
                     continue;
                 }
             }
@@ -86,7 +83,6 @@ public class Harvester extends Dwarf {
                 if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
                     index = temp;
                     stack.push(index);
-                    System.out.println("INDEX: " + index);
                     continue;
                 }
             }
@@ -96,49 +92,65 @@ public class Harvester extends Dwarf {
                 if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
                     index = temp;
                     stack.push(index);
-                    System.out.println("INDEX: " + index);
                     continue;
                 }
             }
-            System.out.println("NOTHING HITTING");
+
+            return false;
+            //System.out.println("NOTHING HITTING");
             //either dead end or gold
         }
+        /*
+        int test = this.map.getLeft((int) stack.toArray()[stack.size() - 1]);
+        System.out.println(this.map.map.get(test).type);
+        test = this.map.getRight((int) stack.toArray()[stack.size() - 1]);
+        System.out.println(this.map.map.get(test).type);
+        test = this.map.getAbove((int) stack.toArray()[stack.size() - 1]);
+        System.out.println(this.map.map.get(test).type);
+        test = this.map.getBelow((int) stack.toArray()[stack.size() - 1]);
+        System.out.println(this.map.map.get(test).type);
+        */
         System.out.println(Arrays.toString(stack.toArray()));
         if (this.stack.empty()) {
-            if (check(index)) {
-                System.out.println("GOLD IS HERE");
-                this.memory = stack;
-                this.stack = stack;
-                this.stack = reverse(); //reverse stack
-            } else {
-                System.out.println("GOLD IS NOT HERE");
-            }
+            System.out.println("GOLD IS HERE");
+            this.memory = stack;
+            this.stack = stack;
+            this.stack = reverse(); //reverse stack
+            return true;
         }
+        return false;
     }
 
     public boolean check(int indexx) {
         int index = this.map.getLeft(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("G")) {
+            if (this.map.map.get(index).type.contains("G") && !this.map.map.get(index).type.equals("GH")) {
+                this.map.map.get(index).type = "GH";
+                this.goldLoc = index;
                 return true;
             }
         }
         index = this.map.getRight(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("G")) {
+            if (this.map.map.get(index).type.contains("G") && !this.map.map.get(index).type.equals("GH")) {
+                this.map.map.get(index).type = "GH";
+                this.goldLoc = index;
                 return true;
             }
         }
         index = this.map.getBelow(indexx);
         if (index != -1) {
-            System.out.println("TYPE" + this.map.map.get(index).type);
-            if (this.map.map.get(index).type.contains("G")) {
+            if (this.map.map.get(index).type.contains("G") && !this.map.map.get(index).type.equals("GH")) {
+                this.map.map.get(index).type = "GH";
+                this.goldLoc = index;
                 return true;
             }
         }
         index = this.map.getAbove(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("G")) {
+            if (this.map.map.get(index).type.contains("G") && !this.map.map.get(index).type.equals("GH")) {
+                this.map.map.get(index).type = "GH";
+                this.goldLoc = index;
                 return true;
             }
         }
@@ -165,11 +177,14 @@ public class Harvester extends Dwarf {
 
     /**
      * not needed
+     *
      * @param dwarf index
      */
 
     @Override
-    void fill(Dwarf dwarf) { }
+    boolean fill(Dwarf dwarf) {
+        return false;
+    }
 
     /**
      * not needed
@@ -184,27 +199,18 @@ public class Harvester extends Dwarf {
                 this.location = element;
             } else {
                 this.location = element;
-                harvest(this.location);
                 this.status = "IDLE";
                 this.stack = new Stack<>();
                 this.dwarf = null;
             }
+            harvest(this.location);
         }
     }
 
     public boolean harvest(int indexx) {
-        int index = this.map.getLeft(indexx);
+        int index = this.map.getRight(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("G")) {
-                this.map.map.get(index).type = "0";
-                System.out.println("HARVESTED GOLD");
-                this.game.collected++;
-                return true;
-            }
-        }
-        index = this.map.getRight(indexx);
-        if (index != -1) {
-            if (this.map.map.get(index).type.contains("G")) {
+            if (this.map.map.get(index).type.equals("GH")) {
                 this.map.map.get(index).type = "0";
                 System.out.println("HARVESTED GOLD");
                 this.game.collected++;
@@ -213,7 +219,16 @@ public class Harvester extends Dwarf {
         }
         index = this.map.getBelow(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("G")) {
+            if (this.map.map.get(index).type.equals("GH")) {
+                this.map.map.get(index).type = "0";
+                System.out.println("HARVESTED GOLD");
+                this.game.collected++;
+                return true;
+            }
+        }
+        index = this.map.getLeft(indexx);
+        if (index != -1) {
+            if (this.map.map.get(index).type.equals("GH")) {
                 this.map.map.get(index).type = "0";
                 System.out.println("HARVESTED GOLD");
                 this.game.collected++;
@@ -222,7 +237,7 @@ public class Harvester extends Dwarf {
         }
         index = this.map.getAbove(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("G")) {
+            if (this.map.map.get(index).type.equals("GH")) {
                 this.map.map.get(index).type = "0";
                 System.out.println("HARVESTED GOLD");
                 this.game.collected++;

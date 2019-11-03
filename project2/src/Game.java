@@ -42,6 +42,7 @@ public class Game {
 
     /**
      * constructor
+     *
      * @param map map obj
      */
 
@@ -57,6 +58,7 @@ public class Game {
 
     /**
      * start game - import dwarfs - run program until all gold is discovered
+     *
      * @throws IOException
      * @throws InterruptedException
      */
@@ -65,15 +67,15 @@ public class Game {
         int gold = fetchTotalGold();
         BufferedReader reader = new BufferedReader(new FileReader("./src/dwarfs.txt"));
         String line = reader.readLine();
-        while(this.bank >= 300 && line != null) {
+        while (this.bank >= 300 && line != null) {
             if (line.equals("digger")) {
-                this.bank-=300;
+                this.bank -= 300;
                 createDigger();
             } else if (line.equals("harvester")) {
-                this.bank-=500;
+                this.bank -= 500;
                 createHarvester();
             } else if (line.equals("builder")) {
-                this.bank-=750;
+                this.bank -= 750;
                 createBuilder();
             } else {
                 System.out.println("invalid dwarf type");
@@ -83,7 +85,7 @@ public class Game {
 
         while (this.collected < gold) {
             PriorityQueue<Dwarf> copy = new PriorityQueue<Dwarf>(this.dwarfs);
-            while(!copy.isEmpty()){
+            while (!copy.isEmpty()) {
                 Dwarf curDwarf = copy.poll();
                 if (curDwarf.getClass().getName() == "Digger") {
                     if (!this.map.checkDirt()) {
@@ -91,9 +93,12 @@ public class Game {
                     }
                 } else if (curDwarf.getClass().getName() == "Harvester") {
                     if (curDwarf.dwarf != null && curDwarf.status == "CHOOSING") {
-                        System.out.println("HARVESTER GOING TO GOLD");
-                        curDwarf.dig(curDwarf.dwarf);
-                        curDwarf.status = "MOVING";
+                        if (curDwarf.dig(curDwarf.dwarf)) {
+                            curDwarf.status = "MOVING";
+                            System.out.println("HARVESTER GOING TO GOLD");
+                        } else {
+                            curDwarf.status = "IDLE";
+                        }
                     } else if (curDwarf.dwarf == null && curDwarf.status == "IDLE" && !this.goldDiscovered.isEmpty()) { //idle
                         System.out.println("HARVESTER GOT INSTRUCTIONS");
                         curDwarf.dwarf = this.goldDiscovered.peek();
@@ -113,11 +118,15 @@ public class Game {
                         curDwarf.status = "IDLE";
                     }
 
+
                 } else if (curDwarf.getClass().getName() == "Builder") {
                     if (curDwarf.dwarf != null && curDwarf.status == "CHOOSING") {
-                        System.out.println("BUILDER GOING TO PIT");
-                        curDwarf.fill(curDwarf.dwarf);
-                        curDwarf.status = "MOVING";
+                        if (curDwarf.fill(curDwarf.dwarf)) {
+                            System.out.println("BUILDER GOING TO PIT");
+                            curDwarf.status = "MOVING";
+                        } else {
+                            curDwarf.status = "IDLE";
+                        }
                     } else if (curDwarf.dwarf == null && curDwarf.status == "IDLE" && !this.pitsDiscovered.isEmpty()) { //idle
                         System.out.println("BUILDER GOT INSTRUCTIONS");
                         curDwarf.dwarf = this.pitsDiscovered.peek();
@@ -135,26 +144,31 @@ public class Game {
                     } else {
                         System.out.println("BUILDER IS IDLE");
                         curDwarf.status = "IDLE";
+
                     }
                 } else {
                     System.out.println("Invalid dwarf type");
                 }
+
             }
             this.tries++;
-            map.print();
-            TimeUnit.SECONDS.sleep(1/100);
+            this.map.print();
+            TimeUnit.SECONDS.sleep(1/2);
         }
+        System.out.println("TOTAL MOVES: " + this.tries);
     }
 
     /**
      * fetch all gold on map
+     *
      * @return number of gold tiles
      */
 
     public int fetchTotalGold() {
         int g = 0;
-        for(int i = 0; i < this.map.totalElements; i++) {
+        for (int i = 0; i < this.map.totalElements; i++) {
             if (this.map.map.get(i).type.equals("G")) {
+                System.out.println(i);
                 g++;
             }
         }
@@ -187,7 +201,6 @@ public class Game {
     public void createDigger() {
         this.dwarfs.add(new Digger(this.map, this));
     }
-
 
 
 }

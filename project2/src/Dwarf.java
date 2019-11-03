@@ -126,8 +126,8 @@ public abstract class Dwarf implements Comparable<Dwarf> {
     abstract void right();
     abstract void down();
     abstract void up();
-    abstract void dig(Dwarf dwarf);
-    abstract void fill(Dwarf dwarf);
+    abstract boolean dig(Dwarf dwarf);
+    abstract boolean fill(Dwarf dwarf);
     abstract void move();
 
     /**

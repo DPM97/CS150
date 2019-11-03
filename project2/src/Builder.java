@@ -57,25 +57,14 @@ public class Builder extends Dwarf {
      */
 
     @Override
-    public void fill(Dwarf dwarf) {
+    public boolean fill(Dwarf dwarf) {
         this.dwarf = dwarf;
         Stack stack = new Stack();
         stack.push(0);
         int index = 0;
-        System.out.println("LOCATION: " + this.location);
-        while (index != this.pitLoc && this.stack.empty()) {
-            int temp = this.map.getLeft(index);
+        while (!check(index) && this.stack.empty()) {
+            int temp = this.map.getRight(index);
             if (temp != -1) {
-                if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
-                    index = temp;
-                    stack.push(index);
-                    continue;
-                }
-            }
-
-            temp = this.map.getRight(index);
-            if (temp != -1) {
-                System.out.println("TEMP" + temp);
                 if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
                     index = temp;
                     stack.push(index);
@@ -92,6 +81,16 @@ public class Builder extends Dwarf {
                 }
             }
 
+            temp = this.map.getLeft(index);
+            if (temp != -1) {
+                if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
+                    index = temp;
+                    stack.push(index);
+                    continue;
+                }
+            }
+
+
             temp = this.map.getAbove(index);
             if (temp != -1) {
                 if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
@@ -100,20 +99,19 @@ public class Builder extends Dwarf {
                     continue;
                 }
             }
-            System.out.println("NOTHING HITTING");
+
+            //System.out.println("NOTHING HITTING");
             //either dead end or gold
+            return false;
         }
-        System.out.println(Arrays.toString(stack.toArray()));
         if (this.stack.empty()) {
-            if (check(index)) {
                 System.out.println("PIT IS HERE");
                 this.memory = stack;
                 this.stack = stack;
                 this.stack = reverse(); //reverse stack
-            } else {
-                System.out.println("PIT IS NOT HERE");
-            }
+                return true;
         }
+        return false;
     }
 
     /**
@@ -136,26 +134,29 @@ public class Builder extends Dwarf {
     public boolean check(int indexx) {
         int index = this.map.getLeft(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("P")) {
+            if (this.map.map.get(index).type.contains("P") && !this.map.map.get(index).type.equals("PH")) {
+                this.map.map.get(index).type = "PH";
                 return true;
             }
         }
         index = this.map.getRight(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("P")) {
+            if (this.map.map.get(index).type.contains("P") && !this.map.map.get(index).type.equals("PH")) {
+                this.map.map.get(index).type = "PH";
                 return true;
             }
         }
         index = this.map.getBelow(indexx);
         if (index != -1) {
-            System.out.println("TYPE" + this.map.map.get(index).type);
-            if (this.map.map.get(index).type.contains("P")) {
+            if (this.map.map.get(index).type.contains("P") && !this.map.map.get(index).type.equals("PH")) {
+                this.map.map.get(index).type = "PH";
                 return true;
             }
         }
         index = this.map.getAbove(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("P")) {
+            if (this.map.map.get(index).type.contains("P") && !this.map.map.get(index).type.equals("PH")) {
+                this.map.map.get(index).type = "PH";
                 return true;
             }
         }
@@ -165,7 +166,7 @@ public class Builder extends Dwarf {
     public boolean harvest(int indexx) {
         int index = this.map.getLeft(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("P")) {
+            if (this.map.map.get(index).type.equals("PH")) {
                 this.map.map.get(index).type = "0";
                 System.out.println("BUILT OVER PIT");
                 return true;
@@ -173,7 +174,7 @@ public class Builder extends Dwarf {
         }
         index = this.map.getRight(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("P")) {
+            if (this.map.map.get(index).type.equals("PH")) {
                 this.map.map.get(index).type = "0";
                 System.out.println("BUILT OVER PIT");
                 return true;
@@ -181,7 +182,7 @@ public class Builder extends Dwarf {
         }
         index = this.map.getBelow(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("P")) {
+            if (this.map.map.get(index).type.equals("PH")) {
                 this.map.map.get(index).type = "0";
                 System.out.println("BUILT OVER PIT");
                 return true;
@@ -189,7 +190,7 @@ public class Builder extends Dwarf {
         }
         index = this.map.getAbove(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("P")) {
+            if (this.map.map.get(index).type.equals("PH")) {
                 this.map.map.get(index).type = "0";
                 System.out.println("BUILT OVER PIT");
                 return true;
@@ -205,7 +206,8 @@ public class Builder extends Dwarf {
      */
 
     @Override
-    void dig(Dwarf dwarf) {
+    boolean dig(Dwarf dwarf) {
+        return false;
     }
 
     /**
@@ -216,16 +218,15 @@ public class Builder extends Dwarf {
     void move() {
         if (!this.stack.isEmpty()) {
             int element = this.stack.pop();
-            System.out.println("ELEMENT" + element);
             if (element != this.pitLoc) {
                 this.location = element;
             } else {
                 this.location = element;
-                harvest(this.location);
                 this.status = "IDLE";
                 this.stack = new Stack<>();
                 this.dwarf = null;
             }
+            harvest(this.location);
         }
     }
 
