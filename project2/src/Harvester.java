@@ -120,6 +120,7 @@ public class Harvester extends Dwarf {
             this.stack = stack;
             this.stack = reverse(); //reverse stack
             this.game.goldPlaceFound.add(this.stack);
+            System.out.println(Arrays.toString(this.stack.toArray()));
             return true;
         }
         return false;
@@ -186,6 +187,7 @@ public class Harvester extends Dwarf {
         if (index != -1) {
             if (this.map.map.get(index).type.contains("G") && !this.map.map.get(index).type.equals("GH")) {
                 this.map.map.get(index).type = "GH";
+                System.out.println(index);
                 this.goldLoc = index;
                 return true;
             }
@@ -194,6 +196,7 @@ public class Harvester extends Dwarf {
         if (index != -1) {
             if (this.map.map.get(index).type.contains("G") && !this.map.map.get(index).type.equals("GH")) {
                 this.map.map.get(index).type = "GH";
+                System.out.println(index);
                 this.goldLoc = index;
                 return true;
             }
@@ -202,6 +205,7 @@ public class Harvester extends Dwarf {
         if (index != -1) {
             if (this.map.map.get(index).type.contains("G") && !this.map.map.get(index).type.equals("GH")) {
                 this.map.map.get(index).type = "GH";
+                System.out.println(index);
                 this.goldLoc = index;
                 return true;
             }
@@ -210,6 +214,7 @@ public class Harvester extends Dwarf {
         if (index != -1) {
             if (this.map.map.get(index).type.contains("G") && !this.map.map.get(index).type.equals("GH")) {
                 this.map.map.get(index).type = "GH";
+                System.out.println(index);
                 this.goldLoc = index;
                 return true;
             }
@@ -254,9 +259,10 @@ public class Harvester extends Dwarf {
     void move() {
         if (!this.stack.isEmpty()) {
             int element = this.stack.pop();
-            System.out.println("ELEMENT" + element);
+            //System.out.println("ELEMENT" + element);
             if (element != this.goldLoc) {
                 this.location = element;
+                harvest(this.location);
             } else {
                 this.location = element;
                 this.status = "IDLE";
@@ -270,36 +276,36 @@ public class Harvester extends Dwarf {
     public boolean harvest(int indexx) {
         int index = this.map.getRight(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.equals("GH")) {
+            if (this.map.map.get(index).type.contains("G")) {
                 this.map.map.get(index).type = "0";
-                System.out.println("HARVESTED GOLD");
+                //System.out.println("HARVESTED GOLD");
                 this.game.collected++;
                 return true;
             }
         }
         index = this.map.getBelow(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.equals("GH")) {
+            if (this.map.map.get(index).type.contains("G")) {
                 this.map.map.get(index).type = "0";
-                System.out.println("HARVESTED GOLD");
+                //System.out.println("HARVESTED GOLD");
                 this.game.collected++;
                 return true;
             }
         }
         index = this.map.getLeft(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.equals("GH")) {
+            if (this.map.map.get(index).type.contains("G")) {
                 this.map.map.get(index).type = "0";
-                System.out.println("HARVESTED GOLD");
+                //System.out.println("HARVESTED GOLD");
                 this.game.collected++;
                 return true;
             }
         }
         index = this.map.getAbove(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.equals("GH")) {
+            if (this.map.map.get(index).type.contains("G")) {
                 this.map.map.get(index).type = "0";
-                System.out.println("HARVESTED GOLD");
+                //System.out.println("HARVESTED GOLD");
                 this.game.collected++;
                 return true;
             }

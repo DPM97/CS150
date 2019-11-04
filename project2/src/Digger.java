@@ -29,9 +29,9 @@ public class Digger extends Dwarf {
     @Override
     void move() {
         //checkForGold();
-        System.out.println("Gnome location: " + this.location);
+        //System.out.println("Gnome location: " + this.location);
         int nearestLeft = this.location;
-        System.out.println(this.map.getLeft(this.location));
+        //System.out.println(this.map.getLeft(this.location));
         int distanceLeft = 0;
         while (this.map.getLeft(nearestLeft) != -1) {
             if (!this.map.map.get(nearestLeft).type.equals("D") && !this.map.map.get(nearestLeft).type.equals("L")) {
@@ -130,23 +130,23 @@ public class Digger extends Dwarf {
                 index = i;
             }
         }
-        System.out.println(index);
+        //System.out.println(index);
         if (index == 0) {
-            System.out.println("Moving right");
+            //System.out.println("Moving right");
             right();
             checkForGold();
             checkForPits();
         } else if (index == 1) {
-            System.out.println("Moving down");
+            //System.out.println("Moving down");
             down();
             checkForPits();
         } else if (index == 2) {
-            System.out.println("Moving left");
+            //System.out.println("Moving left");
             left();
             checkForGold();
             checkForPits();
         } else if (index == 3) {
-            System.out.println("Moving up");
+            //System.out.println("Moving up");
             up();
             checkForGold();
             checkForPits();
@@ -253,13 +253,13 @@ public class Digger extends Dwarf {
                 checkForGold();
                 up();
             } else if (this.map.map.get(index).type.equals("GD")) {
-                System.out.println("Waiting for harvester to harvest gold");
+                //System.out.println("Waiting for harvester to harvest gold");
                 up();
             } else if (this.map.map.get(index).type.equals("PD")) {
                 up();
-                System.out.println("Waiting for builder to fill pit");
+                //System.out.println("Waiting for builder to fill pit");
             } else {
-                System.out.println("Already Dug" + index);
+                //System.out.println("Already Dug" + index);
                 goLeft();
             }
         } else {

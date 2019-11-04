@@ -102,12 +102,12 @@ public class Game {
                     if (curDwarf.dwarf != null && curDwarf.status == "CHOOSING") {
                         if (curDwarf.dig(curDwarf.dwarf)) {
                             curDwarf.status = "MOVING";
-                            System.out.println("HARVESTER GOING TO GOLD");
+                            //System.out.println("HARVESTER GOING TO GOLD");
                         } else {
                             curDwarf.status = "IDLE";
                         }
                     } else if (curDwarf.dwarf == null && curDwarf.status == "IDLE" && !this.goldDiscovered.isEmpty()) { //idle
-                        System.out.println("HARVESTER GOT INSTRUCTIONS");
+                        //System.out.println("HARVESTER GOT INSTRUCTIONS");
                         curDwarf.dwarf = this.goldDiscovered.peek();
                         this.goldDiscovered.pop();
                         curDwarf.goldLoc = curDwarf.dwarf.location;
@@ -121,7 +121,7 @@ public class Game {
                     } else if (curDwarf.dwarf == null && curDwarf.location != 0) {
                         curDwarf.goBack();
                     } else {
-                        System.out.println("HARVESTER IS IDLE");
+                        //System.out.println("HARVESTER IS IDLE");
                         curDwarf.status = "IDLE";
                     }
 
@@ -129,13 +129,13 @@ public class Game {
                 } else if (curDwarf.getClass().getName() == "Builder") {
                     if (curDwarf.dwarf != null && curDwarf.status == "CHOOSING") {
                         if (curDwarf.fill(curDwarf.dwarf)) {
-                            System.out.println("BUILDER GOING TO PIT");
+                            //System.out.println("BUILDER GOING TO PIT");
                             curDwarf.status = "MOVING";
                         } else {
                             curDwarf.status = "IDLE";
                         }
                     } else if (curDwarf.dwarf == null && curDwarf.status == "IDLE" && !this.pitsDiscovered.isEmpty()) { //idle
-                        System.out.println("BUILDER GOT INSTRUCTIONS");
+                        //System.out.println("BUILDER GOT INSTRUCTIONS");
                         curDwarf.dwarf = this.pitsDiscovered.peek();
                         this.pitsDiscovered.pop();
                         curDwarf.pitLoc = curDwarf.dwarf.location;
@@ -149,7 +149,7 @@ public class Game {
                     } else if (curDwarf.dwarf == null && curDwarf.location != 0) {
                         curDwarf.goBack();
                     } else {
-                        System.out.println("BUILDER IS IDLE");
+                        //System.out.println("BUILDER IS IDLE");
                         curDwarf.status = "IDLE";
 
                     }
@@ -166,8 +166,10 @@ public class Game {
     }
 
     public void getRemaining() {
-        for (Stack<Integer> stack : this.goldPlaceFound) {
-            System.out.println(Arrays.toString(stack.toArray()));
+        for (int i = 0; i < this.map.totalElements; i++) {
+            if (this.map.map.get(i).type.contains("G")) {
+                System.out.println(i);
+            }
         }
     }
 

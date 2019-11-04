@@ -110,11 +110,12 @@ public class Builder extends Dwarf {
          */
 
         if (this.stack.empty()) {
-                System.out.println("PIT IS HERE");
-                this.memory = stack;
-                this.stack = stack;
-                this.stack = reverse(); //reverse stack
-                return true;
+            System.out.println("PIT IS HERE");
+            this.memory = stack;
+            this.stack = stack;
+            this.stack = reverse(); //reverse stack
+            System.out.println(Arrays.toString(this.stack.toArray()));
+            return true;
         }
         return false;
     }
@@ -228,7 +229,7 @@ public class Builder extends Dwarf {
         if (index != -1) {
             if (this.map.map.get(index).type.equals("PH")) {
                 this.map.map.get(index).type = "0";
-                System.out.println("BUILT OVER PIT");
+                //System.out.println("BUILT OVER PIT");
                 return true;
             }
         }
@@ -236,7 +237,7 @@ public class Builder extends Dwarf {
         if (index != -1) {
             if (this.map.map.get(index).type.equals("PH")) {
                 this.map.map.get(index).type = "0";
-                System.out.println("BUILT OVER PIT");
+                //System.out.println("BUILT OVER PIT");
                 return true;
             }
         }
@@ -244,7 +245,7 @@ public class Builder extends Dwarf {
         if (index != -1) {
             if (this.map.map.get(index).type.equals("PH")) {
                 this.map.map.get(index).type = "0";
-                System.out.println("BUILT OVER PIT");
+                //System.out.println("BUILT OVER PIT");
                 return true;
             }
         }
@@ -252,7 +253,7 @@ public class Builder extends Dwarf {
         if (index != -1) {
             if (this.map.map.get(index).type.equals("PH")) {
                 this.map.map.get(index).type = "0";
-                System.out.println("BUILT OVER PIT");
+                //System.out.println("BUILT OVER PIT");
                 return true;
             }
         }
