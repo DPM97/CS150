@@ -1,13 +1,10 @@
 digger
 digger
 digger
+harvester
+harvester
+harvester
+builder
+builder
 
-harvester
-builder
-harvester
-builder
-harvester
-builder
-harvester
-builder
 

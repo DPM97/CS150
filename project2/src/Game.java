@@ -41,8 +41,6 @@ public class Game {
      */
     int tries;
 
-    ArrayList<Stack<Integer>> goldPlaceFound;
-
     /**
      * constructor
      *
@@ -57,7 +55,6 @@ public class Game {
         this.tries = 0;
         this.pitsDiscovered = new Stack<Dwarf>();
         this.goldDiscovered = new Stack<Dwarf>();
-        this.goldPlaceFound = new ArrayList<Stack<Integer>>();
     }
 
     /**
@@ -108,16 +105,11 @@ public class Game {
                         }
                     } else if (curDwarf.dwarf == null && curDwarf.status == "IDLE" && !this.goldDiscovered.isEmpty()) { //idle
                         //System.out.println("HARVESTER GOT INSTRUCTIONS");
-                        curDwarf.dwarf = this.goldDiscovered.peek();
-                        this.goldDiscovered.pop();
+                        curDwarf.dwarf = this.goldDiscovered.pop();
                         curDwarf.goldLoc = curDwarf.dwarf.location;
                         curDwarf.status = "CHOOSING";
                     } else if (curDwarf.status == "MOVING" && curDwarf.dwarf != null) {
                         curDwarf.move();
-                        if (curDwarf.location == curDwarf.goldLoc) { //has been built over gold
-                            curDwarf.status = "IDLE";
-                            curDwarf.dwarf = null;
-                        }
                     } else if (curDwarf.dwarf == null && curDwarf.location != 0) {
                         curDwarf.goBack();
                     } else {

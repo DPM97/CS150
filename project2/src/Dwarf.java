@@ -26,19 +26,27 @@ public abstract class Dwarf implements Comparable<Dwarf> {
      * stack to pit loc
      */
     public int pitLoc;
-
     /**
      * idle boolean
      */
-
     public boolean idle;
+    /**
+     * dwarf obj
+     */
     public Dwarf dwarf;
+    /**
+     * dwarf current status string
+     */
     public String status;
+    /**
+     * main game obj
+     */
     public Game game;
 
     /**
      * constructor
      * @param map map obj
+     * @param game
      */
 
     public Dwarf(Map map, Game game) {
@@ -60,15 +68,6 @@ public abstract class Dwarf implements Comparable<Dwarf> {
         }
     }
 
-    /**
-     * return to home (0)
-     */
-
-    public void returnHome() {
-        while (this.memory.peek() != 0) {
-            this.memory.pop();
-        }
-    }
 
     /**
      * go left
@@ -122,12 +121,43 @@ public abstract class Dwarf implements Comparable<Dwarf> {
         }
     }
 
+    /**
+     * move left
+     */
     abstract void left();
+
+    /**
+     * move right
+     */
     abstract void right();
+
+    /**
+     * move down
+     */
     abstract void down();
+
+    /**
+     * move up
+     */
     abstract void up();
+
+    /**
+     * dig tile
+     * @param dwarf dwarf obj
+     * @return boolean
+     */
     abstract boolean dig(Dwarf dwarf);
+
+    /**
+     * fill tile
+     * @param dwarf dwarf obj
+     * @return boolean
+     */
     abstract boolean fill(Dwarf dwarf);
+
+    /**
+     * move back to base
+     */
     abstract void move();
 
     /**
@@ -150,6 +180,12 @@ public abstract class Dwarf implements Comparable<Dwarf> {
             insertStack(stack , element);
         }
     }
+
+    /**
+     * part of reversing the stack
+     * @param stack stack which is being created
+     * @param element element being inserted to stack
+     */
 
     public void insertStack(Stack<Integer> stack, int element) {
         if (stack.size() == 0) {

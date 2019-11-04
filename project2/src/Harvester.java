@@ -60,71 +60,24 @@ public class Harvester extends Dwarf {
         stack.push(0);
         int index = 0;
         stack = path(index, stack);
-        /*
-        int index = 0;
-        while (!check(index) && this.stack.empty()) {
-            int temp = this.map.getLeft(index);
-            if (temp != -1) {
-                if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
-                    index = temp;
-                    stack.push(index);
-                    continue;
-                }
-            }
-
-            temp = this.map.getRight(index);
-            if (temp != -1) {
-                if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
-                    index = temp;
-                    stack.push(index);
-                    continue;
-                }
-            }
-
-            temp = this.map.getBelow(index);
-            if (temp != -1) {
-                if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
-                    index = temp;
-                    stack.push(index);
-                    continue;
-                }
-            }
-
-            temp = this.map.getAbove(index);
-            if (temp != -1) {
-                if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
-                    index = temp;
-                    stack.push(index);
-                    continue;
-                }
-            }
-
-            return false;
-            //System.out.println("NOTHING HITTING");
-            //either dead end or gold
-        }
-         */
-        /*
-        int test = this.map.getLeft((int) stack.toArray()[stack.size() - 1]);
-        System.out.println(this.map.map.get(test).type);
-        test = this.map.getRight((int) stack.toArray()[stack.size() - 1]);
-        System.out.println(this.map.map.get(test).type);
-        test = this.map.getAbove((int) stack.toArray()[stack.size() - 1]);
-        System.out.println(this.map.map.get(test).type);
-        test = this.map.getBelow((int) stack.toArray()[stack.size() - 1]);
-        System.out.println(this.map.map.get(test).type);
-        */
         if (this.stack.empty()) {
             System.out.println("GOLD IS HERE");
             this.memory = stack;
             this.stack = stack;
             this.stack = reverse(); //reverse stack
-            this.game.goldPlaceFound.add(this.stack);
             System.out.println(Arrays.toString(this.stack.toArray()));
             return true;
         }
         return false;
     }
+
+    /**
+     * recursively find the most efficient path to the gold node
+     * via the tree's on each tile that the dwarf has been to
+     * @param start starting location (0 at first)
+     * @param stack stack that will become the path
+     * @return final path to gold node
+     */
 
     public Stack<Integer> path(int start, Stack<Integer> stack) {
         int index = start;
@@ -181,6 +134,12 @@ public class Harvester extends Dwarf {
         }
         return stack;
     }
+
+    /**
+     * check if any gold is around a location on the map
+     * @param indexx location given
+     * @return true if found
+     */
 
     public boolean check(int indexx) {
         int index = this.map.getLeft(indexx);
@@ -252,26 +211,26 @@ public class Harvester extends Dwarf {
     }
 
     /**
-     * not needed
+     * move dwarf back to home base once finished
      */
 
     @Override
     void move() {
         if (!this.stack.isEmpty()) {
-            int element = this.stack.pop();
-            //System.out.println("ELEMENT" + element);
-            if (element != this.goldLoc) {
-                this.location = element;
-                harvest(this.location);
-            } else {
-                this.location = element;
-                this.status = "IDLE";
-                this.stack = new Stack<>();
-                this.dwarf = null;
-            }
+            this.location = this.stack.pop();
             harvest(this.location);
+        } else {
+            this.status = "IDLE";
+            this.stack = new Stack<>();
+            this.dwarf = null;
         }
     }
+
+    /**
+     * harvest gold around location
+     * @param indexx input location
+     * @return true if harvested
+     */
 
     public boolean harvest(int indexx) {
         int index = this.map.getRight(indexx);

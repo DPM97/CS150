@@ -12,8 +12,7 @@ public class Digger extends Dwarf {
     Game game;
 
     /**
-     * consttructor
-     *
+     * constructor
      * @param map  game map object
      */
 
@@ -24,6 +23,7 @@ public class Digger extends Dwarf {
 
     /**
      * algorithm to fetch nearest dirt tile
+     * in regard to the dwarfs current location
      */
 
     @Override
@@ -106,20 +106,6 @@ public class Digger extends Dwarf {
         }
 
         int[] distances = new int[]{distanceRight, distanceBottom, distanceLeft, distanceTop};
-
-        /*
-
-        System.out.println("Nearest dirt node above = " + nearestTop);
-        System.out.println("Nearest dirt node below = " + nearestBottom);
-        System.out.println("Nearest dirt node left = " + nearestLeft);
-        System.out.println("Nearest dirt node right = " + nearestRight);
-        System.out.println("Distance to nearest left dirt node = " + distanceLeft);
-        System.out.println("Distance to nearest right dirt node = " + distanceRight);
-        System.out.println("Distance to nearest bottom dirt node = " + distanceBottom);
-        System.out.println("Distance to nearest top dirt node = " + distanceTop);
-
-
-         */
 
 
         int smallest = 100;
@@ -307,7 +293,6 @@ public class Digger extends Dwarf {
 
     /**
      * not needed
-     *
      * @param dwarf dwarf
      */
 
@@ -316,6 +301,9 @@ public class Digger extends Dwarf {
         return false;
     }
 
+    /**
+     * check around current location for gold tiles
+     */
 
 
     void checkForGold() {
@@ -347,6 +335,10 @@ public class Digger extends Dwarf {
         }
     }
 
+    /**
+     * check around current location for pit tiles
+     */
+
     void checkForPits() {
         int index = this.map.getLeft(this.location);
         if (index != -1 && this.map.map.get(index).type.equals("P")) {
@@ -377,41 +369,5 @@ public class Digger extends Dwarf {
             this.game.pitsDiscovered.push(this);
         }
 
-    }
-
-    public boolean harvest(int indexx) {
-        int index = this.map.getLeft(indexx);
-        if (index != -1) {
-            if (this.map.map.get(index).type.equals("D")) {
-                this.map.map.get(index).type = "0";
-                System.out.println("BUILT OVER PIT");
-                return true;
-            }
-        }
-        index = this.map.getRight(indexx);
-        if (index != -1) {
-            if (this.map.map.get(index).type.equals("D")) {
-                this.map.map.get(index).type = "0";
-                System.out.println("BUILT OVER PIT");
-                return true;
-            }
-        }
-        index = this.map.getBelow(indexx);
-        if (index != -1) {
-            if (this.map.map.get(index).type.equals("D")) {
-                this.map.map.get(index).type = "0";
-                System.out.println("BUILT OVER PIT");
-                return true;
-            }
-        }
-        index = this.map.getAbove(indexx);
-        if (index != -1) {
-            if (this.map.map.get(index).type.equals("D")) {
-                this.map.map.get(index).type = "0";
-                System.out.println("BUILT OVER PIT");
-                return true;
-            }
-        }
-        return false;
     }
 }

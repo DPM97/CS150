@@ -51,9 +51,9 @@ public class Builder extends Dwarf {
     }
 
     /**
-     * fill pit with dirt (try left and right)
-     *
-     * @param dwarf dwarf
+     * fetch a valid path to the pit that the dwarf found using the trees on each tile
+     * @param dwarf digger dwarf that found the pit
+     * @return true if successful path found
      */
 
     @Override
@@ -63,52 +63,6 @@ public class Builder extends Dwarf {
         stack.push(0);
         int index = 0;
         stack = path(index, stack);
-        /*
-        while (!check(index) && this.stack.empty()) {
-            int temp = this.map.getRight(index);
-            if (temp != -1) {
-                if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
-                    index = temp;
-                    stack.push(index);
-                    continue;
-                }
-            }
-
-            temp = this.map.getBelow(index);
-            if (temp != -1) {
-                if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
-                    index = temp;
-                    stack.push(index);
-                    continue;
-                }
-            }
-
-            temp = this.map.getLeft(index);
-            if (temp != -1) {
-                if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
-                    index = temp;
-                    stack.push(index);
-                    continue;
-                }
-            }
-
-
-            temp = this.map.getAbove(index);
-            if (temp != -1) {
-                if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
-                    index = temp;
-                    stack.push(index);
-                    continue;
-                }
-            }
-
-
-            //System.out.println("NOTHING HITTING");
-            //either dead end or gold
-            return false;
-        }
-         */
-
         if (this.stack.empty()) {
             System.out.println("PIT IS HERE");
             this.memory = stack;
@@ -135,6 +89,14 @@ public class Builder extends Dwarf {
     @Override
     public void up() {
     }
+
+    /**
+     * recursively find the path to the pit using
+     * the tree's on each tile
+     * @param start start index (0 to start)
+     * @param stack path stack
+     * @return final path to pit
+     */
 
     public Stack<Integer> path(int start, Stack<Integer> stack) {
         int index = start;
@@ -192,6 +154,12 @@ public class Builder extends Dwarf {
         return stack;
     }
 
+    /**
+     * check if any blocks around builder are pits
+     * @param indexx builder location
+     * @return true if one is a pit
+     */
+
     public boolean check(int indexx) {
         int index = this.map.getLeft(indexx);
         if (index != -1) {
@@ -224,10 +192,16 @@ public class Builder extends Dwarf {
         return false;
     }
 
+    /**
+     * remove all pits around location
+     * @param indexx current location of builder
+     * @return successful
+     */
+
     public boolean harvest(int indexx) {
         int index = this.map.getLeft(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.equals("PH")) {
+            if (this.map.map.get(index).type.contains("P")) {
                 this.map.map.get(index).type = "0";
                 //System.out.println("BUILT OVER PIT");
                 return true;
@@ -235,7 +209,7 @@ public class Builder extends Dwarf {
         }
         index = this.map.getRight(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.equals("PH")) {
+            if (this.map.map.get(index).type.contains("P")) {
                 this.map.map.get(index).type = "0";
                 //System.out.println("BUILT OVER PIT");
                 return true;
@@ -243,7 +217,7 @@ public class Builder extends Dwarf {
         }
         index = this.map.getBelow(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.equals("PH")) {
+            if (this.map.map.get(index).type.contains("P")) {
                 this.map.map.get(index).type = "0";
                 //System.out.println("BUILT OVER PIT");
                 return true;
@@ -251,7 +225,7 @@ public class Builder extends Dwarf {
         }
         index = this.map.getAbove(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.equals("PH")) {
+            if (this.map.map.get(index).type.contains("P")) {
                 this.map.map.get(index).type = "0";
                 //System.out.println("BUILT OVER PIT");
                 return true;
@@ -272,23 +246,19 @@ public class Builder extends Dwarf {
     }
 
     /**
-     * not needed
+     * move dwarf back to home base once finished
      */
 
     @Override
     void move() {
+        System.out.println(this.stack.isEmpty());
         if (!this.stack.isEmpty()) {
-            int element = this.stack.pop();
-            if (element != this.pitLoc) {
-                this.location = element;
-            } else {
-                this.location = element;
-                this.status = "IDLE";
-                this.stack = new Stack<>();
-                this.dwarf = null;
-            }
+            this.location = this.stack.pop();
             harvest(this.location);
+        } else {
+            this.status = "IDLE";
+            this.stack = new Stack<>();
+            this.dwarf = null;
         }
     }
-
 }
