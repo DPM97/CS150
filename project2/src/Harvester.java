@@ -59,6 +59,9 @@ public class Harvester extends Dwarf {
         Stack stack = new Stack();
         stack.push(0);
         int index = 0;
+        stack = path(index, stack);
+        /*
+        int index = 0;
         while (!check(index) && this.stack.empty()) {
             int temp = this.map.getLeft(index);
             if (temp != -1) {
@@ -100,6 +103,7 @@ public class Harvester extends Dwarf {
             //System.out.println("NOTHING HITTING");
             //either dead end or gold
         }
+         */
         /*
         int test = this.map.getLeft((int) stack.toArray()[stack.size() - 1]);
         System.out.println(this.map.map.get(test).type);
@@ -110,15 +114,71 @@ public class Harvester extends Dwarf {
         test = this.map.getBelow((int) stack.toArray()[stack.size() - 1]);
         System.out.println(this.map.map.get(test).type);
         */
-        System.out.println(Arrays.toString(stack.toArray()));
         if (this.stack.empty()) {
             System.out.println("GOLD IS HERE");
             this.memory = stack;
             this.stack = stack;
             this.stack = reverse(); //reverse stack
+            this.game.goldPlaceFound.add(this.stack);
             return true;
         }
         return false;
+    }
+
+    public Stack<Integer> path(int start, Stack<Integer> stack) {
+        int index = start;
+        int temp = this.map.getLeft(index);
+        if (temp != -1) {
+            if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
+                index = temp;
+                stack.push(index);
+                if (check(index)) {
+                    return stack;
+                } else {
+                    stack = path(index, stack);
+                }
+            }
+        }
+
+        temp = this.map.getRight(index);
+        if (temp != -1) {
+            if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
+                index = temp;
+                stack.push(index);
+                if (check(index)) {
+                    return stack;
+                } else {
+                    stack = path(index, stack);
+                }
+            }
+        }
+
+        temp = this.map.getBelow(index);
+        if (temp != -1) {
+            if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
+                index = temp;
+                stack.push(index);
+                if (check(index)) {
+                    return stack;
+                } else {
+                    stack = path(index, stack);
+                }
+            }
+        }
+
+        temp = this.map.getAbove(index);
+        if (temp != -1) {
+            if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
+                index = temp;
+                stack.push(index);
+                if (check(index)) {
+                    return stack;
+                } else {
+                    stack = path(index, stack);
+                }
+            }
+        }
+        return stack;
     }
 
     public boolean check(int indexx) {

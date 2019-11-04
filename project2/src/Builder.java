@@ -62,6 +62,8 @@ public class Builder extends Dwarf {
         Stack stack = new Stack();
         stack.push(0);
         int index = 0;
+        stack = path(index, stack);
+        /*
         while (!check(index) && this.stack.empty()) {
             int temp = this.map.getRight(index);
             if (temp != -1) {
@@ -100,10 +102,13 @@ public class Builder extends Dwarf {
                 }
             }
 
+
             //System.out.println("NOTHING HITTING");
             //either dead end or gold
             return false;
         }
+         */
+
         if (this.stack.empty()) {
                 System.out.println("PIT IS HERE");
                 this.memory = stack;
@@ -130,6 +135,61 @@ public class Builder extends Dwarf {
     public void up() {
     }
 
+    public Stack<Integer> path(int start, Stack<Integer> stack) {
+        int index = start;
+        int temp = this.map.getLeft(index);
+        if (temp != -1) {
+            if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
+                index = temp;
+                stack.push(index);
+                if (check(index)) {
+                    return stack;
+                } else {
+                    stack = path(index, stack);
+                }
+            }
+        }
+
+        temp = this.map.getRight(index);
+        if (temp != -1) {
+            if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
+                index = temp;
+                stack.push(index);
+                if (check(index)) {
+                    return stack;
+                } else {
+                    stack = path(index, stack);
+                }
+            }
+        }
+
+        temp = this.map.getBelow(index);
+        if (temp != -1) {
+            if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
+                index = temp;
+                stack.push(index);
+                if (check(index)) {
+                    return stack;
+                } else {
+                    stack = path(index, stack);
+                }
+            }
+        }
+
+        temp = this.map.getAbove(index);
+        if (temp != -1) {
+            if (this.map.map.get(temp).dwarfs.containsKey(this.dwarf) && stack.indexOf(temp) == -1) {
+                index = temp;
+                stack.push(index);
+                if (check(index)) {
+                    return stack;
+                } else {
+                    stack = path(index, stack);
+                }
+            }
+        }
+        return stack;
+    }
 
     public boolean check(int indexx) {
         int index = this.map.getLeft(indexx);

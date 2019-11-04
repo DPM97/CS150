@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Stack;
@@ -40,6 +41,8 @@ public class Game {
      */
     int tries;
 
+    ArrayList<Stack<Integer>> goldPlaceFound;
+
     /**
      * constructor
      *
@@ -54,6 +57,7 @@ public class Game {
         this.tries = 0;
         this.pitsDiscovered = new Stack<Dwarf>();
         this.goldDiscovered = new Stack<Dwarf>();
+        this.goldPlaceFound = new ArrayList<Stack<Integer>>();
     }
 
     /**
@@ -84,14 +88,17 @@ public class Game {
         }
 
         while (this.collected < gold) {
+            if (map.checkDirt()) {
+                getRemaining();
+            }
             PriorityQueue<Dwarf> copy = new PriorityQueue<Dwarf>(this.dwarfs);
             while (!copy.isEmpty()) {
                 Dwarf curDwarf = copy.poll();
-                if (curDwarf.getClass().getName() == "Digger") {
+                if (curDwarf.getClass().getName().equals("Digger")) {
                     if (!this.map.checkDirt()) {
                         curDwarf.move();
                     }
-                } else if (curDwarf.getClass().getName() == "Harvester") {
+                } else if (curDwarf.getClass().getName().equals("Harvester")) {
                     if (curDwarf.dwarf != null && curDwarf.status == "CHOOSING") {
                         if (curDwarf.dig(curDwarf.dwarf)) {
                             curDwarf.status = "MOVING";
@@ -156,6 +163,12 @@ public class Game {
             TimeUnit.SECONDS.sleep(1/2);
         }
         System.out.println("TOTAL MOVES: " + this.tries);
+    }
+
+    public void getRemaining() {
+        for (Stack<Integer> stack : this.goldPlaceFound) {
+            System.out.println(Arrays.toString(stack.toArray()));
+        }
     }
 
     /**
