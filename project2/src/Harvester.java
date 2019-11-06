@@ -86,7 +86,7 @@ public class Harvester extends Dwarf {
             this.stack = stack;
             this.stack = reverse(); //reverse stack
             this.memory = reverse();
-            System.out.println(Arrays.toString(this.stack.toArray()));
+            //System.out.println(Arrays.toString(this.stack.toArray()));
             return true;
         }
         return false;
@@ -233,7 +233,7 @@ public class Harvester extends Dwarf {
     }
 
     /**
-     * fill all gaps
+     * clean up the remaining gold
      * @param dwarf
      */
 
@@ -252,48 +252,31 @@ public class Harvester extends Dwarf {
         int col = g % this.map.length;
         int row = this.map.height - (this.map.height - (g / this.map.length));
 
-        System.out.println("GOLDLOC");
-        System.out.println(g);
-        System.out.println(col);
-        System.out.println(row);
-        System.out.println("MYLOC");
-        System.out.println(this.location);
-        System.out.println(myCol);
-        System.out.println(myRow);
-
         if (myCol < col && this.map.getRight(this.location) != -1 && !isObstacle(this.map.getRight(this.location))) {
             right();
-            System.out.println("RIGHT");
             harvest(this.location);
         } else if (myCol < col && this.map.getRight(this.location) != -1 && isObstacle(this.map.getRight(this.location))) {
             down();
             right();
-            System.out.println("DOWN");
             harvest(this.location);
         } else if (myRow < row && this.map.getBelow(this.location) != -1 && !isObstacle(this.map.getBelow(this.location))) {
             down();
-            System.out.println("DOWN");
             harvest(this.location);
         } else if (myRow < row && this.map.getBelow(this.location) != -1 && isObstacle(this.map.getBelow(this.location))) {
             right();
-            System.out.println("RIGHT");
             harvest(this.location);
         } else if (myCol > col && this.map.getLeft(this.location) != -1 && !isObstacle(this.map.getLeft(this.location))) {
             left();
-            System.out.println("LEFT");
             harvest(this.location);
         } else if (myCol > col && this.map.getLeft(this.location) != -1 && isObstacle(this.map.getLeft(this.location))) {
             up();
             left();
-            System.out.println("UP");
             harvest(this.location);
         } else if (myRow > row && this.map.getAbove(this.location) != -1 && !isObstacle(this.map.getAbove(this.location))) {
             up();
-            System.out.println("UP");
             harvest(this.location);
         } else if (myRow > row && this.map.getAbove(this.location) != -1 && isObstacle(this.map.getAbove(this.location))) {
             left();
-            System.out.println("LEFT");
             harvest(this.location);
         }
 
@@ -301,6 +284,12 @@ public class Harvester extends Dwarf {
 
         return true;
     }
+
+    /**
+     * checks if there is an obstacle in front of dwarf
+     * @param index current location
+     * @return true if it is obstacle
+     */
 
     public boolean isObstacle(int index) {
         if (index == -1) {

@@ -91,7 +91,7 @@ public class Game {
                 createBuilder();
                 this.logger.log("BUILDER HAS BEEN ADDED");
             } else {
-                System.out.println("invalid dwarf type");
+                //System.out.println("invalid dwarf type");
             }
             line = reader.readLine();
         }
@@ -127,7 +127,6 @@ public class Game {
                     } else if (curDwarf.dwarf == null && curDwarf.location != 0 && !curDwarf.status.equals("CLEANING")) {
                         curDwarf.goBack();
                     } else {
-                        System.out.println("HARVESTER IS IDLE");
                         this.logger.log(curDwarf + " IDLE");
                         curDwarf.status = "IDLE";
                     }
@@ -162,12 +161,12 @@ public class Game {
                         }
                     }
                 } else {
-                    System.out.println("Invalid dwarf type");
+                    //System.out.println("Invalid dwarf type");
                 }
 
             }
             this.tries++;
-            this.map.print();
+            //this.map.print();
             TimeUnit.SECONDS.sleep(1 / 2);
 
         }
@@ -184,10 +183,8 @@ public class Game {
         while (!copy.isEmpty()) {
             Dwarf curDwarf = copy.poll();
             if (curDwarf.getClass().getName().equals("Harvester")) {
-                System.out.println(curDwarf.location);
                 curDwarf.status = "CLEANING";
                 curDwarf.fill(null);
-                System.out.println(curDwarf.location);
             }
         }
     }
@@ -202,7 +199,7 @@ public class Game {
         int g = 0;
         for (int i = 0; i < this.map.totalElements; i++) {
             if (this.map.map.get(i).type.equals("G")) {
-                System.out.println(i);
+                //System.out.println(i);
                 g++;
             }
         }
