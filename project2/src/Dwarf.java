@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Stack;
 
@@ -71,9 +72,11 @@ public abstract class Dwarf implements Comparable<Dwarf> {
 
     /**
      * go left
+     * @throws IOException exception for logger
      */
 
-    public void goLeft() {
+    public void goLeft() throws IOException {
+        this.game.logger.log(this + " GOING LEFT");
         int left = this.map.getLeft(this.location);
         if (left != -1) {
             this.location = left;
@@ -84,9 +87,11 @@ public abstract class Dwarf implements Comparable<Dwarf> {
 
     /**
      * go right
+     * @throws IOException exception for logger
      */
 
-    public void goRight() {
+    public void goRight() throws IOException {
+        this.game.logger.log(this + " GOING RIGHT");
         int right = this.map.getRight(this.location);
         if (right != -1) {
             this.location = right;
@@ -97,9 +102,11 @@ public abstract class Dwarf implements Comparable<Dwarf> {
 
     /**
      * go down
+     * @throws IOException exception for logger
      */
 
-    public void goDown() {
+    public void goDown() throws IOException {
+        this.game.logger.log(this + " GOING DOWN");
         int under = this.map.getBelow(this.location);
         if (under != -1){
             this.location = under;
@@ -110,9 +117,11 @@ public abstract class Dwarf implements Comparable<Dwarf> {
 
     /**
      * go up
+     * @throws IOException exception for logger
      */
 
-    public void goUp() {
+    public void goUp() throws IOException {
+        this.game.logger.log(this + " GOING UP");
         int above = this.map.getAbove(this.location);
         if (above != -1) {
             this.location = above;
@@ -124,22 +133,22 @@ public abstract class Dwarf implements Comparable<Dwarf> {
     /**
      * move left
      */
-    abstract void left();
+    abstract void left() throws IOException;
 
     /**
      * move right
      */
-    abstract void right();
+    abstract void right() throws IOException;
 
     /**
      * move down
      */
-    abstract void down();
+    abstract void down() throws IOException;
 
     /**
      * move up
      */
-    abstract void up();
+    abstract void up() throws IOException;
 
     /**
      * dig tile
@@ -157,8 +166,16 @@ public abstract class Dwarf implements Comparable<Dwarf> {
 
     /**
      * move back to base
+     * @throws IOException exception for logger
      */
-    abstract void move();
+    abstract void move() throws IOException;
+
+    /**
+     * harvest gold
+     * @return true if success
+     * @throws IOException exception for logger
+     */
+    abstract boolean harvest(int index) throws IOException;
 
     /**
      * reverse stack

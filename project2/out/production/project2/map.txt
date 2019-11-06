@@ -1,5 +1,5 @@
-0,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,P,D,D,D,D,D,D,D,D,D,D
-D,D,D,D,D,D,L,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,G,D,D,D,D,D
+0,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,L,D,P,D,D,D,D,D,D,D,D,D,D
+D,D,D,D,D,L,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,G,D,D,D,D,D
 D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D
 D,D,D,D,D,P,D,D,D,D,D,RL,RL,RL,D,D,D,D,D,P,D,D,D,D,D,P,D,P,D,D
 D,D,D,D,D,D,D,D,D,D,D,P,D,D,D,D,D,D,D,P,D,D,D,D,D,D,D,P,D,D

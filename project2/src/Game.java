@@ -1,3 +1,5 @@
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -40,14 +42,18 @@ public class Game {
      * amount of moves made / scoring interval
      */
     int tries;
+    /**
+     * logger obj
+     */
+    Logger logger;
 
     /**
      * constructor
-     *
      * @param map map obj
+     * @throws IOException exception for logger
      */
 
-    public Game(Map map) {
+    public Game(Map map) throws IOException {
         this.bank = 300000;
         this.collected = 0;
         this.map = map;
@@ -55,13 +61,14 @@ public class Game {
         this.tries = 0;
         this.pitsDiscovered = new Stack<Dwarf>();
         this.goldDiscovered = new Stack<Dwarf>();
+        this.logger = new Logger(this);
     }
 
     /**
      * start game - import dwarfs - run program until all gold is discovered
      *
-     * @throws IOException
-     * @throws InterruptedException
+     * @throws IOException file reader exception
+     * @throws InterruptedException exception for sleep method
      */
 
     public void start() throws IOException, InterruptedException {
@@ -72,12 +79,15 @@ public class Game {
             if (line.equals("digger")) {
                 this.bank -= 300;
                 createDigger();
+                this.logger.log("DIGGER HAS BEEN ADDED");
             } else if (line.equals("harvester")) {
                 this.bank -= 500;
                 createHarvester();
+                this.logger.log("HARVESTER HAS BEEN ADDED");
             } else if (line.equals("builder")) {
                 this.bank -= 750;
                 createBuilder();
+                this.logger.log("BUILDER HAS BEEN ADDED");
             } else {
                 System.out.println("invalid dwarf type");
             }
@@ -85,9 +95,10 @@ public class Game {
         }
 
         while (this.collected < gold) {
-            if (map.checkDirt()) {
-                getRemaining();
+            if (this.map.checkDirt()) {
+                //cleanup();
             }
+            fetchTotalGold();
             PriorityQueue<Dwarf> copy = new PriorityQueue<Dwarf>(this.dwarfs);
             while (!copy.isEmpty()) {
                 Dwarf curDwarf = copy.poll();
@@ -100,6 +111,7 @@ public class Game {
                         if (curDwarf.dig(curDwarf.dwarf)) {
                             curDwarf.status = "MOVING";
                             //System.out.println("HARVESTER GOING TO GOLD");
+                            this.logger.log(curDwarf + " GOING TO GOLD");
                         } else {
                             curDwarf.status = "IDLE";
                         }
@@ -114,36 +126,34 @@ public class Game {
                         curDwarf.goBack();
                     } else {
                         //System.out.println("HARVESTER IS IDLE");
+                        this.logger.log(curDwarf + " IDLE");
                         curDwarf.status = "IDLE";
                     }
 
-
-                } else if (curDwarf.getClass().getName() == "Builder") {
-                    if (curDwarf.dwarf != null && curDwarf.status == "CHOOSING") {
+                } else if (curDwarf.getClass().getName().equals("Builder")) {
+                    if (curDwarf.dwarf != null && curDwarf.status.equals("CHOOSING")) {
                         if (curDwarf.fill(curDwarf.dwarf)) {
-                            //System.out.println("BUILDER GOING TO PIT");
                             curDwarf.status = "MOVING";
+                            this.logger.log(curDwarf + " GOING TO PIT");
                         } else {
                             curDwarf.status = "IDLE";
                         }
-                    } else if (curDwarf.dwarf == null && curDwarf.status == "IDLE" && !this.pitsDiscovered.isEmpty()) { //idle
-                        //System.out.println("BUILDER GOT INSTRUCTIONS");
-                        curDwarf.dwarf = this.pitsDiscovered.peek();
-                        this.pitsDiscovered.pop();
+                    } else if (curDwarf.dwarf == null && curDwarf.status.equals("IDLE") && !this.pitsDiscovered.isEmpty()) { //idle
+                        curDwarf.dwarf = this.pitsDiscovered.pop();
                         curDwarf.pitLoc = curDwarf.dwarf.location;
                         curDwarf.status = "CHOOSING";
-                    } else if (curDwarf.status == "MOVING" && curDwarf.dwarf != null) {
+                    } else if (curDwarf.status.equals("MOVING") && curDwarf.dwarf != null) {
                         curDwarf.move();
-                        if (curDwarf.location == curDwarf.pitLoc) { //has been built over pit
-                            curDwarf.status = "IDLE";
+                        if (curDwarf.location == 0 && curDwarf.status.equals("IDLE")) {
                             curDwarf.dwarf = null;
                         }
                     } else if (curDwarf.dwarf == null && curDwarf.location != 0) {
+                        //System.out.println("MOVING BACK");
                         curDwarf.goBack();
                     } else {
                         //System.out.println("BUILDER IS IDLE");
+                        this.logger.log(curDwarf + " IDLE");
                         curDwarf.status = "IDLE";
-
                     }
                 } else {
                     System.out.println("Invalid dwarf type");
@@ -151,16 +161,78 @@ public class Game {
 
             }
             this.tries++;
-            this.map.print();
+            //this.map.print();
             TimeUnit.SECONDS.sleep(1/2);
         }
         System.out.println("TOTAL MOVES: " + this.tries);
+        this.logger.log("TOTAL MOVES: " + this.tries);
+        this.logger.close();
     }
 
-    public void getRemaining() {
+    /**
+     * clean up the rest of the map
+     */
+    public void cleanup() throws IOException {
+        Stack<Integer> g = new Stack<>();
         for (int i = 0; i < this.map.totalElements; i++) {
-            if (this.map.map.get(i).type.contains("G")) {
-                System.out.println(i);
+            if (this.map.map.get(i).type.equals("GD")) {
+                g.push(i);
+            }
+        }
+
+        for (int i = 0; i < g.size() - 1; i++) {
+            int goldLoc = g.pop();
+            int col = (goldLoc % this.map.height);
+            int row = (this.map.height) - ((this.map.totalElements - goldLoc) / (this.map.length));
+            System.out.println(row);
+            System.out.println(col);
+            System.out.println(goldLoc);
+            Stack<Integer> stack = new Stack<>();
+
+            int loc = 0;
+            int down = 0;
+
+            for (int j = 0; j < col; j++) {
+                if (this.map.map.get(this.map.getRight(loc)).type.equals("0")) {
+                    stack.push(this.map.getRight(loc));
+                    loc = this.map.getRight(loc);
+                } else if(this.map.map.get(this.map.getBelow(loc)).type.equals("0")){
+                    stack.push(this.map.getBelow(loc));
+                    loc = this.map.getBelow(loc);
+                    down++;
+                }
+            }
+
+            for (int j = 0; j < row - down; j++) {
+                if (this.map.map.get(this.map.getBelow(loc)).type.equals("0")) {
+                    stack.push(this.map.getBelow(loc));
+                    loc = this.map.getBelow(loc);
+                } else if(this.map.map.get(this.map.getRight(loc)).type.equals("0")){
+                    stack.push(this.map.getRight(loc));
+                    loc = this.map.getRight(loc);
+                    stack.push(this.map.getBelow(loc));
+                    loc = this.map.getBelow(loc);
+                    stack.push(this.map.getLeft(loc));
+                    loc = this.map.getLeft(loc);
+                    i+=2;
+                }
+            }
+            PriorityQueue<Dwarf> copy = new PriorityQueue<Dwarf>(this.dwarfs);
+            boolean solved = false;
+            while(!solved) {
+                Dwarf curDwarf = copy.poll();
+                if (curDwarf.getClass().getName().equals("Harvester")) {
+                    if (curDwarf.status == "IDLE" && curDwarf.location == 0) {
+                        curDwarf.status = "MOVING";
+                        for (int j = 0; j < stack.size() - 1; j++) {
+                            curDwarf.location = stack.pop();
+                            System.out.println(Arrays.toString(stack.toArray()));
+                            this.tries++;
+                        }
+                        curDwarf.harvest(stack.peek());
+                        solved = true;
+                    }
+                }
             }
         }
     }

@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Stack;
 
@@ -11,7 +12,7 @@ public class Harvester extends Dwarf {
      */
     Game game;
     /**
-     * gold location stack (from digger)
+     * gold location
      */
     int goldLoc;
     Stack<Integer> stack;
@@ -48,23 +49,24 @@ public class Harvester extends Dwarf {
     }
 
     /**
-     * dig around location
-     *
+     * fetch optimal path to gold that dwarf found
+     * using the tree's on each tile
      * @param dwarf dwarf at gold
      */
 
     @Override
-    boolean dig(Dwarf dwarf) {
+    public boolean dig(Dwarf dwarf) {
         this.dwarf = dwarf;
         Stack stack = new Stack();
         stack.push(0);
         int index = 0;
         stack = path(index, stack);
         if (this.stack.empty()) {
-            System.out.println("GOLD IS HERE");
+            //System.out.println("GOLD IS HERE");
             this.memory = stack;
             this.stack = stack;
             this.stack = reverse(); //reverse stack
+            this.memory = reverse();
             System.out.println(Arrays.toString(this.stack.toArray()));
             return true;
         }
@@ -144,36 +146,32 @@ public class Harvester extends Dwarf {
     public boolean check(int indexx) {
         int index = this.map.getLeft(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("G") && !this.map.map.get(index).type.equals("GH")) {
+            if (this.map.map.get(index).type.contains("G") && this.map.map.get(index).type != "GH") {
                 this.map.map.get(index).type = "GH";
-                System.out.println(index);
                 this.goldLoc = index;
                 return true;
             }
         }
         index = this.map.getRight(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("G") && !this.map.map.get(index).type.equals("GH")) {
+            if (this.map.map.get(index).type.contains("G") && this.map.map.get(index).type != "GH") {
                 this.map.map.get(index).type = "GH";
-                System.out.println(index);
                 this.goldLoc = index;
                 return true;
             }
         }
         index = this.map.getBelow(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("G") && !this.map.map.get(index).type.equals("GH")) {
+            if (this.map.map.get(index).type.contains("G") && this.map.map.get(index).type != "GH") {
                 this.map.map.get(index).type = "GH";
-                System.out.println(index);
                 this.goldLoc = index;
                 return true;
             }
         }
         index = this.map.getAbove(indexx);
         if (index != -1) {
-            if (this.map.map.get(index).type.contains("G") && !this.map.map.get(index).type.equals("GH")) {
+            if (this.map.map.get(index).type.contains("G") && this.map.map.get(index).type != "GH") {
                 this.map.map.get(index).type = "GH";
-                System.out.println(index);
                 this.goldLoc = index;
                 return true;
             }
@@ -212,10 +210,11 @@ public class Harvester extends Dwarf {
 
     /**
      * move dwarf back to home base once finished
+     * @throws IOException exception for logger
      */
 
     @Override
-    void move() {
+    void move() throws IOException {
         if (!this.stack.isEmpty()) {
             this.location = this.stack.pop();
             harvest(this.location);
@@ -230,44 +229,56 @@ public class Harvester extends Dwarf {
      * harvest gold around location
      * @param indexx input location
      * @return true if harvested
+     * @throws IOException exception for logger
      */
 
-    public boolean harvest(int indexx) {
+    public boolean harvest(int indexx) throws IOException {
+        int collected = 0;
         int index = this.map.getRight(indexx);
         if (index != -1) {
             if (this.map.map.get(index).type.contains("G")) {
                 this.map.map.get(index).type = "0";
+                this.game.logger.log(this + " HARVESTED GOLD AT " + index);
                 //System.out.println("HARVESTED GOLD");
                 this.game.collected++;
-                return true;
+                collected++;
             }
         }
+
         index = this.map.getBelow(indexx);
         if (index != -1) {
             if (this.map.map.get(index).type.contains("G")) {
                 this.map.map.get(index).type = "0";
                 //System.out.println("HARVESTED GOLD");
+                this.game.logger.log(this + " HARVESTED GOLD AT " + index);
                 this.game.collected++;
-                return true;
+                collected++;
             }
         }
+
         index = this.map.getLeft(indexx);
         if (index != -1) {
             if (this.map.map.get(index).type.contains("G")) {
                 this.map.map.get(index).type = "0";
+                this.game.logger.log(this + " HARVESTED GOLD AT " + index);
                 //System.out.println("HARVESTED GOLD");
                 this.game.collected++;
-                return true;
+                collected++;
             }
         }
+
         index = this.map.getAbove(indexx);
         if (index != -1) {
             if (this.map.map.get(index).type.contains("G")) {
                 this.map.map.get(index).type = "0";
+                this.game.logger.log(this + " HARVESTED GOLD AT " + index);
                 //System.out.println("HARVESTED GOLD");
                 this.game.collected++;
-                return true;
+                collected++;
             }
+        }
+        if (collected > 0) {
+            return true;
         }
         return false;
     }

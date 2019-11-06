@@ -38,7 +38,7 @@ public class Map {
 
     /**
      * import map from file
-     * @throws IOException
+     * @throws IOException file reader exception
      */
 
     public void importMap() throws IOException {
@@ -112,6 +112,10 @@ public class Map {
         }
     }
 
+    /**
+     * print map
+     */
+
     public void print() {
         String string = "";
         for (int i = 0; i < map.size(); i++) {
@@ -124,6 +128,12 @@ public class Map {
         }
         System.out.println(string);
     }
+
+    /**
+     * check if there is any dirt left
+     * on the map
+     * @return true if no dirt
+     */
 
     public boolean checkDirt() {
         int total = 0;
