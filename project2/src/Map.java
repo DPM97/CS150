@@ -142,10 +142,10 @@ public class Map {
                 total++;
             }
         }
-        if (total > 0) {
-            return false;
-        } else {
+        if (total < 50) {
             return true;
+        } else {
+            return false;
         }
     }
 }

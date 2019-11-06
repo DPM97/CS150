@@ -183,7 +183,7 @@ public class Digger extends Dwarf {
                 goDown();
             }
         } else {
-            right();
+            left();
         }
     }
 
@@ -218,7 +218,7 @@ public class Digger extends Dwarf {
                 goUp();
             }
         } else {
-            left();
+            right();
         }
     }
 
@@ -265,7 +265,7 @@ public class Digger extends Dwarf {
                 goLeft();
             }
         } else {
-            down();
+            up();
         }
     }
 
@@ -303,7 +303,7 @@ public class Digger extends Dwarf {
                 goRight();
             }
         } else {
-            up();
+            down();
         }
     }
 

@@ -45,6 +45,12 @@ public abstract class Dwarf implements Comparable<Dwarf> {
     public Game game;
 
     /**
+     * loc stack
+     */
+
+    public Stack stack;
+
+    /**
      * constructor
      * @param map map obj
      * @param game
@@ -162,7 +168,7 @@ public abstract class Dwarf implements Comparable<Dwarf> {
      * @param dwarf dwarf obj
      * @return boolean
      */
-    abstract boolean fill(Dwarf dwarf);
+    abstract boolean fill(Dwarf dwarf) throws IOException;
 
     /**
      * move back to base

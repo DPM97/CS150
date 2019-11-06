@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
 
@@ -15,7 +16,7 @@ public class Harvester extends Dwarf {
      * gold location
      */
     int goldLoc;
-    Stack<Integer> stack;
+    public Stack<Integer> stack;
 
     /**
      * constructor
@@ -33,19 +34,36 @@ public class Harvester extends Dwarf {
 
     /**
      * move down
+     * @throws IOException exception for logger
      */
 
     @Override
-    public void down() {
+    public void down() throws IOException {
+        int index = this.map.getBelow(this.location);
+        if (index != -1) {
+            if (this.map.map.get(index).type.equals("0")) {
+                //System.out.println("Already Dug" + index);
+                goDown();
+                harvest(this.location);
+            }
+        }
     }
 
     /**
      * move up
+     * @throws IOException exception for logger
      */
 
     @Override
-    public void up() {
-
+    public void up() throws IOException {
+        int index = this.map.getAbove(this.location);
+        if (index != -1) {
+            if (this.map.map.get(index).type.equals("0")) {
+                //System.out.println("Already Dug" + index);
+                goUp();
+                harvest(this.location);
+            }
+        }
     }
 
     /**
@@ -61,6 +79,7 @@ public class Harvester extends Dwarf {
         stack.push(0);
         int index = 0;
         stack = path(index, stack);
+
         if (this.stack.empty()) {
             //System.out.println("GOLD IS HERE");
             this.memory = stack;
@@ -181,31 +200,116 @@ public class Harvester extends Dwarf {
 
     /**
      * go left
+     * @throws IOException
      */
 
     @Override
-    public void left() {
-
+    public void left() throws IOException {
+        int index = this.map.getLeft(this.location);
+        if (index != -1) {
+            if (this.map.map.get(index).type.equals("0")) {
+                //System.out.println("Already Dug" + index);
+                goLeft();
+                harvest(this.location);
+            }
+        }
     }
 
     /**
-     * go right
+     * move right
+     * @throws IOException exception for logger
      */
 
     @Override
-    public void right() {
-
+    public void right() throws IOException {
+        int index = this.map.getRight(this.location);
+        if (index != -1) {
+            if (this.map.map.get(index).type.equals("0")) {
+                //System.out.println("Already Dug" + index);
+                goRight();
+                harvest(this.location);
+            }
+        }
     }
 
     /**
-     * not needed
-     *
-     * @param dwarf index
+     * fill all gaps
+     * @param dwarf
      */
 
     @Override
-    boolean fill(Dwarf dwarf) {
-        return false;
+    public boolean fill(Dwarf dwarf) throws IOException { //assuming we can see gold now that dirt is gone
+        int g = 0;
+        for (int i = 0; i < this.map.totalElements; i++) {
+            if (this.map.map.get(i).type == "GD") {
+                g = i;
+            }
+        }
+
+        int myCol = this.location % this.map.length;
+        int myRow = this.map.height - (this.map.height - (this.location / this.map.length));
+
+        int col = g % this.map.length;
+        int row = this.map.height - (this.map.height - (g / this.map.length));
+
+        System.out.println("GOLDLOC");
+        System.out.println(g);
+        System.out.println(col);
+        System.out.println(row);
+        System.out.println("MYLOC");
+        System.out.println(this.location);
+        System.out.println(myCol);
+        System.out.println(myRow);
+
+        if (myCol < col && this.map.getRight(this.location) != -1 && !isObstacle(this.map.getRight(this.location))) {
+            right();
+            System.out.println("RIGHT");
+            harvest(this.location);
+        } else if (myCol < col && this.map.getRight(this.location) != -1 && isObstacle(this.map.getRight(this.location))) {
+            down();
+            right();
+            System.out.println("DOWN");
+            harvest(this.location);
+        } else if (myRow < row && this.map.getBelow(this.location) != -1 && !isObstacle(this.map.getBelow(this.location))) {
+            down();
+            System.out.println("DOWN");
+            harvest(this.location);
+        } else if (myRow < row && this.map.getBelow(this.location) != -1 && isObstacle(this.map.getBelow(this.location))) {
+            right();
+            System.out.println("RIGHT");
+            harvest(this.location);
+        } else if (myCol > col && this.map.getLeft(this.location) != -1 && !isObstacle(this.map.getLeft(this.location))) {
+            left();
+            System.out.println("LEFT");
+            harvest(this.location);
+        } else if (myCol > col && this.map.getLeft(this.location) != -1 && isObstacle(this.map.getLeft(this.location))) {
+            up();
+            left();
+            System.out.println("UP");
+            harvest(this.location);
+        } else if (myRow > row && this.map.getAbove(this.location) != -1 && !isObstacle(this.map.getAbove(this.location))) {
+            up();
+            System.out.println("UP");
+            harvest(this.location);
+        } else if (myRow > row && this.map.getAbove(this.location) != -1 && isObstacle(this.map.getAbove(this.location))) {
+            left();
+            System.out.println("LEFT");
+            harvest(this.location);
+        }
+
+
+
+        return true;
+    }
+
+    public boolean isObstacle(int index) {
+        if (index == -1) {
+            return true;
+        } else if (!this.map.map.get(index).type.equals("0")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -282,5 +386,6 @@ public class Harvester extends Dwarf {
         }
         return false;
     }
+
 
 }
