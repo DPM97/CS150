@@ -1,24 +1,18 @@
 import java.io.IOException;
 
 /**
- * main controller class
+ * controller class
+ * creates and starts game
  */
 
 public class Controller {
-    
-    /**
-     * constructor
-     */
 
-    private Controller() {
-
-    }
-    
     /**
-     * main method
-     * create map object &
-     * start game with map obj
-     * @param args arguments
+     * main class
+     * imports map and starts simulation
+     * @param args input args (not needed)
+     * @throws IOException file reader exception
+     * @throws InterruptedException exception for sleep method
      */
 
     public static void main(String[] args) throws IOException, InterruptedException {
