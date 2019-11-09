@@ -163,13 +163,15 @@ public class Game {
 
             }
             this.tries++;
-            //this.map.print();
+            this.map.print();
             TimeUnit.SECONDS.sleep(1 / 2);
 
         }
         System.out.println("TOTAL MOVES: " + this.tries);
+        System.out.println("TOTAL GOLD: " + this.collected);
         System.out.println("EFFICIENCY FACTOR: " + ((float) this.collected / (float) this.tries)); 
         this.logger.log("TOTAL MOVES: " + this.tries);
+        this.logger.log("TOTAL GOLD: " + this.collected);
         this.logger.log("EFFICIENCY FACTOR: " + ((float)this.collected / (float) this.tries)); 
         this.logger.close();
     }
