@@ -41,6 +41,11 @@ public class TileTest
     {
     }
     
+    /**
+     * test addDwarf method
+     * @throws IOException exception for logger
+     */
+    
     @Test
     public void addDwarf() throws IOException {
         Map map = new Map();

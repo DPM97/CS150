@@ -3,11 +3,6 @@ digger
 digger
 digger
 harvester
-harvester
-harvester
-harvester
-harvester
-harvester
 builder
 builder
 builder

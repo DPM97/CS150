@@ -255,6 +255,17 @@ public class Builder extends Dwarf {
 
     /**
      * not needed
+     * @return null
+     * @throws IOException for logger
+     */
+
+    @Override
+    int checkClosest() throws IOException {
+        return 0;
+    }
+
+    /**
+     * not needed
      *
      * @param dwarf dwarf
      */

@@ -41,6 +41,12 @@ public class HarvesterTest
     {
     }
     
+    /**
+     * test move left method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
+    
     @Test
     public void testLeft() throws IOException, InterruptedException {
         Map map = new Map();
@@ -54,6 +60,12 @@ public class HarvesterTest
         assertEquals(harvester.location, 1);
     }
     
+    /**
+     * test move right method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
+    
     @Test 
     public void testRight() throws IOException, InterruptedException {
         Map map = new Map();
@@ -64,6 +76,12 @@ public class HarvesterTest
         harvester.goRight();
         assertEquals(harvester.location, 1);
     }
+    
+    /**
+     * test move up method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
     
     @Test
     public void testUp() throws IOException, InterruptedException {
@@ -77,6 +95,12 @@ public class HarvesterTest
         harvester.goUp();
         assertEquals(harvester.location, 30);
     }
+    
+    /**
+     * test move down method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
     
     @Test
     public void testDown() throws IOException, InterruptedException {

@@ -39,6 +39,12 @@ public class BuilderTest
     {
     }
     
+    /**
+     * test move left method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
+    
     @Test
     public void testLeft() throws IOException, InterruptedException {
         Map map = new Map();
@@ -52,6 +58,12 @@ public class BuilderTest
         assertEquals(builder.location, 1);
     }
     
+    /**
+     * test move right method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
+    
     @Test 
     public void testRight() throws IOException, InterruptedException {
         Map map = new Map();
@@ -62,6 +74,12 @@ public class BuilderTest
         builder.goRight();
         assertEquals(builder.location, 1);
     }
+    
+    /**
+     * test move up method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
     
     @Test
     public void testUp() throws IOException, InterruptedException {
@@ -75,6 +93,12 @@ public class BuilderTest
         builder.goUp();
         assertEquals(builder.location, 30);
     }
+    
+    /**
+     * test move down method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
     
     @Test
     public void testDown() throws IOException, InterruptedException {

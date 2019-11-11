@@ -1,8 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Stack;
 import java.util.concurrent.TimeUnit;
@@ -53,7 +51,7 @@ public class Game {
      */
 
     public Game(Map map) throws IOException {
-        this.bank = 300000;
+        this.bank = 5000;
         this.collected = 0;
         this.map = map;
         this.dwarfs = new PriorityQueue<Dwarf>();
@@ -65,7 +63,6 @@ public class Game {
 
     /**
      * start game - import dwarfs - run program until all gold is discovered
-     *
      * @throws IOException          file reader exception
      * @throws InterruptedException exception for sleep method
      */
@@ -84,7 +81,7 @@ public class Game {
                 createHarvester();
                 this.logger.log("HARVESTER HAS BEEN ADDED");
             } else if (line.equals("builder")) {
-                this.bank -= 750;
+                this.bank -= 200;
                 createBuilder();
                 this.logger.log("BUILDER HAS BEEN ADDED");
             } else {
@@ -95,6 +92,7 @@ public class Game {
 
         while (this.collected < gold) {
             //fetchTotalGold();
+            int longest = 0;
             PriorityQueue<Dwarf> copy = new PriorityQueue<Dwarf>(this.dwarfs);
             while (!copy.isEmpty()) {
                 Dwarf curDwarf = copy.poll();
@@ -124,8 +122,17 @@ public class Game {
                     } else if (curDwarf.dwarf == null && curDwarf.location != 0 && !curDwarf.status.equals("CLEANING")) {
                         curDwarf.goBack();
                     } else {
+                        if (this.map.checkDirt()) {
+                            //cleanup();
+                            int dist = curDwarf.checkClosest();
+                            if (dist > longest) {
+                                longest = dist;
+                            }
+                            curDwarf.status = "CLEANING";
+                        } else {
+                            curDwarf.status = "IDLE";
+                        }
                         this.logger.log(curDwarf + " IDLE");
-                        curDwarf.status = "IDLE";
                     }
 
                 } else if (curDwarf.getClass().getName().equals("Builder")) {
@@ -151,44 +158,27 @@ public class Game {
                     } else {
                         //System.out.println("BUILDER IS IDLE");
                         this.logger.log(curDwarf + " IDLE");
-                        if (this.map.checkDirt()) {
-                            cleanup();
-                        } else {
-                            curDwarf.status = "IDLE";
-                        }
                     }
                 } else {
                     //System.out.println("Invalid dwarf type");
                 }
 
             }
+            this.tries += longest;
             this.tries++;
             this.map.print();
             TimeUnit.SECONDS.sleep(1 / 2);
 
         }
         System.out.println("TOTAL MOVES: " + this.tries);
-        System.out.println("TOTAL GOLD: " + this.collected);
-        System.out.println("EFFICIENCY FACTOR: " + ((float) this.collected / (float) this.tries)); 
         this.logger.log("TOTAL MOVES: " + this.tries);
+        System.out.println("TOTAL GOLD: " + this.collected);
         this.logger.log("TOTAL GOLD: " + this.collected);
-        this.logger.log("EFFICIENCY FACTOR: " + ((float)this.collected / (float) this.tries)); 
+        System.out.println("EFFICIENCY: " + (float) this.collected / (float) this.tries);
+        this.logger.log("EFFICIENCY: " + (float) this.collected / (float) this.tries);
         this.logger.close();
     }
 
-    /**
-     * clean up the rest of the map
-     */
-    public void cleanup() throws IOException {
-        PriorityQueue<Dwarf> copy = new PriorityQueue<Dwarf>(this.dwarfs);
-        while (!copy.isEmpty()) {
-            Dwarf curDwarf = copy.poll();
-            if (curDwarf.getClass().getName().equals("Harvester")) {
-                curDwarf.status = "CLEANING";
-                curDwarf.fill(null);
-            }
-        }
-    }
 
     /**
      * fetch all gold on map

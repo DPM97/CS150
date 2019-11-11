@@ -40,6 +40,12 @@ public class DiggerTest
     {
     }
     
+    /**
+     * test move left method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
+    
     @Test
     public void testLeft() throws IOException, InterruptedException {
         Map map = new Map();
@@ -53,6 +59,12 @@ public class DiggerTest
         assertEquals(digger.location, 1);
     }
     
+    /**
+     * test move right method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
+    
     @Test 
     public void testRight() throws IOException, InterruptedException {
         Map map = new Map();
@@ -63,6 +75,12 @@ public class DiggerTest
         digger.goRight();
         assertEquals(digger.location, 1);
     }
+    
+    /**
+     * test move up method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
     
     @Test
     public void testUp() throws IOException, InterruptedException {
@@ -77,6 +95,12 @@ public class DiggerTest
         assertEquals(digger.location, 30);
     }
     
+    /**
+     * test move down method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
+    
     @Test
     public void testDown() throws IOException, InterruptedException {
         Map map = new Map();
@@ -87,6 +111,12 @@ public class DiggerTest
         digger.goDown();
         assertEquals(digger.location, 30);
     }
+    
+    /**
+     * test the move method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
     
     @Test
     public void testMove() throws IOException, InterruptedException {

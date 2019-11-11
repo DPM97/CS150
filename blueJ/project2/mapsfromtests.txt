@@ -1,14 +1,14 @@
 0,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,L,D,P,D,D,D,D,D,D,D,D,D,D
 D,D,D,D,D,L,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
-D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D
+D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
 D,D,D,D,D,P,D,D,D,D,D,RL,RL,RL,D,D,D,D,D,P,D,D,D,D,D,P,D,P,D,D
 D,D,D,D,D,D,D,D,D,D,D,P,D,D,D,D,D,D,D,P,D,D,D,D,D,D,D,P,D,D
-D,D,D,P,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
+D,D,D,P,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
 D,D,D,P,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,D
 D,D,D,D,L,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
 D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
 D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
-D,D,D,D,G,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
+D,D,D,D,G,D,D,D,D,D,D,D,D,G,D,D,G,D,D,D,D,D,D,D,D,D,D,D,D,D
 D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D
 D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D
 D,D,D,P,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,P,D,D,D,D,D,D,D,P,D,D
@@ -16,7 +16,7 @@ D,D,D,P,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
 D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
 D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,RU,D,D,D,D,D,D,P,D,D
 D,D,D,P,D,D,D,G,D,D,D,P,D,D,D,D,D,D,D,D,RU,D,D,D,D,D,D,D,D,D
-D,D,D,P,D,P,D,D,D,D,D,D,D,D,D,G,D,D,D,P,RU,D ,D,D,D,P,D,D,D,D
+D,D,D,P,D,P,D,D,D,D,D,D,D,D,D,G,D,D,D,P,RU,D,D,D,D,P,D,D,D,D
 D,D,D,D,D,RD,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
 D,D,D,G,D,RD,D,G,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D
 D,D,D,D,D,RD,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
@@ -28,7 +28,6 @@ D,D,D,D,D,D,D,D,D,L,D,D,D,D,D,D,D,D,D,P,D,D,D,D,D,D,D,D,D,D
 D,D,P,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,P,D,D,D,D,G,D,D,D,D,D
 D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D
 D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,P,D,D,D,D,D,D,D,D,D,D
-
 
 
 0,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,L,D,P,D,D,D,D,D,D,D,D,D,D
@@ -68,28 +67,28 @@ D,D,D,D,D,L,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
 D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D
 D,D,D,D,D,P,D,D,D,D,D,RL,RL,RL,D,D,D,D,D,P,D,D,D,D,D,P,D,P,D,D
 D,D,D,D,D,D,D,D,D,D,D,P,D,D,D,D,D,D,D,P,D,D,D,D,D,D,D,P,D,D
-D,D,D,P,D,D,D,G,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,D,D,D
-D,D,D,P,D,D,D,D,D,G,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,G,D,D,D
-D,D,D,D,L,D,D,D,D,D,D,D,D,L,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
-D,D,G,D,D,D,D,G,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D
+D,D,D,P,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
+D,D,D,P,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,D
+D,D,D,D,L,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
+D,D,G,D,D,D,D,G,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
 D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D
-D,D,D,D,G,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,G,D,D,D,D,D,D,G,D
+D,D,D,D,G,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
 D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,G,D
 D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D
-D,D,D,P,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,P,D,D,D,D,D,D,D,P,D,D
+D,D,D,P,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,P,D,D,D,D,D,D,D,P,D,D
 D,D,D,P,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,D,D,RL,RL,RL,D,D,D,D,D,D
-D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,D,D,D
-D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,P,D,D
-D,D,D,P,D,D,D,G,D,D,D,P,D,G,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
-D,D,D,P,D,P,D,D,D,D,D,D,D,D,D,G,D,D,D,P,D,D ,D,D,D,P,D,D,D,D
-D,D,D,D,D,RD,D,D,D,D,D,D,G,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D
-D,D,D,G,D,RD,D,G,D,D,D,D,D,G,D,D,RL,RL,RL,D,D,G,D,D,D,D,D,D,D,D
+D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,D,D,D
+D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,RU,D,D,D,D,D,D,P,D,D
+D,D,D,P,D,D,D,G,D,D,D,P,D,D,D,D,D,D,D,D,RU,D,D,D,D,D,D,D,D,D
+D,D,D,P,D,P,D,D,D,D,D,D,D,D,D,G,D,D,D,P,RU,D ,D,D,D,P,D,D,D,D
+D,D,D,D,D,RD,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D
+D,D,D,G,D,RD,D,G,D,D,D,D,D,G,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D
 D,D,D,D,D,RD,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D
 D,D,D,D,D,D,D,D,D,D,L,D,D,D,D,D,D,D,G,D,D,D,L,D,D,D,D,D,D,D
 D,D,D,D,D,D,D,G,D,D,D,D,D,D,RR,RR,RR,D,D,D,D,D,D,G,D,D,D,D,D,D
 D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D
-D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,L,D,D,D,D,D,D,D,D,D,D,D,D
-D,D,D,D,D,D,D,D,D,L,D,D,L,D,D,D,D,D,D,P,D,D,D,D,D,D,D,D,D,D
-D,D,P,D,G,D,D,G,D,D,D,D,G,D,D,D,G,D,D,P,D,D,D,D,G,D,D,D,D,D
+D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D,D,D,D,D,D,D
+D,D,D,D,D,D,D,D,D,L,D,D,D,D,D,D,D,D,D,P,D,D,D,D,D,D,D,D,D,D
+D,D,P,D,G,D,D,G,D,D,D,D,D,D,D,D,G,D,D,P,D,D,D,D,G,D,D,D,D,D
 D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,D,D,D,D,D
 D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,G,D,D,D,P,D,D,D,D,D,D,D,D,D,D

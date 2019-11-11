@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Stack;
 
 /**
@@ -182,6 +181,12 @@ public abstract class Dwarf implements Comparable<Dwarf> {
      * @throws IOException exception for logger
      */
     abstract boolean harvest(int index) throws IOException;
+
+    /**
+     * check closest gold node seeable
+     * @return distance
+     */
+    abstract int checkClosest() throws IOException;
 
     /**
      * reverse stack

@@ -19,6 +19,16 @@ public class Harvester extends Dwarf {
     public Stack<Integer> stack;
 
     /**
+     * direction of travel
+     */
+    private int direction;
+
+    /**
+     * desired column
+     */
+    private int col;
+
+    /**
      * constructor
      *
      * @param map  map obj
@@ -86,9 +96,23 @@ public class Harvester extends Dwarf {
             this.stack = stack;
             this.stack = reverse(); //reverse stack
             this.memory = reverse();
+            this.direction = -1;
+            this.col = 0;
             //System.out.println(Arrays.toString(this.stack.toArray()));
             return true;
         }
+        return false;
+    }
+
+    /**
+     * not needed
+     * @param dwarf dwarf obj
+     * @return null
+     * @throws IOException for logger
+     */
+
+    @Override
+    boolean fill(Dwarf dwarf) throws IOException {
         return false;
     }
 
@@ -234,55 +258,44 @@ public class Harvester extends Dwarf {
 
     /**
      * clean up the remaining gold
-     * @param dwarf
+     * finds closest node and collects it
+     * (per iteration of dwarfs the highest dist will be added to the game moves to replicate going to the gold, not just spawning at its location)
      */
 
     @Override
-    public boolean fill(Dwarf dwarf) throws IOException { //assuming we can see gold now that dirt is gone
-        int g = 0;
-        for (int i = 0; i < this.map.totalElements; i++) {
-            if (this.map.map.get(i).type == "GD") {
-                g = i;
+    public int checkClosest() throws IOException { //assuming we can see gold now that dirt is gone
+        int element = 0;
+        int dist = 300;
+        for (int i = 0; i < this.map.totalElements; i++) { //get closest element
+            if (this.map.map.get(i).type.contains("G")) {
+                if (getDist(this.location, i) < dist) {
+                    dist = getDist(this.location, i);
+                    element = i;
+                }
             }
         }
+        System.out.println(this.map.map.get(element).type);
+        this.map.map.get(element).type = "0";
+        this.game.collected++;
+        this.location = element;
+        return dist;
+    }
 
-        int myCol = this.location % this.map.length;
-        int myRow = this.map.height - (this.map.height - (this.location / this.map.length));
+    /**
+     * get the distance between a dwarf and a gold node
+     * @param loc current location
+     * @param locGld gold location
+     * @return distance between the two locations
+     */
 
-        int col = g % this.map.length;
-        int row = this.map.height - (this.map.height - (g / this.map.length));
+    public int getDist(int loc, int locGld) {
+        int row = this.map.height - ((this.map.totalElements - loc) / this.map.length);
+        int col = loc % this.map.length;
 
-        if (myCol < col && this.map.getRight(this.location) != -1 && !isObstacle(this.map.getRight(this.location))) {
-            right();
-            harvest(this.location);
-        } else if (myCol < col && this.map.getRight(this.location) != -1 && isObstacle(this.map.getRight(this.location))) {
-            down();
-            right();
-            harvest(this.location);
-        } else if (myRow < row && this.map.getBelow(this.location) != -1 && !isObstacle(this.map.getBelow(this.location))) {
-            down();
-            harvest(this.location);
-        } else if (myRow < row && this.map.getBelow(this.location) != -1 && isObstacle(this.map.getBelow(this.location))) {
-            right();
-            harvest(this.location);
-        } else if (myCol > col && this.map.getLeft(this.location) != -1 && !isObstacle(this.map.getLeft(this.location))) {
-            left();
-            harvest(this.location);
-        } else if (myCol > col && this.map.getLeft(this.location) != -1 && isObstacle(this.map.getLeft(this.location))) {
-            up();
-            left();
-            harvest(this.location);
-        } else if (myRow > row && this.map.getAbove(this.location) != -1 && !isObstacle(this.map.getAbove(this.location))) {
-            up();
-            harvest(this.location);
-        } else if (myRow > row && this.map.getAbove(this.location) != -1 && isObstacle(this.map.getAbove(this.location))) {
-            left();
-            harvest(this.location);
-        }
+        int gldRow = this.map.height - ((this.map.totalElements - locGld) / this.map.length);
+        int gldCol = locGld % this.map.length;
 
-
-
-        return true;
+        return Math.abs(col - gldCol) + Math.abs(row - gldRow);
     }
 
     /**
@@ -294,7 +307,7 @@ public class Harvester extends Dwarf {
     public boolean isObstacle(int index) {
         if (index == -1) {
             return true;
-        } else if (!this.map.map.get(index).type.equals("0")) {
+        } else if (!this.map.map.get(index).type.equals("0") && !this.map.map.get(index).type.contains("G")) {
             return true;
         } else {
             return false;

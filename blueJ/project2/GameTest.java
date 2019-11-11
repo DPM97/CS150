@@ -41,6 +41,12 @@ public class GameTest
     {
     }
     
+    /**
+     * test fetchGold method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
+    
     @Test
     public void testFetchGold() throws IOException, InterruptedException {
         Map map = new Map();
@@ -48,6 +54,12 @@ public class GameTest
         Game game = new Game(map);
         assertEquals(17, game.fetchTotalGold());
     }
+    
+    /**
+     * test createDigger method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
     
     @Test
     public void testCreateDigger() throws IOException, InterruptedException {
@@ -58,6 +70,12 @@ public class GameTest
         assertEquals(true, game.dwarfs.peek().getClass().getName().equals("Digger"));
     }
     
+    /**
+     * test createHarvester method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
+    
     @Test public void testCreateHarvester() throws IOException, InterruptedException {
         Map map = new Map();
         map.importMap();
@@ -65,6 +83,12 @@ public class GameTest
         game.createHarvester();
         assertEquals(true, game.dwarfs.peek().getClass().getName().equals("Harvester"));
     }
+    
+    /**
+     * test createBuilder method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
    
     @Test 
     public void testCreateBuilder() throws IOException, InterruptedException {

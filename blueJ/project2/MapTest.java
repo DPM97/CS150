@@ -41,12 +41,25 @@ public class MapTest
     {
     }
     
+    /**
+     * check testDirt method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
+    
     @Test
     public void testCheckDirt() throws IOException, InterruptedException {
         Map map = new Map();
         map.importMap();
         assertEquals(false, map.checkDirt());
     }
+    
+    /**
+     * test getLeft method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
+    
     
     @Test
     public void testGetLeft() throws IOException, InterruptedException {
@@ -56,6 +69,12 @@ public class MapTest
         assertEquals(30, map.getLeft(31));
     }
     
+    /**
+     * test getRight method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
+    
     @Test
     public void testGetRight() throws IOException, InterruptedException {
         Map map = new Map();
@@ -64,6 +83,12 @@ public class MapTest
         assertEquals(127, map.getRight(126));
     }
     
+    /**
+     * test getAbove method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
+    
     @Test
     public void testGetAbove() throws IOException, InterruptedException {
         Map map = new Map();
@@ -71,6 +96,12 @@ public class MapTest
         assertEquals(-1, map.getAbove(23));
         assertEquals(16, map.getAbove(46));
     }
+    
+    /**
+     * test getUnder method
+     * @throws IOException exception for logger
+     * @throws InterruptedException exception for wait method
+     */
     
     @Test
     public void testGetUnder() throws IOException, InterruptedException {

@@ -154,6 +154,16 @@ public class Digger extends Dwarf {
     }
 
     /**
+     * not needed
+     * @return null
+     * @throws IOException for logger
+     */
+    @Override
+    int checkClosest() throws IOException {
+        return 0;
+    }
+
+    /**
      * move down
      * @throws IOException exception for logger
      */
