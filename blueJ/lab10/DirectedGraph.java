@@ -114,8 +114,10 @@ public class DirectedGraph <E> {
      */
 
     public void dijkstra(E val) {
+        
+        String string = "";
 
-        Queue<DirectedGraphNode> unvisited = new LinkedList();
+        PriorityQueue<DirectedGraphNode> unvisited = new PriorityQueue();
 
         DirectedGraphNode node = null;
 
@@ -131,45 +133,40 @@ public class DirectedGraph <E> {
 
 
         for (DirectedGraphNode nodes : this.nodes) {
-            nodes.dist = 1000000000;
-            nodes.pred = null;
-            unvisited.add(nodes);
+            if (nodes != node) {
+                nodes.dist = 1000000000;
+                nodes.pred = null;
+                unvisited.add(nodes);
+            } else {
+                nodes.dist = 0;
+                nodes.pred = null;
+                unvisited.add(nodes);
+            }
         }
-
-
-        node.dist = 0;
-
+        
+        string += (unvisited.peek().key + " " + unvisited.peek().dist + " ");
 
         while (!unvisited.isEmpty()) {
-            DirectedGraphNode curNode = unvisited.remove();
-
+            DirectedGraphNode curNode = unvisited.poll();
+            
             for (DirectedGraphEdge edge : curNode.edges) {
                 DirectedGraphNode node2 = edge.end;
                 int curWeight = edge.weight;
                 int altDist = curNode.dist + curWeight;
 
                 if (altDist < node2.dist) {
+                    unvisited.remove(node2);
                     node2.dist = altDist;
                     node2.pred = curNode;
+                    unvisited.add(node2);
                 }
             }
-        }
-
-        String string = "";
-        ArrayList<DirectedGraphNode> nodeIterator = this.nodes;
-        while (!nodeIterator.isEmpty()) { //go through all nodes
-            int lowest = 10000000;
-            DirectedGraphNode current = null;
-            for (int i = 0; i < nodeIterator.size(); i++) {
-                if (nodeIterator.get(i).dist < lowest) {
-                    lowest = nodeIterator.get(i).dist;
-                    current = nodeIterator.get(i);
-                }
+            
+            if (!unvisited.isEmpty()) {
+                string += (unvisited.peek().key + " " + unvisited.peek().dist + " ");
             }
-            string += (current.key + " " + current.dist + " ");
-            nodeIterator.remove(current);
         }
-
+                
         dijkstraString = string;
         System.out.println(string);
 
@@ -179,7 +176,7 @@ public class DirectedGraph <E> {
      * graph node class
      */
 
-    public class DirectedGraphNode {
+    public class DirectedGraphNode implements Comparable<DirectedGraphNode> {
         /**
          * key
          */
@@ -211,6 +208,17 @@ public class DirectedGraph <E> {
             this.edges = new ArrayList<>();
             this.dist = 0;
             this.pred = null;
+        }
+        
+        /**
+         * compareTo method
+         * for priorityQueue
+         * @param o object being compared
+         */
+        
+        @Override
+        public int compareTo(DirectedGraphNode o) {
+            return Integer.compare(this.dist, o.dist);
         }
     }
 

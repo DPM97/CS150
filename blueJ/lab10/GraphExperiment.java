@@ -23,7 +23,7 @@ public class GraphExperiment {
 
     public void start() throws IOException {
         DirectedGraph<String> graph = new DirectedGraph<String>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("./src/graph.txt")));
+        BufferedReader reader = new BufferedReader(new FileReader(new File("./graph.txt")));
         String line = reader.readLine();
         String[] split = line.split(" ");
         for (int i = 0; i < split.length; i++) { //add nodes
