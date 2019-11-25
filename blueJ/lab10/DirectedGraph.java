@@ -232,7 +232,7 @@ public class DirectedGraph <E> {
          */
         DirectedGraphNode start;
         /**
-         * end ndoe
+         * end node
          */
         DirectedGraphNode end;
         /**
