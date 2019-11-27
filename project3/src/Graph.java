@@ -254,10 +254,10 @@ public class Graph {
     public void create(int amount, int min, int max) {
         addNode(0);
         for (int i = 1; i < amount; i++) {
-            if (getNeighbors(i-1).size() == 0) {
-                addNode(i);
-                addEdge(i-1, i, this.random.nextInt(max - min) + min); //each graph is connected to atleast 1 node
-            }
+            addNode(i);
+            int weight = this.random.nextInt(max - min) + min;
+            addEdge(i, i - 1, weight);
+            addEdge(i-1, i, weight); //each graph is connected to atleast 1 node
         }
 
         float randConnectivity = this.random.nextFloat() * (5 - 3) + 3;
@@ -280,7 +280,9 @@ public class Graph {
         GraphNode randNode = this.nodes.get(this.random.nextInt((this.nodes.size())));
         if (randNode.edges.size() < 6 && calcConnectivity() < connectivity) {
             GraphNode endNode = this.nodes.get(this.random.nextInt((this.nodes.size())));
-            addEdge(randNode.key, endNode.key, this.random.nextInt(max - min) + min);
+            int weight = this.random.nextInt(max - min) + min;
+            addEdge(randNode.key, endNode.key, weight);
+            addEdge(endNode.key, randNode.key, weight);
         }
     }
 

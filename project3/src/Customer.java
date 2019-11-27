@@ -21,6 +21,18 @@ public class Customer {
     Vehicle driver;
 
     /**
+     * wait time
+     */
+
+    int waitTime;
+
+    /**
+     * satisfaction
+     */
+
+    double satisfaction;
+
+    /**
      * constructor
      * @param sim simulation
      * @param graph graph
@@ -30,5 +42,7 @@ public class Customer {
         this.node = graph.randNode();
         this.destination = graph.randNode();
         this.driver = null;
+        this.waitTime = 0;
+        this.satisfaction = 0;
     }
 }

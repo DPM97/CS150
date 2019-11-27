@@ -32,6 +32,11 @@ public class Vehicle {
     Customer customer;
 
     /**
+     * idle time
+     */
+    int idleTime;
+
+    /**
      * constructor
      * @param sim simulation
      * @param graph graph
@@ -43,6 +48,7 @@ public class Vehicle {
         this.loc = 0;
         this.gps = new Stack<>();
         this.customer = null;
+        this.idleTime = 0;
     }
 
     public void move() {

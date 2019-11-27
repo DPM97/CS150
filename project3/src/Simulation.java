@@ -34,16 +34,18 @@ public class Simulation {
 
     /**
      * constructor
-     * @param graph graph obj
+     * @param graph graph obj'
+     * @param drivers driver amount
+     * @param customers customers per node
      */
 
-    public Simulation(Graph graph, int drivers, int customers) {
+    public Simulation(Graph graph, int drivers, double customers) {
         this.graph = graph;
         this.drivers = new ArrayList<>();
         this.customers = new ArrayList<>();
         this.tick = 0;
         this.driverAmount = drivers;
-        this.customerAmount = customers;
+        this.customerAmount = (int) (this.graph.nodes.size() * customers);
         this.rides = 0;
     }
 
@@ -56,43 +58,53 @@ public class Simulation {
             }
             for (Customer customer : this.customers) {
                 if (customer.state.equals("WAITING")) {
+                    //customer.waitTime++;
                     if (customer.driver != null) {
                         break;
                     } else {
+                        customer.waitTime++;
                         findVehicle(customer);
                     }
                 } else if (customer.state.equals("DRIVING")) {
                     customer.driver.move();
                     customer.node = customer.driver.node;
                     if (customer.node.key == customer.destination.key) {
-                        System.out.println("CUSTOMER DROPPED OFF AT DESTINATION");
+                        //System.out.println("CUSTOMER DROPPED OFF AT DESTINATION");
                         customer.driver.customer = null;
                         customer.driver.state = "IDLE";
                         for (final Iterator iterator = this.customers.iterator(); iterator.hasNext(); ) {
-                            iterator.next();
-                            if (iterator.next().equals(customer)) {
+                            Object cur = iterator.next();
+                            if (cur.equals(customer)) {
                                 iterator.remove();
+                                //System.out.println("removed");
                             }
                         }
                         this.rides++;
+                        System.out.println(this.rides);
+                        break;
                     }
                 }
             }
 
             for (Vehicle driver : this.drivers) {
                 if (driver.state.equals("PICKING-UP")) {
+                    driver.customer.waitTime++;
                     driver.move();
                     if (driver.state.equals("AT-DEST")) {
-                        System.out.println("CUSTOMER BEING PICKED UP");
-                        System.out.println(driver.node.key);
-                        System.out.println(driver.customer.destination.key);
+                        //System.out.println("CUSTOMER BEING PICKED UP");
+                        //System.out.println(driver.customer.waitTime);
+                        driver.customer.satisfaction =  (5 * (1 - (0.0001 * driver.customer.waitTime)));
+                        //System.out.println(driver.customer.satisfaction);
                         driver.gps = this.graph.fetchPath(driver.node, driver.customer.destination);
                         driver.state = "DRIVING";
                         driver.customer.state = "DRIVING";
                     }
+                } else if (driver.state.equals("IDLE")) {
+                    driver.idleTime++;
                 }
             }
         }
+        System.out.println("TOTAL RIDES: " + this.rides);
     }
 
     public void findVehicle(Customer customer) {
@@ -109,7 +121,6 @@ public class Simulation {
             driver.gps = graph.fetchPath(driver.node, customer.node);
             driver.customer = customer;
             customer.driver = driver;
-            System.out.println("vehicle found...");
         }
     }
 
@@ -123,7 +134,12 @@ public class Simulation {
     }
 
     public void addObjects() {
-
+        if (this.customers.size() < this.customerAmount * 0.9) {
+            int rand = this.graph.random.nextInt(5) + 1;
+            for (int i = 0; i < rand; i++) {
+                this.customers.add(new Customer(this, this.graph));
+            }
+        }
     }
 
 }
