@@ -3,6 +3,10 @@ import java.util.PriorityQueue;
 import java.util.Random;
 import java.util.Stack;
 
+/**
+ * graph class
+ */
+
 public class Graph {
     /**
      * arraylist of nodes
@@ -114,8 +118,6 @@ public class Graph {
 
     public void dijkstra(int val) {
 
-        String string = "";
-
         PriorityQueue<GraphNode> unvisited = new PriorityQueue();
 
         GraphNode node = null;
@@ -143,8 +145,6 @@ public class Graph {
             }
         }
 
-        string += (unvisited.peek().key + " " + unvisited.peek().dist + " ");
-
         while (!unvisited.isEmpty()) {
             GraphNode curNode = unvisited.poll();
 
@@ -161,9 +161,6 @@ public class Graph {
                 }
             }
 
-            if (!unvisited.isEmpty()) {
-                string += (unvisited.peek().key + " " + unvisited.peek().dist + " ");
-            }
         }
 
 
@@ -251,6 +248,13 @@ public class Graph {
         }
     }
 
+    /**
+     * create graph
+     * @param amount
+     * @param min
+     * @param max
+     */
+
     public void create(int amount, int min, int max) {
         addNode(0);
         for (int i = 1; i < amount; i++) {
@@ -268,6 +272,11 @@ public class Graph {
 
     }
 
+    /**
+     * calculate connectivity of graph
+     * @return connectivity coefficient
+     */
+
     public float calcConnectivity() {
         float total = 0;
         for (int i = 0; i < this.nodes.size(); i++) {
@@ -275,6 +284,13 @@ public class Graph {
         }
         return total / this.nodes.size();
     }
+
+    /**
+     * choose random node and make a randomly weighted edge between them
+     * @param connectivity current avg. connectivity of graph
+     * @param min min weight
+     * @param max max weight
+     */
 
     public void chooseRandNode(float connectivity, int min, int max) {
         GraphNode randNode = this.nodes.get(this.random.nextInt((this.nodes.size())));
@@ -285,6 +301,8 @@ public class Graph {
             addEdge(endNode.key, randNode.key, weight);
         }
     }
+
+    /*
 
     public Stack<GraphNode> updateDist(int start, int end) {
         Stack<GraphNode> stack = new Stack<>();
@@ -349,6 +367,15 @@ public class Graph {
         return stack;
     }
 
+     */
+
+    /**
+     * fetch shortest path between two nodes
+     * @param start start node
+     * @param end end node
+     * @return stack of nodes
+     */
+
     public Stack<GraphNode> fetchPath(GraphNode start, GraphNode end) {
         Stack<GraphNode> stack = new Stack<>();
         stack.push(end);
@@ -359,6 +386,10 @@ public class Graph {
         return stack;
     }
 
+    /**
+     * adjust's traffic
+     */
+
     public void adjustTraffic() {
         float multiplier = (float) (this.random.nextFloat() * (0.9 - 1.1) + 1.1);
         for (GraphNode node : this.nodes) {
@@ -368,9 +399,21 @@ public class Graph {
         }
     }
 
+    /**
+     * get random node
+     * @return random node
+     */
+
     public GraphNode randNode() {
         return this.nodes.get(this.random.nextInt((this.nodes.size())));
     }
+
+    /**
+     * get dist between two nodes
+     * @param node1 start node
+     * @param node2 end node
+     * @return distance
+     */
 
     public int getDistance(int node1, int node2) {
         dijkstra(node1);

@@ -1,5 +1,9 @@
 import java.util.Stack;
 
+/**
+ * vehicle class
+ */
+
 public class Vehicle {
     /**
      * graph
@@ -37,10 +41,17 @@ public class Vehicle {
     int idleTime;
 
     /**
+     * total ride distance
+     */
+
+    int rideDist;
+
+    /**
      * constructor
      * @param sim simulation
      * @param graph graph
      */
+
     public Vehicle(Simulation sim, Graph graph) {
         this.state = "IDLE";
         this.node = graph.randNode();
@@ -49,12 +60,19 @@ public class Vehicle {
         this.gps = new Stack<>();
         this.customer = null;
         this.idleTime = 0;
+        this.rideDist = 0;
     }
 
+    /**
+     * move vehicle
+     */
+
     public void move() {
-        if (this.loc < this.graph.getDistance(this.node.key, this.gps.peek().key)) {
-            this.loc++;
+        int curDist = this.graph.getDistance(this.node.key, this.gps.peek().key);
+        if (this.loc < curDist) {
+            this.loc += 600; // 23mph avg (600 m / min)
         } else {
+            rideDist += curDist;
             this.node = this.gps.pop();
             this.loc = 0;
             if (this.gps.isEmpty()) {

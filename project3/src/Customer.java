@@ -1,3 +1,6 @@
+/**
+ * customer class
+ */
 public class Customer {
     /**
      * customer state
@@ -37,6 +40,7 @@ public class Customer {
      * @param sim simulation
      * @param graph graph
      */
+
     public Customer(Simulation sim, Graph graph) {
         this.state = "WAITING";
         this.node = graph.randNode();

@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * sim class
+ */
+
 public class Simulation {
 
     /**
@@ -31,6 +35,22 @@ public class Simulation {
      * rides
      */
     int rides;
+    /**
+     * avg satisfaction
+     */
+    double satisfaction;
+    /**
+     * avg driver wait time
+     */
+    double dWaitTime;
+    /**
+     * avg ride dist
+     */
+    double rideDist;
+    /**
+     * customers that have finished and need to be wiped
+     */
+    ArrayList<Customer> finished;
 
     /**
      * constructor
@@ -47,41 +67,48 @@ public class Simulation {
         this.driverAmount = drivers;
         this.customerAmount = (int) (this.graph.nodes.size() * customers);
         this.rides = 0;
+        this.finished = new ArrayList<>();
     }
 
-    public void start() {
+    /**
+     * main function looped - state machine
+     */
+
+    public double[] start() {
         genObjects();
-        while(this.tick < 864000) {
+        while(this.tick < 720) {
             addObjects();
-            if (this.tick % 36000 == 0) { //every hour
+            if (this.tick % 60 == 0 && this.tick != 0) { //every hour
+                //System.out.println("HOUR HAS PASSED");
                 this.graph.adjustTraffic();
             }
             for (Customer customer : this.customers) {
                 if (customer.state.equals("WAITING")) {
                     //customer.waitTime++;
                     if (customer.driver != null) {
-                        break;
+                        //dont do shit
+                        //System.out.println("waiting");
                     } else {
                         customer.waitTime++;
-                        findVehicle(customer);
+                        if (checkVehicles()) {
+                            findVehicle(customer);
+                        }
                     }
                 } else if (customer.state.equals("DRIVING")) {
                     customer.driver.move();
                     customer.node = customer.driver.node;
                     if (customer.node.key == customer.destination.key) {
+                        this.rideDist = ((this.rideDist + customer.driver.rideDist) / this.rides+1);
+                        this.satisfaction = ((this.satisfaction + customer.satisfaction) / this.rides+1);
+                        this.dWaitTime = ((this.dWaitTime + customer.driver.idleTime) / this.rides+1);
                         //System.out.println("CUSTOMER DROPPED OFF AT DESTINATION");
+                        //System.out.println(customer.driver.rideDist);
                         customer.driver.customer = null;
+                        customer.driver.rideDist = 0;
                         customer.driver.state = "IDLE";
-                        for (final Iterator iterator = this.customers.iterator(); iterator.hasNext(); ) {
-                            Object cur = iterator.next();
-                            if (cur.equals(customer)) {
-                                iterator.remove();
-                                //System.out.println("removed");
-                            }
-                        }
+                        this.finished.add(customer);
                         this.rides++;
-                        System.out.println(this.rides);
-                        break;
+                        //System.out.println(this.rides);
                     }
                 }
             }
@@ -91,10 +118,11 @@ public class Simulation {
                     driver.customer.waitTime++;
                     driver.move();
                     if (driver.state.equals("AT-DEST")) {
+                        //driver.rideDist = 0;
                         //System.out.println("CUSTOMER BEING PICKED UP");
                         //System.out.println(driver.customer.waitTime);
-                        driver.customer.satisfaction =  (5 * (1 - (0.0001 * driver.customer.waitTime)));
-                        //System.out.println(driver.customer.satisfaction);
+                        driver.customer.satisfaction =  (5 * (1 - (0.1 * driver.customer.waitTime)));
+                        //1System.out.println(driver.customer.satisfaction);
                         driver.gps = this.graph.fetchPath(driver.node, driver.customer.destination);
                         driver.state = "DRIVING";
                         driver.customer.state = "DRIVING";
@@ -103,15 +131,29 @@ public class Simulation {
                     driver.idleTime++;
                 }
             }
+
+            for (Customer customer : this.finished) {
+                if (this.customers.contains(customer)) {
+                    this.customers.remove(customer);
+                }
+            }
+            this.finished = new ArrayList<>();
+            this.tick++;
         }
-        System.out.println("TOTAL RIDES: " + this.rides);
+        //System.out.println("TOTAL RIDES: " + this.rides);
+        return new double[]{this.rides, this.satisfaction, this.dWaitTime, this.rideDist};
     }
+
+    /**
+     * file closest vehicle
+     * @param customer customer input
+     */
 
     public void findVehicle(Customer customer) {
         int dist = 999999999;
         Vehicle driver = null;
         for (Vehicle vehicle : this.drivers) {
-            if (this.graph.getDistance(customer.node.key, vehicle.node.key) < dist && vehicle.customer == null) {
+            if (this.graph.getDistance(customer.node.key, vehicle.node.key) < dist && vehicle.state.equals("IDLE")) {
                 driver = vehicle;
                 dist = this.graph.getDistance(customer.node.key, vehicle.node.key);
             }
@@ -124,22 +166,41 @@ public class Simulation {
         }
     }
 
+    /**
+     * create initial objects (drivers)
+     */
+
     public void genObjects() {
         for (int i = 0; i < this.driverAmount; i++) {
             this.drivers.add(new Vehicle(this, this.graph));
         }
-        for (int i = 0; i < this.customerAmount; i++) {
-            this.customers.add(new Customer(this, this.graph));
-        }
     }
+
+    /**
+     * add customers "randomly" while staying in bounds
+     */
 
     public void addObjects() {
         if (this.customers.size() < this.customerAmount * 0.9) {
-            int rand = this.graph.random.nextInt(5) + 1;
+            int rand = this.graph.random.nextInt(10) + 1;
             for (int i = 0; i < rand; i++) {
                 this.customers.add(new Customer(this, this.graph));
             }
         }
+    }
+
+    /**
+     * find if any available vehicles
+     * @return true if there are
+     */
+
+    public boolean checkVehicles() {
+        for (Vehicle vehicle : this.drivers) {
+            if (vehicle.customer == null) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
