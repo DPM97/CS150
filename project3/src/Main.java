@@ -27,7 +27,7 @@ public class Main {
         int complete = 0;
         ArrayList<Integer> nodes = new ArrayList<>();
         ArrayList<Integer> drivers = new ArrayList<>();
-        ArrayList<Double> customers = new ArrayList<>();
+        ArrayList<Integer> customers = new ArrayList<>();
         ArrayList<Double> rides = new ArrayList<>();
         ArrayList<Double> satisfaction = new ArrayList<>();
         ArrayList<Double> dWaitTime = new ArrayList<>();
@@ -56,7 +56,7 @@ public class Main {
                     rideDist.add(data[3]);
                     drivers.add(driverAmount);
                     nodes.add(amount);
-                    customers.add(0.05 * i);
+                    customers.add(50 * i);
                     System.out.println("test " + complete + " completed...");
                     System.out.println(data[0] + " " + data[1] + " " + data[2] + " " + data[3] + " " + driverAmount + " " + amount + " " + (amount * (0.05*i)));
                     complete++;
