@@ -72,7 +72,7 @@ public class Vehicle {
         if (this.loc < curDist) {
             this.loc += 600; // 23mph avg (600 m / min)
         } else {
-            rideDist += curDist;
+            this.rideDist += curDist;
             this.node = this.gps.pop();
             this.loc = 0;
             if (this.gps.isEmpty()) {
