@@ -44,9 +44,9 @@ public class Main {
                 } else {
                     amount = 10000;
                 }
-                Graph graph = new Graph();
-                graph.create(amount, 1, 1500);
                 for (int v = 1; v <= 5; v++) {
+                    Graph graph = new Graph();
+                    graph.create(amount, 1, 1500);
                     int driverAmount = 100 * v;
                     Simulation sim = new Simulation(graph, driverAmount, 0.05 * i);
                     double[] data = sim.start();
