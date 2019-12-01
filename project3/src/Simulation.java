@@ -101,13 +101,14 @@ public class Simulation {
                     customer.driver.move();
                     customer.node = customer.driver.node;
                     if (customer.node.key == customer.destination.key) {
-                        this.rideDist = ((this.rideDist + customer.driver.rideDist) / (this.rides+1));
-                        this.satisfaction = ((this.satisfaction + customer.satisfaction) / (this.rides+1));
-                        this.dWaitTime = ((this.dWaitTime + customer.driver.idleTime) / (this.rides+1));
+                        this.rideDist = (((this.rideDist * this.rides) + customer.driver.rideDist) / (this.rides+1));
+                        this.satisfaction = (((this.satisfaction * this.rides) + customer.satisfaction) / (this.rides+1));
+                        this.dWaitTime = (((this.dWaitTime * this.rides) + customer.driver.idleTime) / (this.rides+1));
                         //System.out.println("CUSTOMER DROPPED OFF AT DESTINATION");
                         //System.out.println(customer.driver.rideDist);
                         customer.driver.customer = null;
                         customer.driver.rideDist = 0;
+                        customer.driver.idleTime = 0;
                         customer.driver.state = "IDLE";
                         this.finished.add(customer);
                         this.rides++;
@@ -124,7 +125,7 @@ public class Simulation {
                         driver.rideDist = 0;
                         //System.out.println("CUSTOMER BEING PICKED UP");
                         //System.out.println(driver.customer.waitTime);
-                        driver.customer.satisfaction =  (5 * (1 - (0.1 * driver.customer.waitTime)));
+                        driver.customer.satisfaction =  (5 - (0.1 * driver.customer.waitTime));
                         //1System.out.println(driver.customer.satisfaction);
                         driver.gps = this.graph.fetchPath(driver.node, driver.customer.destination);
                         driver.state = "DRIVING";
