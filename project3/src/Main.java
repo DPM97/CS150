@@ -48,7 +48,7 @@ public class Main {
                     Graph graph = new Graph();
                     graph.create(amount, 1, 1500);
                     int driverAmount = 100 * v;
-                    Simulation sim = new Simulation(graph, driverAmount, 0.05 * i);
+                    Simulation sim = new Simulation(graph, driverAmount, 50 * i);
                     double[] data = sim.start();
                     rides.add(data[0]);
                     satisfaction.add(data[1]);

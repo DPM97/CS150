@@ -59,13 +59,13 @@ public class Simulation {
      * @param customers customers per node
      */
 
-    public Simulation(Graph graph, int drivers, double customers) {
+    public Simulation(Graph graph, int drivers, int customers) {
         this.graph = graph;
         this.drivers = new ArrayList<>();
         this.customers = new ArrayList<>();
         this.tick = 0;
         this.driverAmount = drivers;
-        this.customerAmount = (int) (this.graph.nodes.size() * customers);
+        this.customerAmount = customers;
         this.rides = 0;
         this.finished = new ArrayList<>();
         this.rideDist = 0;
