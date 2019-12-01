@@ -68,6 +68,9 @@ public class Simulation {
         this.customerAmount = (int) (this.graph.nodes.size() * customers);
         this.rides = 0;
         this.finished = new ArrayList<>();
+        this.rideDist = 0;
+        this.satisfaction = 5;
+        this.dWaitTime = 0;
     }
 
     /**
