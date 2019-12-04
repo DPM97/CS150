@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 
 /**
@@ -156,15 +157,16 @@ public class Simulation {
     public void findVehicle(Customer customer) {
         int dist = 999999999;
         Vehicle driver = null;
-        for (Vehicle vehicle : this.drivers) {
-            if (this.graph.getDistance(customer.node.key, vehicle.node.key) < dist && vehicle.state.equals("IDLE")) {
-                driver = vehicle;
-                dist = this.graph.getDistance(customer.node.key, vehicle.node.key);
+        this.graph.dijkstra(customer.node.key);
+        for (Vehicle current : this.drivers) {
+            if (current.node.dist < dist && current.state.equals("IDLE")) {
+                driver = current;
+                dist = current.node.dist;
             }
         }
         if (driver != null) {
             driver.state = "PICKING-UP";
-            driver.gps = graph.fetchPath(driver.node, customer.node);
+            driver.gps = this.graph.fetchPath(driver.node, customer.node);
             driver.customer = customer;
             customer.driver = driver;
         }
