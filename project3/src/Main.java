@@ -32,6 +32,7 @@ public class Main {
         ArrayList<Double> satisfaction = new ArrayList<>();
         ArrayList<Double> dWaitTime = new ArrayList<>();
         ArrayList<Double> rideDist = new ArrayList<>();
+        ArrayList<Double> connectivity = new ArrayList<>();
 
 
         for (int i = 1; i <= 8; i++) {
@@ -54,11 +55,12 @@ public class Main {
                     satisfaction.add(data[1]);
                     dWaitTime.add(data[2]);
                     rideDist.add(data[3]);
+                    connectivity.add(data[4]);
                     drivers.add(driverAmount);
                     nodes.add(amount);
                     customers.add(50 * i);
                     System.out.println("test " + complete + " completed...");
-                    System.out.println(data[0] + " " + data[1] + " " + data[2] + " " + data[3] + " " + driverAmount + " " + amount + " " + (amount * (0.05*i)));
+                    System.out.println(data[0] + " " + data[1] + " " + data[2] + " " + data[3] + " " + data[4] + " " + driverAmount + " " + amount + " " + (amount * (0.05*i)));
                     complete++;
                 }
             }
@@ -68,6 +70,8 @@ public class Main {
         csv.addRow();
         for (int i = 0; i < nodes.size(); i++) {
             csv.append(Integer.toString(nodes.get(i)));
+            csv.addCol();
+            csv.append(Double.toString(connectivity.get(i)));
             csv.addCol();
             csv.append(Integer.toString(drivers.get(i)));
             csv.addCol();

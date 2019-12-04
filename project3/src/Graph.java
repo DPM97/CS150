@@ -19,6 +19,11 @@ public class Graph {
 
     Random random;
 
+    /**
+     * connectivity
+     */
+    double connectivity;
+
 
     /**
      * constructor
@@ -27,6 +32,7 @@ public class Graph {
     public Graph() {
         this.nodes = new ArrayList<>();
         this.random = new Random();
+        this.connectivity = 0;
     }
 
     /**
@@ -265,6 +271,7 @@ public class Graph {
         }
 
         float randConnectivity = this.random.nextFloat() * (5 - 3) + 3;
+        this.connectivity = randConnectivity;
         while (calcConnectivity() < randConnectivity) {
             chooseRandNode(randConnectivity, min, max);
         }
@@ -301,73 +308,6 @@ public class Graph {
             addEdge(endNode.key, randNode.key, weight);
         }
     }
-
-    /*
-
-    public Stack<GraphNode> updateDist(int start, int end) {
-        Stack<GraphNode> stack = new Stack<>();
-
-        PriorityQueue<GraphNode> unvisited = new PriorityQueue();
-
-        GraphNode node = null;
-        GraphNode endNode = null;
-
-        for (GraphNode nodes : this.nodes) {
-            if (nodes.key == start) {
-                node = nodes;
-            }
-        }
-
-        for (GraphNode nodes : this.nodes) {
-            if (nodes.key == end) {
-                endNode = nodes;
-            }
-        }
-
-        if (node == null || endNode == null) {
-            return new Stack<>();
-        }
-
-
-
-        for (GraphNode nodes : this.nodes) {
-            if (nodes != node) {
-                nodes.dist = 999999999;
-                nodes.pred = null;
-                unvisited.add(nodes);
-            } else {
-                nodes.dist = 0;
-                nodes.pred = null;
-                unvisited.add(nodes);
-            }
-        }
-
-        while (!unvisited.isEmpty()) {
-            GraphNode curNode = unvisited.poll();
-
-            for (GraphEdge edge : curNode.edges) {
-                GraphNode node2 = edge.end;
-                int curWeight = edge.weight;
-                int altDist = curNode.dist + curWeight;
-
-                if (altDist < node2.dist) {
-                    unvisited.remove(node2);
-                    node2.dist = altDist;
-                    node2.pred = curNode;
-                    unvisited.add(node2);
-                }
-            }
-
-            if (!unvisited.isEmpty()) {
-                if (unvisited.peek().key == end) {
-                    stack = fetchPath(node, endNode);
-                }
-            }
-        }
-        return stack;
-    }
-
-     */
 
     /**
      * fetch shortest path between two nodes

@@ -90,7 +90,6 @@ public class Simulation {
                 if (customer.state.equals("WAITING")) {
                     //customer.waitTime++;
                     if (customer.driver != null) {
-                        //dont do shit
                         //System.out.println("waiting");
                     } else {
                         customer.waitTime++;
@@ -146,7 +145,7 @@ public class Simulation {
             this.tick++;
         }
         //System.out.println("TOTAL RIDES: " + this.rides);
-        return new double[]{this.rides, this.satisfaction, this.dWaitTime, this.rideDist};
+        return new double[]{this.rides, this.satisfaction, this.dWaitTime, this.rideDist, this.graph.connectivity};
     }
 
     /**
