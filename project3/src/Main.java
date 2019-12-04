@@ -49,7 +49,8 @@ public class Main {
                     Graph graph = new Graph();
                     graph.create(amount, 1, 1500);
                     int driverAmount = 100 * v;
-                    Simulation sim = new Simulation(graph, driverAmount, 50 * i);
+                    int customerAmount = 50 * i;
+                    Simulation sim = new Simulation(graph, driverAmount, customerAmount);
                     double[] data = sim.start();
                     rides.add(data[0]);
                     satisfaction.add(data[1]);
@@ -58,7 +59,7 @@ public class Main {
                     connectivity.add(data[4]);
                     drivers.add(driverAmount);
                     nodes.add(amount);
-                    customers.add(50 * i);
+                    customers.add(customerAmount);
                     System.out.println("test " + complete + " completed...");
                     System.out.println(data[0] + " " + data[1] + " " + data[2] + " " + data[3] + " " + data[4] + " " + driverAmount + " " + amount + " " + (amount * (0.05*i)));
                     complete++;
