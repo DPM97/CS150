@@ -18,7 +18,7 @@ public class Csv {
      */
 
     public Csv() throws IOException {
-        this.file = new FileWriter(new File("out.txt"));
+        this.file = new FileWriter(new File("out.csv"));
     }
 
     /**

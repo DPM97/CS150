@@ -1,0 +1,2 @@
+0: driver Vehicle@735b5592 going to pick up Customer@58651fd0
+Simulation finished. Total rides: 0

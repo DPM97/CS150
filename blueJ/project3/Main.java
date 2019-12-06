@@ -33,7 +33,8 @@ public class Main {
         ArrayList<Double> dWaitTime = new ArrayList<>();
         ArrayList<Double> rideDist = new ArrayList<>();
         ArrayList<Double> connectivity = new ArrayList<>();
-
+        ArrayList<Double> weights = new ArrayList<>();
+        ArrayList<Double> edges = new ArrayList<>();
 
         for (int i = 1; i <= 8; i++) {
             for (int j = 1; j <= 3; j++) {
@@ -57,17 +58,18 @@ public class Main {
                     dWaitTime.add(data[2]);
                     rideDist.add(data[3]);
                     connectivity.add(data[4]);
+                    edges.add(data[5]);
+                    weights.add(data[6]);
                     drivers.add(driverAmount);
                     nodes.add(amount);
                     customers.add(customerAmount);
                     System.out.println("test " + complete + " completed...");
-                    System.out.println(data[0] + " " + data[1] + " " + data[2] + " " + data[3] + " " + data[4] + " " + driverAmount + " " + amount + " " + (amount * (0.05*i)));
                     complete++;
                 }
             }
         }
         Csv csv = new Csv();
-        csv.file.append("GraphSize, Drivers, Rides, Satisfaction, DriverWaitTime, RideDist");
+        csv.file.append("GraphSize,Connectivity,Drivers,Customers,Rides,Satisfaction,DriverWaitTime,RideDist,WeightAvg,Edges");
         csv.addRow();
         for (int i = 0; i < nodes.size(); i++) {
             csv.append(Integer.toString(nodes.get(i)));
@@ -85,6 +87,10 @@ public class Main {
             csv.append(Double.toString(dWaitTime.get(i)));
             csv.addCol();
             csv.append(Double.toString(rideDist.get(i)));
+            csv.addCol();
+            csv.append(Double.toString(weights.get(i)));
+            csv.addCol();
+            csv.append(Double.toString(edges.get(i)));
             csv.addRow();
         }
         csv.close();

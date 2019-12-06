@@ -1,0 +1,29 @@
+0: driver Vehicle@3cd1a2f1 going to pick up Customer@2f0e140b
+0: customer Customer@2f0e140b picked up by Vehicle@3cd1a2f1
+1: driver Vehicle@7440e464 going to pick up Customer@49476842
+1: customer Customer@49476842 picked up by Vehicle@7440e464
+2: driver Vehicle@78308db1 going to pick up Customer@27c170f0
+2: driver Vehicle@5451c3a8 going to pick up Customer@2626b418
+2: customer Customer@2626b418 picked up by Vehicle@5451c3a8
+2: customer Customer@27c170f0 picked up by Vehicle@78308db1
+4: driver Vehicle@5a07e868 going to pick up Customer@76ed5528
+4: driver Vehicle@2c7b84de going to pick up Customer@3fee733d
+4: driver Vehicle@5acf9800 going to pick up Customer@4617c264
+4: driver Vehicle@36baf30c going to pick up Customer@7a81197d
+4: customer Customer@3fee733d picked up by Vehicle@2c7b84de
+4: customer Customer@76ed5528 picked up by Vehicle@5a07e868
+4: customer Customer@7a81197d picked up by Vehicle@36baf30c
+4: customer Customer@4617c264 picked up by Vehicle@5acf9800
+5: driver Vehicle@5ca881b5 going to pick up Customer@24d46ca6
+5: customer Customer@24d46ca6 picked up by Vehicle@5ca881b5
+6: driver Vehicle@4517d9a3 going to pick up Customer@372f7a8d
+6: driver Vehicle@2f92e0f4 going to pick up Customer@28a418fc
+6: customer Customer@372f7a8d picked up by Vehicle@4517d9a3
+6: customer Customer@28a418fc picked up by Vehicle@2f92e0f4
+7: driver Vehicle@5305068a going to pick up Customer@1f32e575
+7: driver Vehicle@279f2327 going to pick up Customer@2ff4acd0
+7: driver Vehicle@54bedef2 going to pick up Customer@5caf905d
+7: customer Customer@1f32e575 picked up by Vehicle@5305068a
+7: customer Customer@2ff4acd0 picked up by Vehicle@279f2327
+7: customer Customer@5caf905d picked up by Vehicle@54bedef2
+Simulation finished. Total rides: 0

@@ -1,0 +1,10 @@
+0: driver Vehicle@4459eb14 going to pick up Customer@5a2e4553
+0: driver Vehicle@28c97a5 going to pick up Customer@6659c656
+0: driver Vehicle@6d5380c2 going to pick up Customer@45ff54e6
+0: driver Vehicle@2328c243 going to pick up Customer@bebdb06
+0: driver Vehicle@7a4f0f29 going to pick up Customer@45283ce2
+0: driver Vehicle@2077d4de going to pick up Customer@7591083d
+0: driver Vehicle@77a567e1 going to pick up Customer@736e9adb
+0: driver Vehicle@6d21714c going to pick up Customer@108c4c35
+0: driver Vehicle@4ccabbaa going to pick up Customer@4bf558aa
+Simulation finished. Total rides: 0

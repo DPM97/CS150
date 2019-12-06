@@ -9,6 +9,16 @@ import java.util.Stack;
 
 public class Graph {
     /**
+     * avg edge weight
+     */
+    double weight;
+
+    /**
+     * amount of edges in graph
+     */
+    int edges;
+
+    /**
      * arraylist of nodes
      */
     ArrayList<GraphNode> nodes;
@@ -33,6 +43,8 @@ public class Graph {
         this.nodes = new ArrayList<>();
         this.random = new Random();
         this.connectivity = 0;
+        this.weight = 0;
+        this.edges = 0;
     }
 
     /**
@@ -266,8 +278,10 @@ public class Graph {
         for (int i = 1; i < amount; i++) {
             addNode(i);
             int weight = this.random.nextInt(max - min) + min;
+            this.weight = ((this.weight * this.edges) + weight) / (this.edges + 1);
             addEdge(i, i - 1, weight);
             addEdge(i-1, i, weight); //each graph is connected to atleast 1 node
+            this.edges++;
         }
 
         float randConnectivity = this.random.nextFloat() * (5 - 3) + 3;
@@ -304,8 +318,10 @@ public class Graph {
         if (randNode.edges.size() < 6 && calcConnectivity() < connectivity) {
             GraphNode endNode = this.nodes.get(this.random.nextInt((this.nodes.size())));
             int weight = this.random.nextInt(max - min) + min;
+            this.weight = ((this.weight * this.edges) + weight) / (this.edges + 1);
             addEdge(randNode.key, endNode.key, weight);
             addEdge(endNode.key, randNode.key, weight);
+            this.edges++;
         }
     }
 

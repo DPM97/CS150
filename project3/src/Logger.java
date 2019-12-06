@@ -14,7 +14,6 @@ public class Logger {
 
     /**
      * constructor
-     * @param testNum test number
      * @throws IOException exception for fileWriter
      */
     public Logger() throws IOException {

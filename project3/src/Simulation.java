@@ -87,6 +87,7 @@ public class Simulation {
      */
 
     public double[] start() throws IOException {
+        System.out.println(this.graph.weight);
         genObjects();
         while(this.tick < 720) {
             addObjects();
@@ -148,7 +149,7 @@ public class Simulation {
         }
         this.logger.log("Simulation finished. Total rides: " + this.rides);
         this.logger.close();
-        return new double[]{this.rides, this.satisfaction, this.dWaitTime, this.rideDist, this.graph.connectivity};
+        return new double[]{this.rides, this.satisfaction, this.dWaitTime, this.rideDist, this.graph.connectivity, this.graph.edges, this.graph.weight};
     }
 
     /**

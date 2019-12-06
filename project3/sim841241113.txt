@@ -1,0 +1,737 @@
+0: driver Vehicle@610455d6 going to pick up Customer@511d50c0
+0: driver Vehicle@60e53b93 going to pick up Customer@5e2de80c
+0: driver Vehicle@1d44bcfa going to pick up Customer@266474c2
+0: driver Vehicle@6f94fa3e going to pick up Customer@5e481248
+0: driver Vehicle@66d3c617 going to pick up Customer@63947c6b
+0: customer Customer@511d50c0 picked up by Vehicle@610455d6
+1: driver Vehicle@2b193f2d going to pick up Customer@355da254
+1: driver Vehicle@4dc63996 going to pick up Customer@d716361
+1: driver Vehicle@6ff3c5b5 going to pick up Customer@3764951d
+1: driver Vehicle@4b1210ee going to pick up Customer@4d7e1886
+1: driver Vehicle@3cd1a2f1 going to pick up Customer@2f0e140b
+1: driver Vehicle@7440e464 going to pick up Customer@49476842
+1: customer Customer@63947c6b picked up by Vehicle@66d3c617
+2: driver Vehicle@78308db1 going to pick up Customer@27c170f0
+2: driver Vehicle@5451c3a8 going to pick up Customer@2626b418
+2: driver Vehicle@5a07e868 going to pick up Customer@76ed5528
+2: driver Vehicle@2c7b84de going to pick up Customer@3fee733d
+2: driver Vehicle@5acf9800 going to pick up Customer@4617c264
+2: driver Vehicle@36baf30c going to pick up Customer@7a81197d
+2: driver Vehicle@5ca881b5 going to pick up Customer@24d46ca6
+2: driver Vehicle@4517d9a3 going to pick up Customer@372f7a8d
+2: driver Vehicle@2f92e0f4 going to pick up Customer@28a418fc
+2: driver Vehicle@5305068a going to pick up Customer@1f32e575
+2: customer Customer@49476842 picked up by Vehicle@7440e464
+2: customer Customer@4d7e1886 picked up by Vehicle@4b1210ee
+2: customer Customer@7a81197d picked up by Vehicle@36baf30c
+2: customer Customer@d716361 picked up by Vehicle@4dc63996
+3: driver Vehicle@279f2327 going to pick up Customer@2ff4acd0
+3: customer Customer@3fee733d picked up by Vehicle@2c7b84de
+3: customer Customer@5e481248 picked up by Vehicle@6f94fa3e
+4: driver Vehicle@54bedef2 going to pick up Customer@5caf905d
+4: customer Customer@372f7a8d picked up by Vehicle@4517d9a3
+5: driver Vehicle@27716f4 going to pick up Customer@8efb846
+5: driver Vehicle@2a84aee7 going to pick up Customer@a09ee92
+5: driver Vehicle@30f39991 going to pick up Customer@452b3a41
+5: driver Vehicle@4a574795 going to pick up Customer@f6f4d33
+5: driver Vehicle@23fc625e going to pick up Customer@3f99bd52
+5: driver Vehicle@4f023edb going to pick up Customer@3a71f4dd
+5: driver Vehicle@7adf9f5f going to pick up Customer@85ede7b
+5: driver Vehicle@5674cd4d going to pick up Customer@63961c42
+5: driver Vehicle@65b54208 going to pick up Customer@1be6f5c3
+5: customer Customer@2f0e140b picked up by Vehicle@3cd1a2f1
+5: customer Customer@4617c264 picked up by Vehicle@5acf9800
+5: customer Customer@24d46ca6 picked up by Vehicle@5ca881b5
+5: customer Customer@355da254 picked up by Vehicle@2b193f2d
+6: driver Vehicle@6b884d57 going to pick up Customer@38af3868
+6: driver Vehicle@77459877 going to pick up Customer@5b2133b1
+6: driver Vehicle@72ea2f77 going to pick up Customer@33c7353a
+6: customer Customer@28a418fc picked up by Vehicle@2f92e0f4
+6: customer Customer@3764951d picked up by Vehicle@6ff3c5b5
+6: customer Customer@266474c2 picked up by Vehicle@1d44bcfa
+6: customer Customer@76ed5528 picked up by Vehicle@5a07e868
+6: customer Customer@1f32e575 picked up by Vehicle@5305068a
+6: customer Customer@27c170f0 picked up by Vehicle@78308db1
+7: customer Customer@28a418fc dropped off at destination by Vehicle@2f92e0f4
+7: driver Vehicle@681a9515 going to pick up Customer@3af49f1c
+7: driver Vehicle@19469ea2 going to pick up Customer@13221655
+7: customer Customer@a09ee92 picked up by Vehicle@2a84aee7
+7: customer Customer@3f99bd52 picked up by Vehicle@23fc625e
+7: customer Customer@5e2de80c picked up by Vehicle@60e53b93
+8: driver Vehicle@2f2c9b19 going to pick up Customer@31befd9f
+8: driver Vehicle@1c20c684 going to pick up Customer@1fb3ebeb
+8: driver Vehicle@2f92e0f4 going to pick up Customer@548c4f57
+8: driver Vehicle@1218025c going to pick up Customer@816f27d
+8: customer Customer@2626b418 picked up by Vehicle@5451c3a8
+8: customer Customer@33c7353a picked up by Vehicle@72ea2f77
+8: customer Customer@f6f4d33 picked up by Vehicle@4a574795
+9: driver Vehicle@87aac27 going to pick up Customer@3e3abc88
+9: driver Vehicle@6ce253f1 going to pick up Customer@53d8d10a
+9: driver Vehicle@e9e54c2 going to pick up Customer@65ab7765
+9: driver Vehicle@1b28cdfa going to pick up Customer@eed1f14
+9: driver Vehicle@7229724f going to pick up Customer@4c873330
+9: driver Vehicle@119d7047 going to pick up Customer@776ec8df
+9: driver Vehicle@4eec7777 going to pick up Customer@3b07d329
+9: customer Customer@63961c42 picked up by Vehicle@5674cd4d
+10: customer Customer@53d8d10a picked up by Vehicle@6ce253f1
+10: customer Customer@38af3868 picked up by Vehicle@6b884d57
+10: customer Customer@5caf905d picked up by Vehicle@54bedef2
+10: customer Customer@3a71f4dd picked up by Vehicle@4f023edb
+10: customer Customer@8efb846 picked up by Vehicle@27716f4
+11: customer Customer@2ff4acd0 picked up by Vehicle@279f2327
+11: customer Customer@1fb3ebeb picked up by Vehicle@1c20c684
+12: customer Customer@548c4f57 picked up by Vehicle@2f92e0f4
+12: customer Customer@4c873330 picked up by Vehicle@7229724f
+12: customer Customer@13221655 picked up by Vehicle@19469ea2
+12: customer Customer@776ec8df picked up by Vehicle@119d7047
+12: customer Customer@452b3a41 picked up by Vehicle@30f39991
+13: customer Customer@5b2133b1 picked up by Vehicle@77459877
+13: customer Customer@3e3abc88 picked up by Vehicle@87aac27
+14: customer Customer@511d50c0 dropped off at destination by Vehicle@610455d6
+14: customer Customer@3b07d329 picked up by Vehicle@4eec7777
+14: customer Customer@3af49f1c picked up by Vehicle@681a9515
+14: customer Customer@65ab7765 picked up by Vehicle@e9e54c2
+14: customer Customer@85ede7b picked up by Vehicle@7adf9f5f
+15: customer Customer@4d7e1886 dropped off at destination by Vehicle@4b1210ee
+15: customer Customer@49476842 dropped off at destination by Vehicle@7440e464
+15: customer Customer@7a81197d dropped off at destination by Vehicle@36baf30c
+16: driver Vehicle@41629346 going to pick up Customer@404b9385
+16: driver Vehicle@6d311334 going to pick up Customer@682a0b20
+16: driver Vehicle@3d075dc0 going to pick up Customer@214c265e
+16: customer Customer@1be6f5c3 picked up by Vehicle@65b54208
+17: customer Customer@d716361 dropped off at destination by Vehicle@4dc63996
+17: customer Customer@eed1f14 picked up by Vehicle@1b28cdfa
+18: customer Customer@355da254 dropped off at destination by Vehicle@2b193f2d
+18: customer Customer@27c170f0 dropped off at destination by Vehicle@78308db1
+18: customer Customer@404b9385 picked up by Vehicle@41629346
+19: customer Customer@5e481248 dropped off at destination by Vehicle@6f94fa3e
+19: customer Customer@63947c6b dropped off at destination by Vehicle@66d3c617
+19: driver Vehicle@610455d6 going to pick up Customer@448139f0
+19: driver Vehicle@78308db1 going to pick up Customer@7cca494b
+19: driver Vehicle@7ba4f24f going to pick up Customer@3b9a45b3
+19: driver Vehicle@7699a589 going to pick up Customer@58372a00
+19: driver Vehicle@4dd8dc3 going to pick up Customer@6d03e736
+19: driver Vehicle@568db2f2 going to pick up Customer@378bf509
+19: driver Vehicle@5fd0d5ae going to pick up Customer@2d98a335
+19: driver Vehicle@16b98e56 going to pick up Customer@7ef20235
+19: driver Vehicle@66d3c617 going to pick up Customer@27d6c5e0
+19: driver Vehicle@4f3f5b24 going to pick up Customer@15aeb7ab
+19: customer Customer@816f27d picked up by Vehicle@1218025c
+19: customer Customer@15aeb7ab picked up by Vehicle@4f3f5b24
+19: customer Customer@31befd9f picked up by Vehicle@2f2c9b19
+20: customer Customer@372f7a8d dropped off at destination by Vehicle@4517d9a3
+20: customer Customer@7cca494b picked up by Vehicle@78308db1
+21: customer Customer@2f0e140b dropped off at destination by Vehicle@3cd1a2f1
+22: customer Customer@7ef20235 picked up by Vehicle@16b98e56
+22: customer Customer@2d98a335 picked up by Vehicle@5fd0d5ae
+22: customer Customer@448139f0 picked up by Vehicle@610455d6
+22: customer Customer@58372a00 picked up by Vehicle@7699a589
+23: customer Customer@3764951d dropped off at destination by Vehicle@6ff3c5b5
+23: customer Customer@4617c264 dropped off at destination by Vehicle@5acf9800
+23: customer Customer@a09ee92 dropped off at destination by Vehicle@2a84aee7
+23: customer Customer@3b9a45b3 picked up by Vehicle@7ba4f24f
+24: customer Customer@3f99bd52 dropped off at destination by Vehicle@23fc625e
+24: customer Customer@378bf509 picked up by Vehicle@568db2f2
+25: customer Customer@24d46ca6 dropped off at destination by Vehicle@5ca881b5
+26: customer Customer@266474c2 dropped off at destination by Vehicle@1d44bcfa
+26: driver Vehicle@7b23ec81 going to pick up Customer@6acbcfc0
+26: driver Vehicle@5f184fc6 going to pick up Customer@3feba861
+26: customer Customer@214c265e picked up by Vehicle@3d075dc0
+27: customer Customer@3fee733d dropped off at destination by Vehicle@2c7b84de
+27: customer Customer@682a0b20 picked up by Vehicle@6d311334
+27: customer Customer@6d03e736 picked up by Vehicle@4dd8dc3
+27: customer Customer@27d6c5e0 picked up by Vehicle@66d3c617
+28: customer Customer@2626b418 dropped off at destination by Vehicle@5451c3a8
+28: customer Customer@5caf905d dropped off at destination by Vehicle@54bedef2
+28: customer Customer@8efb846 dropped off at destination by Vehicle@27716f4
+28: driver Vehicle@6ff3c5b5 going to pick up Customer@5b480cf9
+28: driver Vehicle@54bedef2 going to pick up Customer@6f496d9f
+28: driver Vehicle@5acf9800 going to pick up Customer@723279cf
+28: customer Customer@723279cf picked up by Vehicle@5acf9800
+29: customer Customer@76ed5528 dropped off at destination by Vehicle@5a07e868
+29: customer Customer@53d8d10a dropped off at destination by Vehicle@6ce253f1
+29: driver Vehicle@2c7b84de going to pick up Customer@10f87f48
+29: customer Customer@6acbcfc0 picked up by Vehicle@7b23ec81
+30: driver Vehicle@b4c966a going to pick up Customer@2f4d3709
+30: driver Vehicle@4e50df2e going to pick up Customer@1d81eb93
+30: driver Vehicle@3cd1a2f1 going to pick up Customer@7291c18f
+30: driver Vehicle@34a245ab going to pick up Customer@7cc355be
+30: driver Vehicle@6e8cf4c6 going to pick up Customer@12edcd21
+30: driver Vehicle@34c45dca going to pick up Customer@52cc8049
+30: customer Customer@1d81eb93 picked up by Vehicle@4e50df2e
+30: customer Customer@6f496d9f picked up by Vehicle@54bedef2
+31: customer Customer@1f32e575 dropped off at destination by Vehicle@5305068a
+31: customer Customer@3feba861 picked up by Vehicle@5f184fc6
+32: customer Customer@38af3868 dropped off at destination by Vehicle@6b884d57
+32: customer Customer@5b480cf9 picked up by Vehicle@6ff3c5b5
+34: customer Customer@5b2133b1 dropped off at destination by Vehicle@77459877
+34: customer Customer@3e3abc88 dropped off at destination by Vehicle@87aac27
+34: customer Customer@65ab7765 dropped off at destination by Vehicle@e9e54c2
+34: customer Customer@776ec8df dropped off at destination by Vehicle@119d7047
+34: customer Customer@3b07d329 dropped off at destination by Vehicle@4eec7777
+34: customer Customer@3b9a45b3 dropped off at destination by Vehicle@7ba4f24f
+35: customer Customer@5e2de80c dropped off at destination by Vehicle@60e53b93
+35: customer Customer@3af49f1c dropped off at destination by Vehicle@681a9515
+35: driver Vehicle@5305068a going to pick up Customer@5b6f7412
+35: driver Vehicle@119d7047 going to pick up Customer@27973e9b
+35: driver Vehicle@312b1dae going to pick up Customer@7530d0a
+35: driver Vehicle@27bc2616 going to pick up Customer@3941a79c
+35: driver Vehicle@506e1b77 going to pick up Customer@4fca772d
+35: driver Vehicle@6f94fa3e going to pick up Customer@9807454
+36: customer Customer@f6f4d33 dropped off at destination by Vehicle@4a574795
+36: customer Customer@3a71f4dd dropped off at destination by Vehicle@4f023edb
+36: customer Customer@7cca494b dropped off at destination by Vehicle@78308db1
+36: customer Customer@7291c18f picked up by Vehicle@3cd1a2f1
+36: customer Customer@2f4d3709 picked up by Vehicle@b4c966a
+37: customer Customer@63961c42 dropped off at destination by Vehicle@5674cd4d
+37: driver Vehicle@87aac27 going to pick up Customer@3d494fbf
+37: driver Vehicle@4dc63996 going to pick up Customer@1ddc4ec2
+37: driver Vehicle@681a9515 going to pick up Customer@133314b
+37: customer Customer@4fca772d picked up by Vehicle@506e1b77
+37: customer Customer@7cc355be picked up by Vehicle@34a245ab
+38: customer Customer@452b3a41 dropped off at destination by Vehicle@30f39991
+38: customer Customer@85ede7b dropped off at destination by Vehicle@7adf9f5f
+38: customer Customer@404b9385 dropped off at destination by Vehicle@41629346
+38: customer Customer@58372a00 dropped off at destination by Vehicle@7699a589
+38: driver Vehicle@6ce253f1 going to pick up Customer@b1bc7ed
+38: driver Vehicle@7cd84586 going to pick up Customer@30dae81
+38: driver Vehicle@1b2c6ec2 going to pick up Customer@4edde6e5
+38: driver Vehicle@7440e464 going to pick up Customer@70177ecd
+38: driver Vehicle@1e80bfe8 going to pick up Customer@66a29884
+38: driver Vehicle@4769b07b going to pick up Customer@cc34f4d
+38: driver Vehicle@2b193f2d going to pick up Customer@17a7cec2
+38: driver Vehicle@41629346 going to pick up Customer@65b3120a
+38: driver Vehicle@6f539caf going to pick up Customer@79fc0f2f
+38: customer Customer@3941a79c picked up by Vehicle@27bc2616
+39: customer Customer@548c4f57 dropped off at destination by Vehicle@2f92e0f4
+39: customer Customer@3feba861 dropped off at destination by Vehicle@5f184fc6
+39: customer Customer@9807454 picked up by Vehicle@6f94fa3e
+40: customer Customer@66a29884 picked up by Vehicle@1e80bfe8
+40: customer Customer@27973e9b picked up by Vehicle@119d7047
+40: customer Customer@12edcd21 picked up by Vehicle@6e8cf4c6
+41: customer Customer@1d81eb93 dropped off at destination by Vehicle@4e50df2e
+41: customer Customer@52cc8049 picked up by Vehicle@34c45dca
+41: customer Customer@133314b picked up by Vehicle@681a9515
+41: customer Customer@5b6f7412 picked up by Vehicle@5305068a
+42: customer Customer@33c7353a dropped off at destination by Vehicle@72ea2f77
+42: customer Customer@1fb3ebeb dropped off at destination by Vehicle@1c20c684
+42: customer Customer@2d98a335 dropped off at destination by Vehicle@5fd0d5ae
+42: customer Customer@7530d0a picked up by Vehicle@312b1dae
+42: customer Customer@30dae81 picked up by Vehicle@7cd84586
+43: driver Vehicle@60e53b93 going to pick up Customer@50040f0c
+43: driver Vehicle@5fd0d5ae going to pick up Customer@2dda6444
+43: customer Customer@4edde6e5 picked up by Vehicle@1b2c6ec2
+43: customer Customer@10f87f48 picked up by Vehicle@2c7b84de
+43: customer Customer@1ddc4ec2 picked up by Vehicle@4dc63996
+44: customer Customer@2ff4acd0 dropped off at destination by Vehicle@279f2327
+44: customer Customer@15aeb7ab dropped off at destination by Vehicle@4f3f5b24
+44: customer Customer@3d494fbf picked up by Vehicle@87aac27
+45: customer Customer@4c873330 dropped off at destination by Vehicle@7229724f
+45: driver Vehicle@5e9f23b4 going to pick up Customer@4783da3f
+45: driver Vehicle@378fd1ac going to pick up Customer@49097b5d
+45: driver Vehicle@6e2c634b going to pick up Customer@37a71e93
+45: driver Vehicle@7e6cbb7a going to pick up Customer@7c3df479
+45: customer Customer@b1bc7ed picked up by Vehicle@6ce253f1
+45: customer Customer@79fc0f2f picked up by Vehicle@6f539caf
+45: customer Customer@65b3120a picked up by Vehicle@41629346
+46: customer Customer@13221655 dropped off at destination by Vehicle@19469ea2
+46: customer Customer@cc34f4d picked up by Vehicle@4769b07b
+46: customer Customer@70177ecd picked up by Vehicle@7440e464
+48: customer Customer@448139f0 dropped off at destination by Vehicle@610455d6
+48: customer Customer@7ef20235 dropped off at destination by Vehicle@16b98e56
+48: customer Customer@6acbcfc0 dropped off at destination by Vehicle@7b23ec81
+48: customer Customer@7c3df479 picked up by Vehicle@7e6cbb7a
+48: customer Customer@17a7cec2 picked up by Vehicle@2b193f2d
+49: driver Vehicle@7106e68e going to pick up Customer@7eda2dbb
+50: customer Customer@1be6f5c3 dropped off at destination by Vehicle@65b54208
+50: customer Customer@6f496d9f dropped off at destination by Vehicle@54bedef2
+50: driver Vehicle@6576fe71 going to pick up Customer@76fb509a
+50: customer Customer@49097b5d picked up by Vehicle@378fd1ac
+50: customer Customer@37a71e93 picked up by Vehicle@6e2c634b
+51: customer Customer@eed1f14 dropped off at destination by Vehicle@1b28cdfa
+51: customer Customer@66a29884 dropped off at destination by Vehicle@1e80bfe8
+51: driver Vehicle@7adf9f5f going to pick up Customer@300ffa5d
+51: customer Customer@7eda2dbb picked up by Vehicle@7106e68e
+51: customer Customer@300ffa5d picked up by Vehicle@7adf9f5f
+52: customer Customer@214c265e dropped off at destination by Vehicle@3d075dc0
+52: driver Vehicle@7b23ec81 going to pick up Customer@1f17ae12
+52: driver Vehicle@2f92e0f4 going to pick up Customer@4d405ef7
+52: driver Vehicle@6193b845 going to pick up Customer@2e817b38
+52: driver Vehicle@7ba4f24f going to pick up Customer@c4437c4
+52: driver Vehicle@5a07e868 going to pick up Customer@433c675d
+52: driver Vehicle@3f91beef going to pick up Customer@1a6c5a9e
+52: driver Vehicle@5f184fc6 going to pick up Customer@37bba400
+52: driver Vehicle@16b98e56 going to pick up Customer@179d3b25
+52: customer Customer@4d405ef7 picked up by Vehicle@2f92e0f4
+52: customer Customer@433c675d picked up by Vehicle@5a07e868
+52: customer Customer@1a6c5a9e picked up by Vehicle@3f91beef
+52: customer Customer@2dda6444 picked up by Vehicle@5fd0d5ae
+53: customer Customer@723279cf dropped off at destination by Vehicle@5acf9800
+53: customer Customer@4783da3f picked up by Vehicle@5e9f23b4
+54: customer Customer@378bf509 dropped off at destination by Vehicle@568db2f2
+54: customer Customer@2f4d3709 dropped off at destination by Vehicle@b4c966a
+54: customer Customer@37bba400 picked up by Vehicle@5f184fc6
+55: customer Customer@31befd9f dropped off at destination by Vehicle@2f2c9b19
+55: customer Customer@6d03e736 dropped off at destination by Vehicle@4dd8dc3
+55: customer Customer@50040f0c picked up by Vehicle@60e53b93
+56: customer Customer@682a0b20 dropped off at destination by Vehicle@6d311334
+56: customer Customer@27d6c5e0 dropped off at destination by Vehicle@66d3c617
+56: driver Vehicle@5451c3a8 going to pick up Customer@254989ff
+56: driver Vehicle@5acf9800 going to pick up Customer@5d099f62
+56: driver Vehicle@2f2c9b19 going to pick up Customer@37f8bb67
+56: driver Vehicle@1c20c684 going to pick up Customer@49c2faae
+56: driver Vehicle@20ad9418 going to pick up Customer@31cefde0
+56: driver Vehicle@7229724f going to pick up Customer@439f5b3d
+56: driver Vehicle@30f39991 going to pick up Customer@1d56ce6a
+56: driver Vehicle@5197848c going to pick up Customer@17f052a3
+56: driver Vehicle@e9e54c2 going to pick up Customer@2e0fa5d3
+56: driver Vehicle@6d311334 going to pick up Customer@5010be6
+57: customer Customer@76fb509a picked up by Vehicle@6576fe71
+57: customer Customer@49c2faae picked up by Vehicle@1c20c684
+58: customer Customer@816f27d dropped off at destination by Vehicle@1218025c
+58: customer Customer@4fca772d dropped off at destination by Vehicle@506e1b77
+58: customer Customer@c4437c4 picked up by Vehicle@7ba4f24f
+58: customer Customer@179d3b25 picked up by Vehicle@16b98e56
+58: customer Customer@2e817b38 picked up by Vehicle@6193b845
+58: customer Customer@1f17ae12 picked up by Vehicle@7b23ec81
+59: customer Customer@7cc355be dropped off at destination by Vehicle@34a245ab
+59: customer Customer@27973e9b dropped off at destination by Vehicle@119d7047
+59: customer Customer@7eda2dbb dropped off at destination by Vehicle@7106e68e
+59: customer Customer@5d099f62 picked up by Vehicle@5acf9800
+59: customer Customer@17f052a3 picked up by Vehicle@5197848c
+59: customer Customer@254989ff picked up by Vehicle@5451c3a8
+59: customer Customer@31cefde0 picked up by Vehicle@20ad9418
+59: customer Customer@1d56ce6a picked up by Vehicle@30f39991
+60: customer Customer@3941a79c dropped off at destination by Vehicle@27bc2616
+60: customer Customer@5010be6 picked up by Vehicle@6d311334
+61: customer Customer@7291c18f dropped off at destination by Vehicle@3cd1a2f1
+62: customer Customer@30dae81 dropped off at destination by Vehicle@7cd84586
+62: driver Vehicle@b4c966a going to pick up Customer@685f4c2e
+62: driver Vehicle@610455d6 going to pick up Customer@7daf6ecc
+62: driver Vehicle@1218025c going to pick up Customer@2e5d6d97
+62: customer Customer@37f8bb67 picked up by Vehicle@2f2c9b19
+63: customer Customer@5b6f7412 dropped off at destination by Vehicle@5305068a
+63: customer Customer@133314b dropped off at destination by Vehicle@681a9515
+63: customer Customer@2e0fa5d3 picked up by Vehicle@e9e54c2
+63: customer Customer@7daf6ecc picked up by Vehicle@610455d6
+64: customer Customer@1ddc4ec2 dropped off at destination by Vehicle@4dc63996
+64: driver Vehicle@3d075dc0 going to pick up Customer@238e0d81
+64: driver Vehicle@279f2327 going to pick up Customer@31221be2
+64: driver Vehicle@377dca04 going to pick up Customer@728938a9
+64: customer Customer@2e5d6d97 picked up by Vehicle@1218025c
+64: customer Customer@685f4c2e picked up by Vehicle@b4c966a
+64: customer Customer@439f5b3d picked up by Vehicle@7229724f
+65: customer Customer@5b480cf9 dropped off at destination by Vehicle@6ff3c5b5
+65: customer Customer@300ffa5d dropped off at destination by Vehicle@7adf9f5f
+66: customer Customer@79fc0f2f dropped off at destination by Vehicle@6f539caf
+66: driver Vehicle@78308db1 going to pick up Customer@21b8d17c
+66: driver Vehicle@6433a2 going to pick up Customer@5910e440
+66: driver Vehicle@1e80bfe8 going to pick up Customer@6267c3bb
+66: driver Vehicle@6ff3c5b5 going to pick up Customer@533ddba
+66: driver Vehicle@568db2f2 going to pick up Customer@246b179d
+66: driver Vehicle@7a07c5b4 going to pick up Customer@26a1ab54
+66: driver Vehicle@3d646c37 going to pick up Customer@41cf53f9
+66: driver Vehicle@1d44bcfa going to pick up Customer@5a10411
+67: customer Customer@65b3120a dropped off at destination by Vehicle@41629346
+67: customer Customer@7c3df479 dropped off at destination by Vehicle@7e6cbb7a
+67: customer Customer@26a1ab54 picked up by Vehicle@7a07c5b4
+68: customer Customer@7530d0a dropped off at destination by Vehicle@312b1dae
+68: customer Customer@cc34f4d dropped off at destination by Vehicle@4769b07b
+68: customer Customer@1a6c5a9e dropped off at destination by Vehicle@3f91beef
+69: customer Customer@12edcd21 dropped off at destination by Vehicle@6e8cf4c6
+69: customer Customer@52cc8049 dropped off at destination by Vehicle@34c45dca
+69: customer Customer@4783da3f dropped off at destination by Vehicle@5e9f23b4
+69: customer Customer@21b8d17c picked up by Vehicle@78308db1
+70: customer Customer@4edde6e5 dropped off at destination by Vehicle@1b2c6ec2
+70: customer Customer@17a7cec2 dropped off at destination by Vehicle@2b193f2d
+70: customer Customer@49c2faae dropped off at destination by Vehicle@1c20c684
+70: driver Vehicle@41629346 going to pick up Customer@2ef1e4fa
+70: driver Vehicle@7e6cbb7a going to pick up Customer@306a30c7
+70: driver Vehicle@b81eda8 going to pick up Customer@68de145
+70: driver Vehicle@27fa135a going to pick up Customer@46f7f36a
+70: driver Vehicle@4dd8dc3 going to pick up Customer@421faab1
+70: driver Vehicle@6e8cf4c6 going to pick up Customer@2b71fc7e
+70: driver Vehicle@4b1210ee going to pick up Customer@5ce65a89
+70: driver Vehicle@34c45dca going to pick up Customer@25f38edc
+70: customer Customer@5910e440 picked up by Vehicle@6433a2
+70: customer Customer@31221be2 picked up by Vehicle@279f2327
+70: customer Customer@246b179d picked up by Vehicle@568db2f2
+71: customer Customer@9807454 dropped off at destination by Vehicle@6f94fa3e
+71: customer Customer@37bba400 dropped off at destination by Vehicle@5f184fc6
+71: customer Customer@728938a9 picked up by Vehicle@377dca04
+71: customer Customer@6267c3bb picked up by Vehicle@1e80bfe8
+72: customer Customer@4d405ef7 dropped off at destination by Vehicle@2f92e0f4
+72: customer Customer@7daf6ecc dropped off at destination by Vehicle@610455d6
+72: customer Customer@68de145 picked up by Vehicle@b81eda8
+72: customer Customer@533ddba picked up by Vehicle@6ff3c5b5
+72: customer Customer@238e0d81 picked up by Vehicle@3d075dc0
+73: driver Vehicle@6f94fa3e going to pick up Customer@1a86f2f1
+73: driver Vehicle@3eb07fd3 going to pick up Customer@506c589e
+73: driver Vehicle@2b193f2d going to pick up Customer@69d0a921
+73: driver Vehicle@27716f4 going to pick up Customer@446cdf90
+73: driver Vehicle@4f3f5b24 going to pick up Customer@799f7e29
+73: driver Vehicle@7adf9f5f going to pick up Customer@4b85612c
+73: driver Vehicle@23fc625e going to pick up Customer@277050dc
+73: driver Vehicle@312b1dae going to pick up Customer@5c29bfd
+73: driver Vehicle@5f184fc6 going to pick up Customer@7aec35a
+73: customer Customer@5a10411 picked up by Vehicle@1d44bcfa
+73: customer Customer@2b71fc7e picked up by Vehicle@6e8cf4c6
+73: customer Customer@5ce65a89 picked up by Vehicle@4b1210ee
+74: customer Customer@254989ff dropped off at destination by Vehicle@5451c3a8
+74: customer Customer@31cefde0 dropped off at destination by Vehicle@20ad9418
+74: customer Customer@41cf53f9 picked up by Vehicle@3d646c37
+74: customer Customer@46f7f36a picked up by Vehicle@27fa135a
+75: customer Customer@10f87f48 dropped off at destination by Vehicle@2c7b84de
+75: customer Customer@5010be6 dropped off at destination by Vehicle@6d311334
+75: customer Customer@69d0a921 picked up by Vehicle@2b193f2d
+76: customer Customer@b1bc7ed dropped off at destination by Vehicle@6ce253f1
+76: customer Customer@49097b5d dropped off at destination by Vehicle@378fd1ac
+76: customer Customer@433c675d dropped off at destination by Vehicle@5a07e868
+76: customer Customer@277050dc picked up by Vehicle@23fc625e
+76: customer Customer@421faab1 picked up by Vehicle@4dd8dc3
+77: customer Customer@76fb509a dropped off at destination by Vehicle@6576fe71
+77: customer Customer@1d56ce6a dropped off at destination by Vehicle@30f39991
+77: customer Customer@25f38edc picked up by Vehicle@34c45dca
+77: customer Customer@7aec35a picked up by Vehicle@5f184fc6
+77: customer Customer@799f7e29 picked up by Vehicle@4f3f5b24
+77: customer Customer@2ef1e4fa picked up by Vehicle@41629346
+78: customer Customer@70177ecd dropped off at destination by Vehicle@7440e464
+78: customer Customer@17f052a3 dropped off at destination by Vehicle@5197848c
+78: customer Customer@2e0fa5d3 dropped off at destination by Vehicle@e9e54c2
+78: driver Vehicle@e9e54c2 going to pick up Customer@67424e82
+78: driver Vehicle@5e9f23b4 going to pick up Customer@42110406
+78: driver Vehicle@5674cd4d going to pick up Customer@531d72ca
+78: driver Vehicle@4769b07b going to pick up Customer@22d8cfe0
+78: driver Vehicle@7440e464 going to pick up Customer@579bb367
+78: driver Vehicle@2a84aee7 going to pick up Customer@1de0aca6
+78: driver Vehicle@4f023edb going to pick up Customer@255316f2
+78: customer Customer@531d72ca picked up by Vehicle@5674cd4d
+78: customer Customer@506c589e picked up by Vehicle@3eb07fd3
+78: customer Customer@306a30c7 picked up by Vehicle@7e6cbb7a
+78: customer Customer@4b85612c picked up by Vehicle@7adf9f5f
+79: customer Customer@37a71e93 dropped off at destination by Vehicle@6e2c634b
+79: customer Customer@1f17ae12 dropped off at destination by Vehicle@7b23ec81
+79: customer Customer@c4437c4 dropped off at destination by Vehicle@7ba4f24f
+79: customer Customer@5d099f62 dropped off at destination by Vehicle@5acf9800
+80: customer Customer@3d494fbf dropped off at destination by Vehicle@87aac27
+80: customer Customer@2e5d6d97 dropped off at destination by Vehicle@1218025c
+80: driver Vehicle@4eec7777 going to pick up Customer@41906a77
+80: driver Vehicle@5acf9800 going to pick up Customer@4b9af9a9
+80: driver Vehicle@119d7047 going to pick up Customer@5387f9e0
+80: driver Vehicle@3cd1a2f1 going to pick up Customer@6e5e91e4
+80: driver Vehicle@5197848c going to pick up Customer@2cdf8d8a
+80: driver Vehicle@30946e09 going to pick up Customer@5cb0d902
+80: customer Customer@1de0aca6 picked up by Vehicle@2a84aee7
+80: customer Customer@22d8cfe0 picked up by Vehicle@4769b07b
+81: customer Customer@5c29bfd picked up by Vehicle@312b1dae
+82: customer Customer@2dda6444 dropped off at destination by Vehicle@5fd0d5ae
+82: customer Customer@179d3b25 dropped off at destination by Vehicle@16b98e56
+82: customer Customer@41906a77 picked up by Vehicle@4eec7777
+83: customer Customer@2e817b38 dropped off at destination by Vehicle@6193b845
+83: customer Customer@67424e82 picked up by Vehicle@e9e54c2
+84: customer Customer@46f7f36a dropped off at destination by Vehicle@27fa135a
+84: customer Customer@4b9af9a9 picked up by Vehicle@5acf9800
+84: customer Customer@2cdf8d8a picked up by Vehicle@5197848c
+84: customer Customer@5387f9e0 picked up by Vehicle@119d7047
+84: customer Customer@446cdf90 picked up by Vehicle@27716f4
+85: driver Vehicle@7106e68e going to pick up Customer@46fbb2c1
+85: driver Vehicle@5451c3a8 going to pick up Customer@1698c449
+85: driver Vehicle@2c7b84de going to pick up Customer@5ef04b5
+85: customer Customer@5cb0d902 picked up by Vehicle@30946e09
+86: customer Customer@5a10411 dropped off at destination by Vehicle@1d44bcfa
+86: customer Customer@68de145 dropped off at destination by Vehicle@b81eda8
+86: customer Customer@5ef04b5 picked up by Vehicle@2c7b84de
+87: customer Customer@439f5b3d dropped off at destination by Vehicle@7229724f
+87: customer Customer@685f4c2e dropped off at destination by Vehicle@b4c966a
+87: customer Customer@42110406 picked up by Vehicle@5e9f23b4
+87: customer Customer@255316f2 picked up by Vehicle@4f023edb
+88: customer Customer@26a1ab54 dropped off at destination by Vehicle@7a07c5b4
+88: driver Vehicle@6e2c634b going to pick up Customer@5f4da5c3
+88: driver Vehicle@6f539caf going to pick up Customer@443b7951
+88: driver Vehicle@6d311334 going to pick up Customer@14514713
+88: driver Vehicle@1d44bcfa going to pick up Customer@69663380
+88: driver Vehicle@b4c966a going to pick up Customer@5b37e0d2
+88: driver Vehicle@4517d9a3 going to pick up Customer@4459eb14
+88: customer Customer@4459eb14 picked up by Vehicle@4517d9a3
+89: customer Customer@21b8d17c dropped off at destination by Vehicle@78308db1
+89: customer Customer@69d0a921 dropped off at destination by Vehicle@2b193f2d
+89: customer Customer@14514713 picked up by Vehicle@6d311334
+90: customer Customer@1698c449 picked up by Vehicle@5451c3a8
+90: customer Customer@579bb367 picked up by Vehicle@7440e464
+90: customer Customer@5f4da5c3 picked up by Vehicle@6e2c634b
+91: customer Customer@1a86f2f1 picked up by Vehicle@6f94fa3e
+91: customer Customer@46fbb2c1 picked up by Vehicle@7106e68e
+92: customer Customer@246b179d dropped off at destination by Vehicle@568db2f2
+92: customer Customer@443b7951 picked up by Vehicle@6f539caf
+93: customer Customer@50040f0c dropped off at destination by Vehicle@60e53b93
+93: customer Customer@506c589e dropped off at destination by Vehicle@3eb07fd3
+93: customer Customer@277050dc dropped off at destination by Vehicle@23fc625e
+93: customer Customer@7aec35a dropped off at destination by Vehicle@5f184fc6
+94: customer Customer@728938a9 dropped off at destination by Vehicle@377dca04
+94: customer Customer@6267c3bb dropped off at destination by Vehicle@1e80bfe8
+94: customer Customer@533ddba dropped off at destination by Vehicle@6ff3c5b5
+94: driver Vehicle@23fc625e going to pick up Customer@5a2e4553
+94: driver Vehicle@30f39991 going to pick up Customer@28c97a5
+94: driver Vehicle@3f91beef going to pick up Customer@6659c656
+94: driver Vehicle@1218025c going to pick up Customer@6d5380c2
+95: customer Customer@41cf53f9 dropped off at destination by Vehicle@3d646c37
+95: customer Customer@5ce65a89 dropped off at destination by Vehicle@4b1210ee
+95: customer Customer@22d8cfe0 dropped off at destination by Vehicle@4769b07b
+95: driver Vehicle@60e53b93 going to pick up Customer@45ff54e6
+95: driver Vehicle@b81eda8 going to pick up Customer@2328c243
+95: customer Customer@6e5e91e4 picked up by Vehicle@3cd1a2f1
+95: customer Customer@5b37e0d2 picked up by Vehicle@b4c966a
+96: customer Customer@2b71fc7e dropped off at destination by Vehicle@6e8cf4c6
+96: customer Customer@5c29bfd dropped off at destination by Vehicle@312b1dae
+96: driver Vehicle@610455d6 going to pick up Customer@bebdb06
+96: driver Vehicle@312b1dae going to pick up Customer@7a4f0f29
+96: customer Customer@5a2e4553 picked up by Vehicle@23fc625e
+96: customer Customer@6659c656 picked up by Vehicle@3f91beef
+97: customer Customer@5910e440 dropped off at destination by Vehicle@6433a2
+97: customer Customer@2ef1e4fa dropped off at destination by Vehicle@41629346
+97: customer Customer@421faab1 dropped off at destination by Vehicle@4dd8dc3
+97: customer Customer@531d72ca dropped off at destination by Vehicle@5674cd4d
+97: customer Customer@1de0aca6 dropped off at destination by Vehicle@2a84aee7
+97: driver Vehicle@2a84aee7 going to pick up Customer@45283ce2
+97: driver Vehicle@1e80bfe8 going to pick up Customer@2077d4de
+97: driver Vehicle@7b23ec81 going to pick up Customer@7591083d
+97: customer Customer@45ff54e6 picked up by Vehicle@60e53b93
+98: customer Customer@799f7e29 dropped off at destination by Vehicle@4f3f5b24
+98: driver Vehicle@378fd1ac going to pick up Customer@77a567e1
+98: driver Vehicle@5fd0d5ae going to pick up Customer@736e9adb
+98: driver Vehicle@41629346 going to pick up Customer@6d21714c
+99: customer Customer@37f8bb67 dropped off at destination by Vehicle@2f2c9b19
+99: customer Customer@41906a77 dropped off at destination by Vehicle@4eec7777
+99: customer Customer@4b9af9a9 dropped off at destination by Vehicle@5acf9800
+99: driver Vehicle@27fa135a going to pick up Customer@108c4c35
+99: driver Vehicle@65b54208 going to pick up Customer@4ccabbaa
+99: driver Vehicle@3d646c37 going to pick up Customer@4bf558aa
+99: driver Vehicle@2d38eb89 going to pick up Customer@5fa7e7ff
+99: driver Vehicle@16b98e56 going to pick up Customer@4629104a
+99: driver Vehicle@6ff3c5b5 going to pick up Customer@27f8302d
+99: driver Vehicle@4d76f3f8 going to pick up Customer@2d8e6db6
+99: driver Vehicle@23ab930d going to pick up Customer@4534b60d
+99: customer Customer@45283ce2 picked up by Vehicle@2a84aee7
+99: customer Customer@6d5380c2 picked up by Vehicle@1218025c
+100: customer Customer@306a30c7 dropped off at destination by Vehicle@7e6cbb7a
+100: customer Customer@25f38edc dropped off at destination by Vehicle@34c45dca
+100: customer Customer@5387f9e0 dropped off at destination by Vehicle@119d7047
+100: customer Customer@5ef04b5 dropped off at destination by Vehicle@2c7b84de
+100: customer Customer@2077d4de picked up by Vehicle@1e80bfe8
+100: customer Customer@108c4c35 picked up by Vehicle@27fa135a
+100: customer Customer@77a567e1 picked up by Vehicle@378fd1ac
+101: customer Customer@4b85612c dropped off at destination by Vehicle@7adf9f5f
+101: customer Customer@443b7951 dropped off at destination by Vehicle@6f539caf
+101: driver Vehicle@77459877 going to pick up Customer@3fa77460
+101: driver Vehicle@6193b845 going to pick up Customer@619a5dff
+101: driver Vehicle@1ed6993a going to pick up Customer@7e32c033
+101: driver Vehicle@4dd8dc3 going to pick up Customer@7ab2bfe1
+101: driver Vehicle@4a574795 going to pick up Customer@497470ed
+101: driver Vehicle@4eec7777 going to pick up Customer@63c12fb0
+101: driver Vehicle@5f184fc6 going to pick up Customer@b1a58a3
+101: driver Vehicle@5674cd4d going to pick up Customer@6438a396
+101: customer Customer@69663380 picked up by Vehicle@1d44bcfa
+101: customer Customer@7e32c033 picked up by Vehicle@1ed6993a
+102: customer Customer@238e0d81 dropped off at destination by Vehicle@3d075dc0
+102: customer Customer@b1a58a3 picked up by Vehicle@5f184fc6
+102: customer Customer@2328c243 picked up by Vehicle@b81eda8
+102: customer Customer@6d21714c picked up by Vehicle@41629346
+102: customer Customer@2d8e6db6 picked up by Vehicle@4d76f3f8
+103: customer Customer@67424e82 dropped off at destination by Vehicle@e9e54c2
+103: customer Customer@5fa7e7ff picked up by Vehicle@2d38eb89
+103: customer Customer@736e9adb picked up by Vehicle@5fd0d5ae
+103: customer Customer@bebdb06 picked up by Vehicle@610455d6
+103: customer Customer@4bf558aa picked up by Vehicle@3d646c37
+103: customer Customer@7591083d picked up by Vehicle@7b23ec81
+103: customer Customer@28c97a5 picked up by Vehicle@30f39991
+104: customer Customer@255316f2 dropped off at destination by Vehicle@4f023edb
+104: customer Customer@14514713 dropped off at destination by Vehicle@6d311334
+104: customer Customer@63c12fb0 picked up by Vehicle@4eec7777
+104: customer Customer@7a4f0f29 picked up by Vehicle@312b1dae
+105: customer Customer@31221be2 dropped off at destination by Vehicle@279f2327
+105: driver Vehicle@568db2f2 going to pick up Customer@e2144e4
+105: driver Vehicle@4f023edb going to pick up Customer@6477463f
+105: driver Vehicle@1c20c684 going to pick up Customer@3d71d552
+105: driver Vehicle@6f539caf going to pick up Customer@1cf4f579
+105: driver Vehicle@5acf9800 going to pick up Customer@18769467
+105: driver Vehicle@4b1210ee going to pick up Customer@46ee7fe8
+105: driver Vehicle@119d7047 going to pick up Customer@7506e922
+105: driver Vehicle@6e8cf4c6 going to pick up Customer@4ee285c6
+105: driver Vehicle@3eb07fd3 going to pick up Customer@621be5d1
+105: driver Vehicle@279f2327 going to pick up Customer@573fd745
+105: customer Customer@6438a396 picked up by Vehicle@5674cd4d
+105: customer Customer@27f8302d picked up by Vehicle@6ff3c5b5
+105: customer Customer@619a5dff picked up by Vehicle@6193b845
+105: customer Customer@497470ed picked up by Vehicle@4a574795
+106: customer Customer@446cdf90 dropped off at destination by Vehicle@27716f4
+106: customer Customer@5cb0d902 dropped off at destination by Vehicle@30946e09
+106: customer Customer@4629104a picked up by Vehicle@16b98e56
+106: customer Customer@4ccabbaa picked up by Vehicle@65b54208
+107: customer Customer@7506e922 picked up by Vehicle@119d7047
+107: customer Customer@621be5d1 picked up by Vehicle@3eb07fd3
+108: customer Customer@4459eb14 dropped off at destination by Vehicle@4517d9a3
+108: customer Customer@7e32c033 dropped off at destination by Vehicle@1ed6993a
+108: customer Customer@3fa77460 picked up by Vehicle@77459877
+108: customer Customer@18769467 picked up by Vehicle@5acf9800
+108: customer Customer@4534b60d picked up by Vehicle@23ab930d
+108: customer Customer@3d71d552 picked up by Vehicle@1c20c684
+109: customer Customer@42110406 dropped off at destination by Vehicle@5e9f23b4
+109: customer Customer@6659c656 dropped off at destination by Vehicle@3f91beef
+110: customer Customer@2cdf8d8a dropped off at destination by Vehicle@5197848c
+110: customer Customer@1698c449 dropped off at destination by Vehicle@5451c3a8
+110: customer Customer@5f4da5c3 dropped off at destination by Vehicle@6e2c634b
+110: customer Customer@573fd745 picked up by Vehicle@279f2327
+110: customer Customer@4ee285c6 picked up by Vehicle@6e8cf4c6
+111: customer Customer@46fbb2c1 dropped off at destination by Vehicle@7106e68e
+111: driver Vehicle@5451c3a8 going to pick up Customer@15327b79
+111: driver Vehicle@4769b07b going to pick up Customer@4f2410ac
+111: driver Vehicle@4517d9a3 going to pick up Customer@722c41f4
+111: customer Customer@e2144e4 picked up by Vehicle@568db2f2
+111: customer Customer@7ab2bfe1 picked up by Vehicle@4dd8dc3
+112: customer Customer@579bb367 dropped off at destination by Vehicle@7440e464
+112: customer Customer@1cf4f579 picked up by Vehicle@6f539caf
+112: customer Customer@15327b79 picked up by Vehicle@5451c3a8
+114: customer Customer@722c41f4 picked up by Vehicle@4517d9a3
+115: customer Customer@bebdb06 dropped off at destination by Vehicle@610455d6
+116: customer Customer@45ff54e6 dropped off at destination by Vehicle@60e53b93
+116: driver Vehicle@66d3c617 going to pick up Customer@5b80350b
+116: driver Vehicle@7ba4f24f going to pick up Customer@5d6f64b1
+116: driver Vehicle@2b193f2d going to pick up Customer@32a1bec0
+116: driver Vehicle@30946e09 going to pick up Customer@22927a81
+116: driver Vehicle@36baf30c going to pick up Customer@78e03bb5
+116: driver Vehicle@7229724f going to pick up Customer@5e8c92f4
+116: driver Vehicle@61e4705b going to pick up Customer@50134894
+116: driver Vehicle@5e9f23b4 going to pick up Customer@2957fcb0
+116: customer Customer@4f2410ac picked up by Vehicle@4769b07b
+116: customer Customer@46ee7fe8 picked up by Vehicle@4b1210ee
+116: customer Customer@5b80350b picked up by Vehicle@66d3c617
+117: customer Customer@1a86f2f1 dropped off at destination by Vehicle@6f94fa3e
+117: customer Customer@5b37e0d2 dropped off at destination by Vehicle@b4c966a
+117: customer Customer@5d6f64b1 picked up by Vehicle@7ba4f24f
+117: customer Customer@22927a81 picked up by Vehicle@30946e09
+117: customer Customer@6477463f picked up by Vehicle@4f023edb
+118: customer Customer@77a567e1 dropped off at destination by Vehicle@378fd1ac
+118: customer Customer@108c4c35 dropped off at destination by Vehicle@27fa135a
+118: customer Customer@4ccabbaa dropped off at destination by Vehicle@65b54208
+118: customer Customer@32a1bec0 picked up by Vehicle@2b193f2d
+119: customer Customer@7591083d dropped off at destination by Vehicle@7b23ec81
+121: customer Customer@2d8e6db6 dropped off at destination by Vehicle@4d76f3f8
+121: customer Customer@63c12fb0 dropped off at destination by Vehicle@4eec7777
+121: customer Customer@5e8c92f4 picked up by Vehicle@7229724f
+121: customer Customer@50134894 picked up by Vehicle@61e4705b
+122: customer Customer@5a2e4553 dropped off at destination by Vehicle@23fc625e
+122: customer Customer@45283ce2 dropped off at destination by Vehicle@2a84aee7
+122: customer Customer@4bf558aa dropped off at destination by Vehicle@3d646c37
+122: customer Customer@621be5d1 dropped off at destination by Vehicle@3eb07fd3
+122: driver Vehicle@4f3f5b24 going to pick up Customer@1376c05c
+122: driver Vehicle@5a07e868 going to pick up Customer@51521cc1
+122: driver Vehicle@610455d6 going to pick up Customer@1b4fb997
+122: driver Vehicle@7e6cbb7a going to pick up Customer@deb6432
+122: driver Vehicle@60e53b93 going to pick up Customer@28ba21f3
+122: driver Vehicle@6d311334 going to pick up Customer@694f9431
+122: customer Customer@51521cc1 picked up by Vehicle@5a07e868
+123: customer Customer@2077d4de dropped off at destination by Vehicle@1e80bfe8
+123: customer Customer@6d21714c dropped off at destination by Vehicle@41629346
+123: customer Customer@28ba21f3 picked up by Vehicle@60e53b93
+124: customer Customer@736e9adb dropped off at destination by Vehicle@5fd0d5ae
+124: customer Customer@b1a58a3 dropped off at destination by Vehicle@5f184fc6
+124: customer Customer@7506e922 dropped off at destination by Vehicle@119d7047
+124: driver Vehicle@2a84aee7 going to pick up Customer@f2a0b8e
+124: customer Customer@2957fcb0 picked up by Vehicle@5e9f23b4
+124: customer Customer@deb6432 picked up by Vehicle@7e6cbb7a
+125: customer Customer@27f8302d dropped off at destination by Vehicle@6ff3c5b5
+125: driver Vehicle@27716f4 going to pick up Customer@593634ad
+125: driver Vehicle@3eb07fd3 going to pick up Customer@20fa23c1
+125: driver Vehicle@378fd1ac going to pick up Customer@3581c5f3
+125: customer Customer@694f9431 picked up by Vehicle@6d311334
+125: customer Customer@1376c05c picked up by Vehicle@4f3f5b24
+126: customer Customer@28c97a5 dropped off at destination by Vehicle@30f39991
+126: customer Customer@6d5380c2 dropped off at destination by Vehicle@1218025c
+126: customer Customer@5fa7e7ff dropped off at destination by Vehicle@2d38eb89
+126: customer Customer@497470ed dropped off at destination by Vehicle@4a574795
+126: customer Customer@6438a396 dropped off at destination by Vehicle@5674cd4d
+126: driver Vehicle@6aa8ceb6 going to pick up Customer@2530c12
+126: driver Vehicle@5674cd4d going to pick up Customer@73c6c3b2
+126: driver Vehicle@6433a2 going to pick up Customer@48533e64
+126: driver Vehicle@2f2c9b19 going to pick up Customer@64a294a6
+126: driver Vehicle@6e2c634b going to pick up Customer@7e0b37bc
+126: driver Vehicle@7b23ec81 going to pick up Customer@3b95a09c
+126: driver Vehicle@30f39991 going to pick up Customer@6ae40994
+126: driver Vehicle@5fd0d5ae going to pick up Customer@1a93a7ca
+126: driver Vehicle@b4c966a going to pick up Customer@3d82c5f3
+126: driver Vehicle@27fa135a going to pick up Customer@2b05039f
+126: customer Customer@593634ad picked up by Vehicle@27716f4
+126: customer Customer@1b4fb997 picked up by Vehicle@610455d6
+127: customer Customer@3d71d552 dropped off at destination by Vehicle@1c20c684
+128: customer Customer@78e03bb5 picked up by Vehicle@36baf30c
+129: customer Customer@2328c243 dropped off at destination by Vehicle@b81eda8
+129: customer Customer@f2a0b8e picked up by Vehicle@2a84aee7
+129: customer Customer@48533e64 picked up by Vehicle@6433a2
+130: customer Customer@4629104a dropped off at destination by Vehicle@16b98e56
+130: customer Customer@64a294a6 picked up by Vehicle@2f2c9b19
+131: customer Customer@7a4f0f29 dropped off at destination by Vehicle@312b1dae
+131: customer Customer@4534b60d dropped off at destination by Vehicle@23ab930d
+131: customer Customer@4ee285c6 dropped off at destination by Vehicle@6e8cf4c6
+131: customer Customer@573fd745 dropped off at destination by Vehicle@279f2327
+131: customer Customer@2b05039f picked up by Vehicle@27fa135a
+132: driver Vehicle@23fc625e going to pick up Customer@61e717c2
+132: driver Vehicle@19469ea2 going to pick up Customer@66cd51c3
+132: driver Vehicle@1218025c going to pick up Customer@4dcbadb4
+132: driver Vehicle@1c20c684 going to pick up Customer@4e515669
+132: driver Vehicle@b81eda8 going to pick up Customer@17d10166
+132: customer Customer@73c6c3b2 picked up by Vehicle@5674cd4d
+132: customer Customer@2530c12 picked up by Vehicle@6aa8ceb6
+132: customer Customer@20fa23c1 picked up by Vehicle@3eb07fd3
+132: customer Customer@3b95a09c picked up by Vehicle@7b23ec81
+132: customer Customer@6ae40994 picked up by Vehicle@30f39991
+133: customer Customer@6e5e91e4 dropped off at destination by Vehicle@3cd1a2f1
+133: customer Customer@18769467 dropped off at destination by Vehicle@5acf9800
+133: customer Customer@3d82c5f3 picked up by Vehicle@b4c966a
+133: customer Customer@4e515669 picked up by Vehicle@1c20c684
+134: customer Customer@5d6f64b1 dropped off at destination by Vehicle@7ba4f24f
+134: driver Vehicle@2d38eb89 going to pick up Customer@1b9e1916
+134: driver Vehicle@4dc63996 going to pick up Customer@ba8a1dc
+134: driver Vehicle@119d7047 going to pick up Customer@4f8e5cde
+134: driver Vehicle@4a574795 going to pick up Customer@504bae78
+134: driver Vehicle@5acf9800 going to pick up Customer@3b764bce
+134: driver Vehicle@78308db1 going to pick up Customer@759ebb3d
+134: driver Vehicle@7a07c5b4 going to pick up Customer@484b61fc
+134: driver Vehicle@3d646c37 going to pick up Customer@45fe3ee3
+134: driver Vehicle@7ba4f24f going to pick up Customer@4cdf35a9
+134: customer Customer@7e0b37bc picked up by Vehicle@6e2c634b
+135: customer Customer@e2144e4 dropped off at destination by Vehicle@568db2f2
+135: customer Customer@28ba21f3 dropped off at destination by Vehicle@60e53b93
+135: customer Customer@484b61fc picked up by Vehicle@7a07c5b4
+136: customer Customer@69663380 dropped off at destination by Vehicle@1d44bcfa
+136: customer Customer@4f2410ac dropped off at destination by Vehicle@4769b07b
+136: customer Customer@32a1bec0 dropped off at destination by Vehicle@2b193f2d
+136: customer Customer@22927a81 dropped off at destination by Vehicle@30946e09
+136: customer Customer@61e717c2 picked up by Vehicle@23fc625e
+136: customer Customer@759ebb3d picked up by Vehicle@78308db1
+136: customer Customer@1a93a7ca picked up by Vehicle@5fd0d5ae
+136: customer Customer@ba8a1dc picked up by Vehicle@4dc63996
+137: customer Customer@3fa77460 dropped off at destination by Vehicle@77459877
+137: customer Customer@50134894 dropped off at destination by Vehicle@61e4705b
+137: customer Customer@694f9431 dropped off at destination by Vehicle@6d311334
+138: customer Customer@46ee7fe8 dropped off at destination by Vehicle@4b1210ee
+138: customer Customer@722c41f4 dropped off at destination by Vehicle@4517d9a3
+138: driver Vehicle@4c98385c going to pick up Customer@5fcfe4b2
+138: customer Customer@4cdf35a9 picked up by Vehicle@7ba4f24f
+138: customer Customer@4dcbadb4 picked up by Vehicle@1218025c
+139: customer Customer@619a5dff dropped off at destination by Vehicle@6193b845
+139: driver Vehicle@6193b845 going to pick up Customer@6bf2d08e
+139: driver Vehicle@20ad9418 going to pick up Customer@5eb5c224
+139: driver Vehicle@568db2f2 going to pick up Customer@53e25b76
+139: driver Vehicle@312b1dae going to pick up Customer@73a8dfcc
+139: driver Vehicle@ea30797 going to pick up Customer@7e774085
+139: driver Vehicle@4b1210ee going to pick up Customer@3f8f9dd6
+139: driver Vehicle@34a245ab going to pick up Customer@aec6354
+139: customer Customer@4f8e5cde picked up by Vehicle@119d7047
+140: customer Customer@7ab2bfe1 dropped off at destination by Vehicle@4dd8dc3
+140: customer Customer@15327b79 dropped off at destination by Vehicle@5451c3a8
+140: customer Customer@1376c05c dropped off at destination by Vehicle@4f3f5b24
+140: customer Customer@1b9e1916 picked up by Vehicle@2d38eb89
+140: customer Customer@66cd51c3 picked up by Vehicle@19469ea2
+140: customer Customer@7e774085 picked up by Vehicle@ea30797
+140: customer Customer@3581c5f3 picked up by Vehicle@378fd1ac
+141: 
