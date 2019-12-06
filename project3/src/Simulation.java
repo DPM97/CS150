@@ -87,7 +87,6 @@ public class Simulation {
      */
 
     public double[] start() throws IOException {
-        System.out.println(this.graph.weight);
         genObjects();
         while(this.tick < 720) {
             addObjects();
