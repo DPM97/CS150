@@ -68,7 +68,13 @@ public class Vehicle {
      */
 
     public void move() {
-        int curDist = this.graph.getDistance(this.node.key, this.gps.peek().key);
+        int curDist = 0;
+        Graph.GraphNode node = this.gps.peek();
+        for (int i = 0; i < this.node.edges.size(); i++) {
+            if (this.node.edges.get(i).end.equals(node)) {
+                curDist = this.node.edges.get(i).weight;
+            }
+        }
         if (this.loc < curDist) {
             this.loc += 600; // 23mph avg (600 m / min)
         } else {
