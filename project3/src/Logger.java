@@ -1,3 +1,4 @@
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,14 +11,14 @@ public class Logger {
     /**
      * file
      */
-    FileWriter file;
+    BufferedWriter file;
 
     /**
      * constructor
      * @throws IOException exception for fileWriter
      */
     public Logger() throws IOException {
-        this.file = new FileWriter(new File("sim" + new Random().nextInt() + ".txt"));
+        this.file = new BufferedWriter(new FileWriter(new File("sim" + new Random().nextInt() + ".txt")));
     }
 
     /**
@@ -28,7 +29,7 @@ public class Logger {
 
     public void log(String message) throws IOException {
         this.file.append(message);
-        this.file.append("\n");
+        this.file.newLine();
     }
 
     /**
