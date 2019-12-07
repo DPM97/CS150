@@ -132,11 +132,8 @@ public class Graph {
      */
 
     public void dijkstra(int val) {
-
         TreeMap<Integer,GraphNode> unvisited = new TreeMap<>();
-
         GraphNode node = null;
-
         for (GraphNode nodes : this.nodes) {
             if (nodes.key == val) {
                 node = nodes;
@@ -145,9 +142,6 @@ public class Graph {
         if (node == null) {
             return;
         }
-
-
-
         for (GraphNode nodes : this.nodes) {
             if (nodes != node) {
                 nodes.dist = 999999999;
@@ -159,7 +153,6 @@ public class Graph {
                 unvisited.put(nodes.dist * 10000 + nodes.key, nodes);
             }
         }
-
         while (unvisited.size() > 0) {
             GraphNode curNode = unvisited.remove(unvisited.firstEntry().getKey());
             for (GraphEdge edge : curNode.edges) {

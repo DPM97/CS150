@@ -34,7 +34,6 @@ public class Main {
         ArrayList<Double> rideDist = new ArrayList<>();
         ArrayList<Double> connectivity = new ArrayList<>();
         ArrayList<Double> weights = new ArrayList<>();
-        ArrayList<Double> edges = new ArrayList<>();
 
         for (int i = 1; i <= 8; i++) {
             for (int j = 1; j <= 3; j++) {
@@ -58,7 +57,6 @@ public class Main {
                     dWaitTime.add(data[2]);
                     rideDist.add(data[3]);
                     connectivity.add(data[4]);
-                    edges.add(data[5]);
                     weights.add(data[6]);
                     drivers.add(driverAmount);
                     nodes.add(amount);
@@ -69,7 +67,7 @@ public class Main {
             }
         }
         Csv csv = new Csv();
-        csv.file.append("GraphSize,Connectivity,Drivers,Customers,Rides,Satisfaction,DriverWaitTime,RideDist,WeightAvg,Edges");
+        csv.file.append("GraphSize,Connectivity,Drivers,Customers,Rides,Satisfaction,DriverWaitTime,RideDist,WeightAvg");
         csv.addRow();
         for (int i = 0; i < nodes.size(); i++) {
             csv.append(Integer.toString(nodes.get(i)));
@@ -89,8 +87,6 @@ public class Main {
             csv.append(Double.toString(rideDist.get(i)));
             csv.addCol();
             csv.append(Double.toString(weights.get(i)));
-            csv.addCol();
-            csv.append(Double.toString(edges.get(i)));
             csv.addRow();
         }
         csv.close();

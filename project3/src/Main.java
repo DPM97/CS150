@@ -62,7 +62,6 @@ public class Main {
                     nodes.add(amount);
                     customers.add(customerAmount);
                     System.out.println("test " + complete + " completed...");
-                    System.out.println(data[0] + " " + data[1] + " " + data[2] + " " + data[3] + " " + data[4] + " " + driverAmount + " " + amount + " " + (amount * (0.05*i)));
                     complete++;
                 }
             }

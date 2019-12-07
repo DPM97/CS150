@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.PriorityQueue;
-import java.util.Random;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * graph class
@@ -136,7 +133,7 @@ public class Graph {
 
     public void dijkstra(int val) {
 
-        PriorityQueue<GraphNode> unvisited = new PriorityQueue();
+        TreeMap<Integer,GraphNode> unvisited = new TreeMap<>();
 
         GraphNode node = null;
 
@@ -155,33 +152,28 @@ public class Graph {
             if (nodes != node) {
                 nodes.dist = 999999999;
                 nodes.pred = null;
-                unvisited.add(nodes);
+                unvisited.put(nodes.dist * 10000 + nodes.key, nodes);
             } else {
                 nodes.dist = 0;
                 nodes.pred = null;
-                unvisited.add(nodes);
+                unvisited.put(nodes.dist * 10000 + nodes.key, nodes);
             }
         }
 
-        while (!unvisited.isEmpty()) {
-            GraphNode curNode = unvisited.poll();
-
+        while (unvisited.size() > 0) {
+            GraphNode curNode = unvisited.remove(unvisited.firstEntry().getKey());
             for (GraphEdge edge : curNode.edges) {
                 GraphNode node2 = edge.end;
                 int curWeight = edge.weight;
                 int altDist = curNode.dist + curWeight;
-
                 if (altDist < node2.dist) {
-                    unvisited.remove(node2);
+                    unvisited.remove(node2.dist * 10000 + node2.key, node2);
                     node2.dist = altDist;
                     node2.pred = curNode;
-                    unvisited.add(node2);
+                    unvisited.put(node2.dist * 10000 + node2.key, node2);
                 }
             }
-
         }
-
-
     }
 
     /**
